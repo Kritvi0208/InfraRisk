@@ -1,77 +1,31 @@
-# InfraRisk AI Configuration
+data:
+  cache_dir: ./data/cache
+  sources:
+    - wbppi
+    - rates
+    - macro
+    - nbi
+    - satellite
+    - commodities
 
-# Data Loaders
-data_sources:
-  ppi:
-    enabled: true
-    api_endpoint: "https://api.worldbank.org/v2/projects"
-    fallback_records: 10000
-    
-  interest_rates:
-    enabled: true
-    fred_series: ["SOFR", "EURIBOR"]
-    sovereigns: 50
-    
-  macro:
-    enabled: true
-    wdi_api: "https://api.worldbank.org/v2/country/all/indicator"
-    countries: 220
-    indicators: ["GDP", "Inflation", "Unemployment", "Governance"]
-    years: "2014:2024"
-    
-  nbi_bridges:
-    enabled: true
-    data_url: "https://data.transportation.gov/api/views/7yji-7s7b/rows.csv"
-    risk_score_max: 100
-    
-  gee:
-    enabled: false  # Set to true with service account
-    collection: "COPERNICUS/S2_SR"
-    cloud_cover_max: 20
-    buffer_km: 5
+features:
+  feast_store: ./feast_registry
+  version: v1.0
 
-# Cache Settings
-cache:
-  enabled: true
-  ttl_hours: 24
-  directory: "data/cache"
+models:
+  cnn:
+    backbone: resnet50
+    input_size: 256
+  tft:
+    hidden_size: 256
+    num_heads: 8
+  pinn:
+    physics_loss_weight: 0.5
 
-# Database
-database:
-  engine: "sqlite"  # sqlite or postgresql
-  path: "infrariskai.db"
-  # For PostgreSQL:
-  # host: "localhost"
-  # port: 5432
-  # database: "infrariskai"
+simulation:
+  quarters: 20
+  scenarios: 10000
 
-# MLflow
-mlflow:
-  enabled: true
-  tracking_uri: "http://localhost:5000"
-  experiments:
-    - ppi-cost-risk
-    - construction-delay
-    - macro-scenario
-    - bridge-condition
-    - geospatial-risk
-    - credit-rating
-    - ensemble
-
-# API Keys (use environment variables)
-api_keys:
-  world_bank: ${WORLD_BANK_API_KEY}
-  fred: ${FRED_API_KEY}
-  gee_service_account: ${GEE_SERVICE_ACCOUNT_JSON}
-
-# Logging
-logging:
-  level: "INFO"
-  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-  file: "logs/infrariskai.log"
-
-# Retry Policy
-retry:
-  max_retries: 3
-  backoff_factor: 2.0
-  timeout_seconds: 30
+deploy:
+  docker_image: infrarisk:v1.0
+  port: 8000

@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=production
+      - DATABASE_URL=postgres://db:5432/infrarisk
+  
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=infrarisk
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  mlflow:
+    image: python:3.10
+    command: mlflow server --host 0.0.0.0
+    ports:
+      - "5000:5000"
+
+volumes:
+  postgres_data:
