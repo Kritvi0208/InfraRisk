@@ -1,1 +1,1 @@
-# Models module
+"""ML models directory."""
