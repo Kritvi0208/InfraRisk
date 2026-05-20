@@ -1,57 +1,44 @@
 # Contributing to InfraRisk AI
 
-Thank you for your interest in contributing to InfraRisk AI! This document provides guidelines for contributing to the project.
+## Code Style
 
-## Getting Started
+- Python: PEP 8
+- Type hints required
+- Docstrings for all functions
+- Max line length: 100 characters
 
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/InfraRisk.git`
-3. Create a virtual environment: `python -m venv venv`
-4. Install development dependencies: `pip install -r requirements.txt`
-5. Create a feature branch: `git checkout -b feature/your-feature-name`
+## Development Setup
 
-## Development Workflow
+```bash
+python3 -m venv infrariskai-dev
+source infrariskai-dev/bin/activate
+pip install -r requirements-app.txt
+pip install -r requirements_ml.txt
+pip install -r requirements_nlp.txt
+pip install pytest black flake8 mypy
+```
 
-### Code Style
-- Follow PEP 8 conventions
-- Use Black for code formatting: `black src/`
-- Use isort for import sorting: `isort src/`
-- Run flake8 for linting: `flake8 src/`
+## Making Changes
 
-### Testing
-- Write tests for all new features: `pytest tests/`
-- Maintain test coverage > 80%: `pytest --cov=src tests/`
-- Run pre-commit hooks: `pre-commit run --all-files`
+1. Create a feature branch: `git checkout -b feature/your-feature`
+2. Make changes with proper documentation
+3. Run tests: `pytest tests/ -v`
+4. Format code: `black src/`
+5. Run linter: `flake8 src/`
+6. Commit: `git commit -m "feature: description"`
+7. Push and create pull request
 
-### Commit Messages
-- Use clear, descriptive commit messages
-- Start with a verb (Add, Fix, Update, Refactor, etc.)
-- Include the phase/component reference if applicable
-- Example: `Add: Siamese CNN with anomaly detection head (Phase 3)`
+## Pull Request Process
 
-### Pull Requests
-1. Push your branch to your fork
-2. Create a PR with clear description
-3. Link related issues
-4. Ensure all CI/CD checks pass
-5. Request review from maintainers
-
-## Code Review Process
-
-- At least one approval required before merge
-- Address all comments before final approval
-- Ensure CI/CD pipeline passes
-- Update documentation if necessary
+- Ensure all tests pass
+- Add tests for new functionality
+- Update documentation
+- Request review from maintainers
 
 ## Reporting Issues
 
-- Check existing issues first
-- Provide clear description and reproduction steps
-- Include relevant code snippets or logs
-- Add labels (bug, enhancement, documentation, etc.)
-
-## Questions?
-
-Open an issue or contact the maintainers.
-
-Thank you for contributing!
+Please include:
+- Python version
+- Full error traceback
+- Steps to reproduce
+- Expected vs actual behavior

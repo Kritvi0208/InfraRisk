@@ -1,27 +1,66 @@
-# Installation
+# InfraRisk AI - Installation Guide
 
-## Quick Setup
+## System Requirements
+
+- Python 3.9+
+- Docker 20.10+
+- PostgreSQL 12+ (optional, for production)
+- Redis 6+ (optional, for caching)
+
+## Quick Installation
+
+### 1. Clone and Setup
 
 ```bash
 git clone https://github.com/Kritvi0208/InfraRisk.git
 cd InfraRisk
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run tests
-pytest tests/ --cov=src
-
-# Start dashboard
-streamlit run src/simulation/dashboard.py
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\\Scripts\\activate
 ```
 
-## Docker Deployment
+### 2. Install Dependencies
 
 ```bash
-docker-compose up -d
+pip install -r requirements-app.txt
+pip install -r requirements_ml.txt
+pip install -r requirements_nlp.txt
 ```
 
-## Configuration
+### 3. Run Applications
 
-Edit `config/config.yaml` for data sources, model parameters, deployment settings.
+**Dashboard:**
+```bash
+streamlit run p5_streamlit_app.py
+```
+
+**API Server:**
+```bash
+uvicorn api_server:app --reload
+```
+
+**Docker:**
+```bash
+docker-compose up --build
+```
+
+## Database Setup
+
+The application uses SQLite by default. For PostgreSQL:
+
+```bash
+docker-compose up postgres
+```
+
+## Verification
+
+```bash
+python -m pytest test_final_engine.py -v
+python -m pytest test_models.py -v
+python -m pytest test_nlp.py -v
+```
+
+## Troubleshooting
+
+- If imports fail: ensure `requirements_*.txt` files are installed
+- If Streamlit won't start: `pip install --upgrade streamlit plotly`
+- If tests fail: check Python version is 3.9+

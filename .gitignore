@@ -19,14 +19,13 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-PIPFILE.lock
+MANIFEST
 
 # Virtual environments
 venv/
-env/
 ENV/
-env.bak/
-venv.bak/
+env/
+.venv
 
 # IDE
 .vscode/
@@ -36,54 +35,17 @@ venv.bak/
 *~
 .DS_Store
 
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb
-
-# DVC
-.dvc/
-*.dvc.lock
-
-# MLflow
-mlruns/
-.mlflow/
-
-# Data
-data/raw/
-data/processed/
-data/*.csv
-data/*.json
-data/*.parquet
-data/*.h5
-.cache/
-
-# Models
-models/*.pkl
-models/*.joblib
-models/*.h5
-models/*.pt
-models/*.pth
-
-# Logs
-logs/
-*.log
-
-# Credentials & Secrets
+# Environment variables
 .env
 .env.local
 .env.*.local
-secrets/
-config/secrets.yaml
-*.key
-*.pem
 
 # Testing
+.pytest_cache/
 .coverage
 htmlcov/
-.pytest_cache/
-.tox/
 
-# Temp
-tmp/
-temp/
-*.tmp
+# Build
+site/
+.sixth/
+build/
