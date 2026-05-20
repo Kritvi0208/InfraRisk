@@ -1,48 +1,20 @@
-# InfraRisk AI v1.0.0 - Production Ready
+# InfraRisk Documentation
 
-**Infrastructure Project Finance Platform**
+This folder is the documentation home for the submission.
 
-Complete AI system integrating geospatial, macroeconomic, ML, NLP, and gamified simulation.
+## What to read first
 
-## Quick Start
+1. [Technical Report](TECHNICAL_REPORT.md) - implementation status, data provenance, validation, and remaining gaps.
+2. [Data Integration Guide](DATA_INTEGRATION.md) - loader behavior, data contracts, and source handling.
+3. [API Reference](api.md) - backend endpoints and how to launch the interactive API docs.
+
+## Build the docs site
 
 ```bash
-pip install -r requirements.txt
-python -m pytest tests/ --cov=src
-streamlit run src/simulation/dashboard.py
+pip install mkdocs
+mkdocs serve
 ```
 
-## Architecture
+## Interactive API docs
 
-**Phase 1**: 6 data sources → Great Expectations validation  
-**Phase 2**: Multi-modal features → Feast feature store  
-**Phase 3**: 17 ML models → Monte Carlo PD simulation  
-**Phase 4**: NLP pipeline → 1,000+ benchmark database  
-**Phase 5**: 4 simulation engines → Streamlit dashboard  
-**Phase 6**: 150+ tests (88% coverage) → Docker deployment  
-
-## Key Features
-
-✅ **Data**: World Bank PPI, interest rates, macro, NBI, Sentinel-2, commodities  
-✅ **ML**: CNN, TFT, PINN (Paris Law + AASHTO), GNN, ensemble  
-✅ **NLP**: LayoutLM, Legal-BERT, 1,000+ benchmark DB  
-✅ **Sim**: 4 engines, RL opponent, 1000-point scoring  
-✅ **Deploy**: Docker, 88% coverage, SHAP interpretability  
-
-## Documentation
-
-- `docs/TECHNICAL_REPORT.md` - Architecture & methodology
-- `docs/API_REFERENCE.md` - API endpoints
-- `QUICKSTART.md` - Setup guide
-- `config/config.yaml` - Configuration
-
-## Status
-
-- ✅ 66/66 tasks complete
-- ✅ 18,000+ LOC
-- ✅ 150+ test cases
-- ✅ Production-ready
-
-## Contact
-
-Ritvika (ritvika.student.civ23@itbhu.ac.in)
+Run the FastAPI backend and open `/docs`, or launch the helper in [api_swagger.py](api_swagger.py).
