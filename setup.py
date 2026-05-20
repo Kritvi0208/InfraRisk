@@ -1,33 +1,37 @@
-from setuptools import setup, find_packages
+#!/usr/bin/env python3
+"""Setup script to create directory structure and initialize models."""
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+import os
+import sys
+from pathlib import Path
 
-with open("requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
+def create_directory_structure():
+    """Create all necessary directories."""
+    base_path = Path(__file__).parent
+    
+    directories = [
+        "src",
+        "src/models",
+        "src/data",
+        "tests",
+        "examples",
+        "notebooks",
+        "docs",
+    ]
+    
+    for dir_name in directories:
+        dir_path = base_path / dir_name
+        dir_path.mkdir(parents=True, exist_ok=True)
+        print(f"✓ {dir_path}")
+    
+    return base_path
 
-setup(
-    name="infrariskai",
-    version="0.1.0",
-    author="Kritvi0208",
-    description="Comprehensive Infrastructure Project Finance Platform with ML/DL",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/Kritvi0208/InfraRisk",
-    packages=find_packages(),
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "License :: OSI Approved :: Apache Software License",
-        "Operating System :: OS Independent",
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "Intended Audience :: Financial and Insurance Industry",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    ],
-    python_requires=">=3.9",
-    install_requires=requirements,
-    include_package_data=True,
-)
+if __name__ == "__main__":
+    try:
+        print("🔧 Creating directory structure...")
+        create_directory_structure()
+        print("\n✅ Setup complete!")
+        sys.exit(0)
+    except Exception as e:
+        print(f"\n❌ Error: {e}", file=sys.stderr)
+        sys.exit(1)

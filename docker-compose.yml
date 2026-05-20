@@ -1,67 +1,39 @@
 version: '3.8'
 
 services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    env_file:
-      - .env
-    environment:
-      ENV: ${ENV:-production}
-      DATABASE_URL: ${DATABASE_URL:-postgresql://infrarisk_user:change-me@db:5432/infrarisk}
-      INFRARISK_DATA_PATH: ${INFRARISK_DATA_PATH:-/app/data/raw}
-      UVICORN_HOST: 0.0.0.0
-      PORT: 8000
-      LOG_LEVEL: ${LOG_LEVEL:-INFO}
-    ports:
-      - '8000:8000'
-    depends_on:
-      db:
-        condition: service_healthy
-    volumes:
-      - ./data:/app/data:ro
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
-  db:
+  postgres:
     image: postgres:15-alpine
-    env_file:
-      - .env
+    container_name: infrarisk_postgres
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-infrarisk}
-      POSTGRES_USER: ${POSTGRES_USER:-infrarisk_user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+      POSTGRES_DB: infrarisk_db
+      POSTGRES_USER: infrarisk_admin
+      POSTGRES_PASSWORD: infrarisk_prod_2024
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-infrarisk_user}"]
+      test: ["CMD-SHELL", "pg_isready -U infrarisk_admin"]
       interval: 10s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
 
-  mlflow:
-    image: ghcr.io/mlflow/mlflow:latest
-    env_file:
-      - .env
-    command: >
-      mlflow server
-      --backend-store-uri sqlite:///mlflow.db
-      --default-artifact-root /mlflow/artifacts
-      --host 0.0.0.0
-      --port 5000
+  redis:
+    image: redis:7-alpine
+    container_name: infrarisk_redis
     ports:
-      - '5000:5000'
+      - "6379:6379"
     volumes:
-      - mlflow_data:/mlflow
-      - mlflow_artifacts:/mlflow/artifacts
+      - redis_data:/data
+    command: redis-server --appendonly yes --requirepass infrarisk_redis_pwd
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
 volumes:
   postgres_data:
-  mlflow_data:
-  mlflow_artifacts:
+  redis_data:
