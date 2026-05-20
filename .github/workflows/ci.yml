@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 black isort mypy pylint
+          pip install flake8 black isort mypy pylint mkdocs
 
       - name: Format code with Black
         run: black src/ tests/
@@ -43,6 +43,9 @@ jobs:
 
       - name: Run pylint
         run: pylint src/ --exit-zero --fail-under=7
+
+      - name: Build documentation site
+        run: mkdocs build --strict
 
   test:
     runs-on: ubuntu-latest
@@ -131,7 +134,7 @@ jobs:
   docker-build:
     runs-on: ubuntu-latest
     name: Docker Image Build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (hashFiles('docker/Dockerfile') != '' || hashFiles('Dockerfile') != '')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
 
@@ -142,7 +145,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ${{ hashFiles('docker/Dockerfile') != '' && 'docker/Dockerfile' || 'Dockerfile' }}
+          file: Dockerfile
           push: false
           tags: infrariskai:latest
           cache-from: type=gha
