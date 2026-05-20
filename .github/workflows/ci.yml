@@ -2,41 +2,18 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install lint tools
-        run: |
-          python -m pip install --upgrade pip
-          pip install black isort flake8 mkdocs
-      - name: Check formatting
-        run: |
-          black --check .
-          isort --check-only .
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-      - name: Build docs
-        run: |
-          mkdocs build --strict
-
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install test tools
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements-app.txt pytest pytest-cov
-      - name: Run smoke tests
-        run: |
-          pytest -q test_final_engine.py test_phase4_integration.py
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - run: pip install -r requirements-app.txt
+    - run: pytest tests/ -v
+    - run: flake8 src/

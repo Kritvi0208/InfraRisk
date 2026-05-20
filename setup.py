@@ -1,37 +1,18 @@
-#!/usr/bin/env python3
-"""Setup script to create directory structure and initialize models."""
+from setuptools import setup, find_packages
 
-import os
-import sys
-from pathlib import Path
-
-def create_directory_structure():
-    """Create all necessary directories."""
-    base_path = Path(__file__).parent
-    
-    directories = [
-        "src",
-        "src/models",
-        "src/data",
-        "tests",
-        "examples",
-        "notebooks",
-        "docs",
-    ]
-    
-    for dir_name in directories:
-        dir_path = base_path / dir_name
-        dir_path.mkdir(parents=True, exist_ok=True)
-        print(f"✓ {dir_path}")
-    
-    return base_path
-
-if __name__ == "__main__":
-    try:
-        print("🔧 Creating directory structure...")
-        create_directory_structure()
-        print("\n✅ Setup complete!")
-        sys.exit(0)
-    except Exception as e:
-        print(f"\n❌ Error: {e}", file=sys.stderr)
-        sys.exit(1)
+setup(
+    name='infrarisk-ai',
+    version='0.1.0',
+    author='Zetheta Algorithms',
+    description='Infrastructure project finance AI platform',
+    packages=find_packages(),
+    python_requires='>=3.10',
+    install_requires=[
+        'fastapi>=0.104.0',
+        'pandas>=2.0.0',
+        'numpy>=1.24.0',
+        'scikit-learn>=1.3.0',
+        'xgboost>=2.0.0',
+        'torch>=2.1.0',
+    ],
+)

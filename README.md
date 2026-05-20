@@ -1,39 +1,50 @@
-# InfraRisk AI - Infrastructure Risk Management Platform
+# InfraRisk AI
 
-A comprehensive platform for infrastructure risk assessment, combining geospatial analytics, macroeconomic modeling, engineering risk quantification, and credit risk assessment for Development Finance Institutions (DFIs) and commercial banks.
+AI-powered infrastructure project finance risk assessment platform integrating geospatial intelligence, macroeconomic modelling, construction engineering analytics, and credit risk quantification.
 
-## Submission Snapshot
+## Features
 
-- Run locally: `python -m streamlit run p5_streamlit_app.py`
-- Run API: `python -m uvicorn api_server:app --reload`
-- Docker: `docker compose up --build`
-- Docs: `mkdocs build`
-- Notebooks: open the three files in `notebooks/`
+- **Geospatial Intelligence**: Satellite-based construction monitoring with CNN
+- **Construction Risk**: Cost overrun and schedule delay quantification
+- **Macroeconomic Scenarios**: Interest rates, inflation, sovereign risk modelling
+- **Debt Structuring**: Optimal financing mix and DSCR optimization
+- **Portfolio Stress Testing**: Multi-scenario impact analysis
+- **InfraRisk Lab**: Gamified simulation for portfolio management
+- **Credit Risk Assessment**: ML-driven probability of default
+- **NLP Contract Intelligence**: Automated contract risk extraction
 
 ## Quick Start
 
-See [QUICKSTART.md](QUICKSTART.md) for immediate next steps.
+```bash
+# Clone and setup
+git clone https://github.com/Kritvi0208/InfraRisk.git
+cd InfraRisk
 
-## Project Overview
+# Install dependencies
+pip install -r requirements-app.txt
 
-InfraRisk AI integrates multiple risk dimensions for comprehensive infrastructure project assessment.
+# Run API
+uvicorn src.api.main:app --reload
 
-## Technology Stack
+# Run dashboard
+streamlit run src/dashboard/app.py
+```
 
-- Backend: Python 3.10+, FastAPI
-- Frontend: Streamlit, Plotly
-- ML/Analytics: PyTorch, TensorFlow, scikit-learn, XGBoost
-- Database: SQLite (Dev), PostgreSQL (Prod)
-- Deployment: Docker, GitHub
+## Architecture
 
-## Installation
+- `src/models/` - ML models (CNN, TFT, GNN, PINN, XGBoost)
+- `src/features/` - Feature engineering pipelines
+- `src/api/` - FastAPI backend
+- `src/dashboard/` - Streamlit analytics dashboard
+- `src/simulation/` - InfraRisk Lab game engine
+- `src/nlp/` - Contract intelligence module
+- `tests/` - Unit and integration tests
+- `notebooks/` - EDA and analysis
 
-See [INSTALLATION.md](INSTALLATION.md) for complete setup instructions.
+## Documentation
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+See `docs/` for architecture, API reference, and case studies.
 
 ## License
 
-Zetheta Algorithms Pvt. Ltd. Confidential License - All rights reserved.
+Proprietary - Zetheta Algorithms Private Limited

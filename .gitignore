@@ -19,7 +19,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
+PIPFILE.lock
 
 # Virtual environments
 venv/
@@ -35,7 +35,7 @@ env/
 *~
 .DS_Store
 
-# Environment variables
+# Environment
 .env
 .env.local
 .env.*.local
@@ -45,7 +45,31 @@ env/
 .coverage
 htmlcov/
 
-# Build
-site/
-.sixth/
+# Logs
+*.log
+logs/
+
+# Data
+data/raw/
+data/processed/
+*.csv
+*.parquet
+
+# ML
+mlruns/
+.mlflow/
+models/*.pkl
+models/*.h5
+*.pt
+*.pth
+
+# Node
+node_modules/
+dist/
 build/
+.next/
+
+# Misc
+*.bak
+*.tmp
+.sixth/

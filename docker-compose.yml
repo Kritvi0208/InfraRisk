@@ -1,39 +1,36 @@
 version: '3.8'
 
 services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    environment:
+      - DEBUG=True
+      - DATABASE_URL=sqlite:///./infrariskai.db
+    networks:
+      - infrarisk
+
   postgres:
     image: postgres:15-alpine
-    container_name: infrarisk_postgres
-    environment:
-      POSTGRES_DB: infrarisk_db
-      POSTGRES_USER: infrarisk_admin
-      POSTGRES_PASSWORD: infrarisk_prod_2024
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_DB=infrarisk
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U infrarisk_admin"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    restart: unless-stopped
-
-  redis:
-    image: redis:7-alpine
-    container_name: infrarisk_redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    command: redis-server --appendonly yes --requirepass infrarisk_redis_pwd
-    healthcheck:
-      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    restart: unless-stopped
+    networks:
+      - infrarisk
 
 volumes:
   postgres_data:
-  redis_data:
+
+networks:
+  infrarisk:
+    driver: bridge
