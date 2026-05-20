@@ -1,27 +1,102 @@
-# API Reference
+# InfraRisk AI - API Documentation
 
-The backend API is implemented in `src/api/backend.py` and exposed through FastAPI.
+## Base URL
 
-## Main endpoints
-
-- `GET /health` - service health probe.
-- `POST /api/v1/projects/predict` - project-level PD and DSCR prediction.
-- `POST /api/v1/portfolio/metrics` - portfolio-level metrics and risk summary.
-- `POST /api/v1/contracts/analyze` - contract upload and clause analysis.
-- `POST /api/v1/simulation/run` - Monte Carlo simulation stub for stress testing.
-- `GET /api/v1/models/status` - model readiness summary.
-
-## Local usage
-
-Start the service with:
-
-```bash
-uvicorn src.api.backend:app --reload
+```
+http://localhost:8000
 ```
 
-Then open:
+## Endpoints
 
-- FastAPI Swagger UI: `http://127.0.0.1:8000/docs`
-- ReDoc: `http://127.0.0.1:8000/redoc`
+### Portfolio Management
 
-For a lightweight documentation helper, see [api_swagger.py](api_swagger.py).
+#### `GET /health`
+Health check endpoint.
+
+**Response:**
+```json
+{"status": "ok"}
+```
+
+#### `POST /portfolio/recalculate`
+Recalculate portfolio metrics and risk.
+
+**Request:**
+```json
+{
+  "deals": [
+    {
+      "deal_id": "SOLAR-IN-001",
+      "name": "Gujarat Solar Farm",
+      "sector": "Energy",
+      "country": "India",
+      "capex": 150000000,
+      "revenue_annual": 28000000,
+      "opex_annual": 7500000,
+      "debt_amount": 95000000,
+      "equity_amount": 55000000,
+      "coupon_rate": 0.075,
+      "tenor_years": 18,
+      "probability_of_default": 0.045
+    }
+  ],
+  "persist": true
+}
+```
+
+**Response:**
+```json
+{
+  "deal_results": [...],
+  "sector_concentration": {...},
+  "country_concentration": {...},
+  "pd_rejections": [],
+  "gnn_propagation": {...},
+  "recommendations": [...],
+  "game_score": {...},
+  "shap_explanations": {...}
+}
+```
+
+### Contract Analysis
+
+#### `POST /contract/benchmark`
+Get benchmark comparison for a contract.
+
+**Request:**
+```json
+{
+  "sector": "Energy",
+  "country": "India",
+  "project_value": 150000000,
+  "tenor_years": 18
+}
+```
+
+## Error Handling
+
+API returns standard HTTP status codes:
+- 200: Success
+- 400: Bad Request
+- 500: Internal Server Error
+
+Error responses:
+```json
+{
+  "detail": "Error message"
+}
+```
+
+## Authentication
+
+No authentication required for demo version.
+Production deployment should add JWT token authentication.
+
+## Rate Limiting
+
+No rate limiting in current version.
+Recommended: 100 requests/minute per client.
+
+## Versioning
+
+Current API version: 1.0.0
