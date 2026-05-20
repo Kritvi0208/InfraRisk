@@ -1,24 +1,22 @@
-"""Ensemble stacking meta-learner."""
+"""Ensemble stacking with meta-learner for credit risk prediction"""
+import torch
+import torch.nn as nn
+from typing import Dict, List, Tuple
 
-import numpy as np
-from sklearn.linear_model import LogisticRegression
+class MetaLearner(nn.Module):
+    def __init__(self, num_base_models: int = 5, hidden_dim: int = 64):
+        super().__init__()
+        self.stack = nn.Sequential(
+            nn.Linear(num_base_models, hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(hidden_dim, 32),
+            nn.ReLU(),
+            nn.Linear(32, 1),
+            nn.Sigmoid()
+        )
+        self.weights = nn.Parameter(torch.ones(num_base_models) / num_base_models)
 
-class EnsembleStacking:
-    """Sector-weighted stacking."""
-    
-    def __init__(self):
-        self.meta_learner = LogisticRegression()
-        self.sector_weights = {
-            'Transport': 1.0,
-            'Energy': 1.1,
-            'Water': 0.9,
-            'Telecom': 1.2,
-            'Social': 0.8,
-        }
-    
-    def stack(self, base_predictions: dict, sector: str) -> float:
-        """Weighted combination of base models."""
-        weight = self.sector_weights.get(sector, 1.0)
-        predictions = np.array(list(base_predictions.values())).reshape(1, -1)
-        ensemble_pred = self.meta_learner.predict_proba(predictions)[0, 1]
-        return ensemble_pred * weight
+    def forward(self, base_predictions: torch.Tensor) -> torch.Tensor:
+        weighted = base_predictions * self.weights.unsqueeze(0)
+        return self.stack(base_predictions)
