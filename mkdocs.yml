@@ -1,0 +1,7 @@
+site_name: InfraRisk AI
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - API: api.md
+  - Credit Memo 1: credit_memo_1.md
+  - Credit Memo 2: credit_memo_2.md

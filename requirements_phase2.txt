@@ -1,0 +1,28 @@
+"""
+Phase 2 Feature Engineering - Requirements and Installation
+
+Install all dependencies with:
+    pip install -r requirements_phase2.txt
+
+Or install individually:
+    pip install numpy pandas pytest
+"""
+
+# Core dependencies
+numpy>=1.20.0          # Numerical computing, matrix operations
+pandas>=1.3.0          # Data manipulation and analysis
+pytest>=6.0.0          # Testing framework
+
+# Optional: For visualization and enhanced analysis
+# matplotlib>=3.3.0    # 2D plotting (for degradation curves)
+# plotly>=5.0.0        # Interactive visualizations (for graphs)
+# networkx>=2.5        # Network analysis (for graph algorithms)
+
+# Optional: For production deployment
+# fastapi>=0.68.0      # Web framework integration
+# sqlalchemy>=1.4.0    # Database ORM
+# psycopg2-binary>=2.9.0  # PostgreSQL adapter
+
+# Optional: For advanced analytics
+# scikit-learn>=0.24.0 # Machine learning
+# scipy>=1.7.0         # Scientific computing
