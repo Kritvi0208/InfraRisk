@@ -6,6 +6,8 @@ Tests: Simulation, Scenarios, AI, Scoring, Game Modes
 import sys
 from datetime import datetime
 
+import pytest
+
 from p5_ai_opponent import AIOpponent, RiskProfile
 from p5_game_modes import GameMode, GameModes
 
