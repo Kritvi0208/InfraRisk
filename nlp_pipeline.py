@@ -6,26 +6,25 @@ Usage:
     python nlp_pipeline.py [contract_file.pdf]
 """
 
-import sys
 import json
 import logging
+import sys
 from pathlib import Path
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
 # Import NLP modules
 from nlp_module import (
-    LayoutLMParser,
-    ContractNER,
-    LegalBERTClassifier,
-    ContractRiskScorer,
+    CLAUSE_CATEGORIES,
     BenchmarkDatabase,
-    CLAUSE_CATEGORIES
+    ContractNER,
+    ContractRiskScorer,
+    LayoutLMParser,
+    LegalBERTClassifier,
 )
 
 
@@ -271,20 +270,24 @@ class NLPPipeline:
         classification_details = []
 
         for clause_key, clause in clauses.items():
-            label_id, category, confidence = self.classifier.classify_clause(clause.text)
+            label_id, category, confidence = self.classifier.classify_clause(
+                clause.text
+            )
 
             if label_id not in clause_classifications:
                 clause_classifications[label_id] = []
             clause_classifications[label_id].append(confidence)
 
-            classification_details.append({
-                "clause_id": clause_key,
-                "clause_number": clause.number,
-                "category_id": label_id,
-                "category": category,
-                "confidence": confidence,
-                "text_preview": clause.text[:80],
-            })
+            classification_details.append(
+                {
+                    "clause_id": clause_key,
+                    "clause_number": clause.number,
+                    "category_id": label_id,
+                    "category": category,
+                    "confidence": confidence,
+                    "text_preview": clause.text[:80],
+                }
+            )
 
         print(f"✓ Classified {len(clauses)} clauses")
 
@@ -293,8 +296,10 @@ class NLPPipeline:
             category_name = CLAUSE_CATEGORIES.get(category_id, "Unknown")
             confidences = clause_classifications[category_id]
             avg_confidence = sum(confidences) / len(confidences)
-            print(f"  • [{category_id:2d}] {category_name:30s} "
-                  f"Count: {len(confidences):2d}, Avg Conf: {avg_confidence:.2%}")
+            print(
+                f"  • [{category_id:2d}] {category_name:30s} "
+                f"Count: {len(confidences):2d}, Avg Conf: {avg_confidence:.2%}"
+            )
 
         # Save classification results
         with open("phase3_classification.json", "w") as f:
@@ -316,22 +321,31 @@ class NLPPipeline:
                 clause_scores[label_id] = []
             clause_scores[label_id].append(severity)
 
-            score_details.append({
-                "clause_id": clause_key,
-                "category": category,
-                "severity": severity,
-                "text_preview": clause.text[:80],
-            })
+            score_details.append(
+                {
+                    "clause_id": clause_key,
+                    "category": category,
+                    "severity": severity,
+                    "text_preview": clause.text[:80],
+                }
+            )
 
         # Flag problematic covenants
-        covenant_clauses = [(label_id, clause.text)
-                            for label_id, clause in zip(
-                                [self.classifier.classify_clause(c.text)[0] for c in clauses.values()],
-                                clauses.values()) if label_id == 5]
+        covenant_clauses = [
+            (label_id, clause.text)
+            for label_id, clause in zip(
+                [self.classifier.classify_clause(c.text)[0] for c in clauses.values()],
+                clauses.values(),
+            )
+            if label_id == 5
+        ]
 
         covenants = self.scorer.flag_covenants(covenant_clauses)
         bottlenecks = self.scorer.identify_bottleneck_terms(
-            [(self.classifier.classify_clause(c.text)[0], c.text) for c in clauses.values()]
+            [
+                (self.classifier.classify_clause(c.text)[0], c.text)
+                for c in clauses.values()
+            ]
         )
 
         # Generate comprehensive risk report
@@ -342,20 +356,24 @@ class NLPPipeline:
         print(f"  Risk Level: {risk_report['risk_level']}")
 
         print_section("Risk by Category")
-        for category, details in risk_report['category_breakdown'].items():
-            severity_bar = "█" * int(details['average_severity'] * 2)
-            print(f"  • {category:30s} {severity_bar:10s} {details['average_severity']:.2f}/5.0")
+        for category, details in risk_report["category_breakdown"].items():
+            severity_bar = "█" * int(details["average_severity"] * 2)
+            print(
+                f"  • {category:30s} {severity_bar:10s} {details['average_severity']:.2f}/5.0"
+            )
 
-        if risk_report['key_risks']:
+        if risk_report["key_risks"]:
             print_section("Key Risks Requiring Attention")
-            for risk in risk_report['key_risks']:
+            for risk in risk_report["key_risks"]:
                 print(f"  ⚠ {risk['category']}")
                 print(f"    Action: {risk['action']}")
 
         if covenants:
             print_section(f"Restricted Covenants ({len(covenants)})")
             for covenant in covenants[:5]:
-                print(f"  • Severity {covenant['severity']}/5: {covenant['text_preview']}")
+                print(
+                    f"  • Severity {covenant['severity']}/5: {covenant['text_preview']}"
+                )
 
         if bottlenecks:
             print_section(f"Financing Bottlenecks ({len(bottlenecks)})")
@@ -381,7 +399,11 @@ class NLPPipeline:
         print(f"✓ Loaded {count} benchmark transactions")
 
         # Extract project details for comparison
-        project_sector = "Solar" if any("solar" in clause.text.lower() for clause in clauses.values()) else "Power"
+        project_sector = (
+            "Solar"
+            if any("solar" in clause.text.lower() for clause in clauses.values())
+            else "Power"
+        )
         current_contract = {
             "project_sector": project_sector,
             "debt_tenor": 20,
@@ -393,7 +415,9 @@ class NLPPipeline:
         statistics = self.benchmark_db.compute_term_statistics()
 
         print_section("Benchmark Statistics")
-        print(f"  Total Benchmarks: {statistics.get('by_country', {}) and len(statistics['by_country'])}")
+        print(
+            f"  Total Benchmarks: {statistics.get('by_country', {}) and len(statistics['by_country'])}"
+        )
 
         if "debt_amount" in statistics:
             stats = statistics["debt_amount"]
@@ -415,12 +439,14 @@ class NLPPipeline:
 
         print_section("Current Contract vs Benchmark")
         if "deviations" in comparison:
-            for deviation in comparison['deviations']:
-                status_icon = "✓" if deviation['status'] == "NORMAL" else "⚠"
-                print(f"  {status_icon} {deviation['metric']:20s} "
-                      f"Current: {deviation['current']}, "
-                      f"Benchmark: {deviation['benchmark_avg']:.1f}, "
-                      f"Deviation: {deviation['deviation_percent']:+.1f}%")
+            for deviation in comparison["deviations"]:
+                status_icon = "✓" if deviation["status"] == "NORMAL" else "⚠"
+                print(
+                    f"  {status_icon} {deviation['metric']:20s} "
+                    f"Current: {deviation['current']}, "
+                    f"Benchmark: {deviation['benchmark_avg']:.1f}, "
+                    f"Deviation: {deviation['deviation_percent']:+.1f}%"
+                )
 
         # Save benchmark results
         benchmark_results = {
@@ -451,13 +477,13 @@ class NLPPipeline:
                 "categories_found": len(clause_classifications),
             },
             "risk_assessment": {
-                "project_risk_score": risk_report['project_risk_score'],
-                "risk_level": risk_report['risk_level'],
-                "key_risks_count": len(risk_report['key_risks']),
+                "project_risk_score": risk_report["project_risk_score"],
+                "risk_level": risk_report["risk_level"],
+                "key_risks_count": len(risk_report["key_risks"]),
             },
             "benchmark_comparison": {
                 "benchmarks_loaded": count,
-                "deviations_found": len(comparison.get('deviations', [])),
+                "deviations_found": len(comparison.get("deviations", [])),
             },
         }
 
@@ -504,7 +530,9 @@ def main():
         summary = pipeline.process_contract(contract_text)
 
         print("\n✓ Pipeline execution completed successfully!")
-        print(f"\nProject Risk Score: {summary['risk_assessment']['project_risk_score']:.2f}/5.0")
+        print(
+            f"\nProject Risk Score: {summary['risk_assessment']['project_risk_score']:.2f}/5.0"
+        )
         print(f"Risk Level: {summary['risk_assessment']['risk_level']}")
 
         return 0

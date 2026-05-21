@@ -11,18 +11,20 @@ Example usage:
     >>> retrieved = feast_store.get_features(project_ids, timestamp)
 """
 
-import pandas as pd
-import numpy as np
-from typing import Dict, List, Optional, Any, Tuple
-from dataclasses import dataclass, field, asdict
-from datetime import datetime, timedelta
-from enum import Enum
 import hashlib
 import json
+from dataclasses import asdict, dataclass, field
+from datetime import datetime, timedelta
+from enum import Enum
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+import pandas as pd
 
 
 class FeatureDataType(Enum):
     """Feature data types"""
+
     INT32 = "int32"
     INT64 = "int64"
     FLOAT32 = "float32"
@@ -34,6 +36,7 @@ class FeatureDataType(Enum):
 @dataclass
 class FeatureDefinition:
     """Defines a single feature for registration"""
+
     name: str
     description: str
     data_type: FeatureDataType
@@ -46,6 +49,7 @@ class FeatureDefinition:
 @dataclass
 class FeatureStore:
     """In-memory feature storage with versioning"""
+
     feature_name: str
     feature_version: str
     data: pd.DataFrame
@@ -68,6 +72,7 @@ class FeatureStore:
 @dataclass
 class FeatureLineage:
     """Track feature derivation lineage"""
+
     feature_name: str
     feature_version: str
     source_features: List[str] = field(default_factory=list)
@@ -78,7 +83,7 @@ class FeatureLineage:
 class FeastFeatureStore:
     """
     Lightweight Feast-compatible feature store for InfraRisk.
-    
+
     Provides feature registration, storage, retrieval, and lineage tracking
     without requiring a full Feast server deployment.
     """
@@ -86,7 +91,7 @@ class FeastFeatureStore:
     def __init__(self, max_stores: int = 100):
         """
         Initialize feature store.
-        
+
         Args:
             max_stores: Maximum number of feature stores to maintain
         """
@@ -146,11 +151,11 @@ class FeastFeatureStore:
     ) -> bool:
         """
         Register a feature in the feature registry.
-        
+
         Args:
             feature_def: Feature definition
             overwrite: Whether to overwrite existing registration
-            
+
         Returns:
             True if registration successful
         """
@@ -176,7 +181,7 @@ class FeastFeatureStore:
     ) -> bool:
         """
         Store feature data in the feature store.
-        
+
         Args:
             features_df: DataFrame with features
             feature_name: Name of the feature
@@ -184,7 +189,7 @@ class FeastFeatureStore:
             metadata: Additional metadata
             source_features: List of source features used
             transformation: Description of transformation
-            
+
         Returns:
             True if storage successful
         """
@@ -226,12 +231,12 @@ class FeastFeatureStore:
     ) -> pd.DataFrame:
         """
         Retrieve features from store.
-        
+
         Args:
             feature_name: Name of feature
             entity_ids: Optional list of entity IDs to filter
             timestamp: Optional timestamp for point-in-time retrieval
-            
+
         Returns:
             DataFrame with requested features
         """
@@ -258,15 +263,13 @@ class FeastFeatureStore:
 
         return features_df
 
-    def list_features(
-        self, tags: Optional[List[str]] = None
-    ) -> List[Dict[str, Any]]:
+    def list_features(self, tags: Optional[List[str]] = None) -> List[Dict[str, Any]]:
         """
         List registered features with optional tag filtering.
-        
+
         Args:
             tags: Optional tags to filter by
-            
+
         Returns:
             List of feature definitions
         """
@@ -283,10 +286,10 @@ class FeastFeatureStore:
     def get_feature_stats(self, feature_name: str) -> Dict[str, Any]:
         """
         Get statistics for a feature.
-        
+
         Args:
             feature_name: Feature name
-            
+
         Returns:
             Dictionary with feature statistics
         """
@@ -309,27 +312,25 @@ class FeastFeatureStore:
     def get_feature_lineage(self, feature_name: str) -> List[Dict]:
         """
         Get lineage for a feature (what inputs created it).
-        
+
         Args:
             feature_name: Feature name
-            
+
         Returns:
             List of lineage records
         """
         lineage = [
-            asdict(l)
-            for l in self.lineage_graph
-            if l.feature_name == feature_name
+            asdict(l) for l in self.lineage_graph if l.feature_name == feature_name
         ]
         return lineage
 
     def validate_features(self, feature_name: str) -> Dict[str, Any]:
         """
         Validate feature data quality and integrity.
-        
+
         Args:
             feature_name: Feature name
-            
+
         Returns:
             Validation report
         """
@@ -351,7 +352,7 @@ class FeastFeatureStore:
     def export_feature_manifest(self) -> Dict[str, Any]:
         """
         Export feature store manifest for deployment/versioning.
-        
+
         Returns:
             Manifest dictionary
         """
@@ -360,8 +361,7 @@ class FeastFeatureStore:
             "registered_features": list(self.feature_registry.keys()),
             "feature_count": len(self.feature_registry),
             "stored_versions": {
-                name: len(stores)
-                for name, stores in self.feature_stores.items()
+                name: len(stores) for name, stores in self.feature_stores.items()
             },
             "lineage_records": len(self.lineage_graph),
         }
@@ -371,7 +371,7 @@ class FeastFeatureStore:
     def cleanup_expired(self) -> int:
         """
         Remove expired feature stores.
-        
+
         Returns:
             Number of stores removed
         """

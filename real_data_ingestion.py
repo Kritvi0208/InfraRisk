@@ -18,7 +18,6 @@ from typing import Any, Dict, Iterable, List, Optional
 import pandas as pd
 import requests
 
-
 ROOT = Path(__file__).resolve().parent
 REGISTRY_PATH = ROOT / "data" / "source_registry" / "real_data_sources.json"
 RAW_ROOT = ROOT / "data" / "raw"
@@ -120,8 +119,14 @@ def _looks_like_old_synthetic_fallback(source_id: str, path: Path) -> bool:
         df = pd.read_csv(path, nrows=25, low_memory=False)
     except Exception:
         return False
-    generated_ids = "project_id" in df.columns and df["project_id"].astype(str).str.startswith("PPI_").all()
-    generated_names = "project_name" in df.columns and df["project_name"].astype(str).str.contains(" Project ").all()
+    generated_ids = (
+        "project_id" in df.columns
+        and df["project_id"].astype(str).str.startswith("PPI_").all()
+    )
+    generated_names = (
+        "project_name" in df.columns
+        and df["project_name"].astype(str).str.contains(" Project ").all()
+    )
     return bool(generated_ids and generated_names)
 
 
@@ -163,9 +168,17 @@ def download_world_bank_wdi(
         raise RuntimeError("World Bank WDI returned no rows")
 
     long_df = pd.DataFrame(rows)
-    wide_df = long_df.pivot_table(index=["country", "year"], columns="indicator", values="value").reset_index()
+    wide_df = long_df.pivot_table(
+        index=["country", "year"], columns="indicator", values="value"
+    ).reset_index()
     wide_df.to_csv(target, index=False)
-    return SourceStatus("world_bank_wdi", source["name"], "downloaded_real_data", str(target), len(wide_df))
+    return SourceStatus(
+        "world_bank_wdi",
+        source["name"],
+        "downloaded_real_data",
+        str(target),
+        len(wide_df),
+    )
 
 
 def download_nbi_state(state_code: str = "AL", year_suffix: str = "23") -> SourceStatus:
@@ -183,7 +196,13 @@ def download_nbi_state(state_code: str = "AL", year_suffix: str = "23") -> Sourc
     df = pd.read_csv(raw_path, delimiter=",", low_memory=False, encoding="latin-1")
     df["source_id"] = "national_bridge_inventory"
     df.to_csv(target, index=False)
-    return SourceStatus("national_bridge_inventory", source["name"], "downloaded_real_data", str(target), len(df))
+    return SourceStatus(
+        "national_bridge_inventory",
+        source["name"],
+        "downloaded_real_data",
+        str(target),
+        len(df),
+    )
 
 
 def download_osm_roads_bbox(
@@ -208,11 +227,19 @@ def download_osm_roads_bbox(
     >;
     out skel qt;
     """
-    response = requests.post("https://overpass-api.de/api/interpreter", data={"data": query}, timeout=60)
+    response = requests.post(
+        "https://overpass-api.de/api/interpreter", data={"data": query}, timeout=60
+    )
     response.raise_for_status()
     payload = response.json()
     target.write_text(json.dumps(payload), encoding="utf-8")
-    return SourceStatus("openstreetmap", source["name"], "downloaded_real_data", str(target), len(payload.get("elements", [])))
+    return SourceStatus(
+        "openstreetmap",
+        source["name"],
+        "downloaded_real_data",
+        str(target),
+        len(payload.get("elements", [])),
+    )
 
 
 def register_user_supplied_file(source_id: str, input_path: str) -> SourceStatus:
@@ -223,7 +250,13 @@ def register_user_supplied_file(source_id: str, input_path: str) -> SourceStatus
     target = ROOT / source["local_target"]
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_bytes(src.read_bytes())
-    return SourceStatus(source_id, source["name"], "registered_user_supplied_real_file", str(target), _record_count(target))
+    return SourceStatus(
+        source_id,
+        source["name"],
+        "registered_user_supplied_real_file",
+        str(target),
+        _record_count(target),
+    )
 
 
 def build_availability_report() -> Dict[str, Any]:
@@ -237,13 +270,21 @@ def build_availability_report() -> Dict[str, Any]:
         elif records > 0:
             status = "available_real_file"
             message = "Local real data file is present."
-        elif source.get("env_vars") and not any(os.getenv(v) for v in source["env_vars"]):
+        elif source.get("env_vars") and not any(
+            os.getenv(v) for v in source["env_vars"]
+        ):
             status = "requires_credentials_or_user_file"
             message = f"Set one of: {', '.join(source['env_vars'])}, or register a licensed export file."
         else:
             status = "not_downloaded"
-            message = "Run the matching public-source downloader or register a source file."
-        statuses.append(SourceStatus(source["id"], source["name"], status, str(target), records, message))
+            message = (
+                "Run the matching public-source downloader or register a source file."
+            )
+        statuses.append(
+            SourceStatus(
+                source["id"], source["name"], status, str(target), records, message
+            )
+        )
 
     report = {
         "generated_from": str(REGISTRY_PATH),

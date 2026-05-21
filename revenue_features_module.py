@@ -21,15 +21,17 @@ Example usage:
     >>> sovereign = macro.calculate_sovereign_risk_score(country="Country_A")
 """
 
-import numpy as np
-import pandas as pd
-from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, List, Optional, Tuple
+
+import numpy as np
+import pandas as pd
 
 
 class InfrastructureSector(Enum):
     """Infrastructure sectors"""
+
     ROAD = "road"
     POWER = "power"
     PORT = "port"
@@ -39,6 +41,7 @@ class InfrastructureSector(Enum):
 @dataclass
 class DemandCurveParameters:
     """Parameters for revenue demand curves"""
+
     sector: str
     elasticity: float
     base_volume: float
@@ -125,9 +128,7 @@ class RevenueFeatures:
         distance_savings = alternative_distance - project_distance
 
         competitive_ratio = (
-            0.5
-            if cost_difference > 0
-            else min(abs(cost_difference_pct) / 50, 1.0)
+            0.5 if cost_difference > 0 else min(abs(cost_difference_pct) / 50, 1.0)
         )
 
         return {
@@ -213,7 +214,8 @@ class RevenueFeatures:
                 "daily_teu_average": avg_teus_per_day,
                 "estimated_annual_revenue": annual_teus * revenue_per_teu,
                 "utilization_rate": utilization_rate,
-                "berth_productivity_teus_per_day": avg_teus_per_day / (1 - utilization_rate + 0.1),
+                "berth_productivity_teus_per_day": avg_teus_per_day
+                / (1 - utilization_rate + 0.1),
             }
 
         return {"volume": volume, "utilization_rate": utilization_rate}
@@ -278,17 +280,11 @@ class MacroeconomicFeatures:
 
         indicators = self.country_indicators[country]
 
-        growth_score = 1.0 - min(
-            abs(indicators["gdp_growth"] - 3.0) / 5.0, 1.0
-        )
-        inflation_score = 1.0 - min(
-            abs(indicators["inflation_rate"] - 2.5) / 6.0, 1.0
-        )
+        growth_score = 1.0 - min(abs(indicators["gdp_growth"] - 3.0) / 5.0, 1.0)
+        inflation_score = 1.0 - min(abs(indicators["inflation_rate"] - 2.5) / 6.0, 1.0)
         debt_score = 1.0 - min(indicators["debt_to_gdp"] / 150.0, 1.0)
         reserves_score = min(indicators["fx_reserves_months"] / 6.0, 1.0)
-        cad_score = 1.0 - min(
-            abs(indicators["current_account_deficit"] / 10.0), 1.0
-        )
+        cad_score = 1.0 - min(abs(indicators["current_account_deficit"] / 10.0), 1.0)
 
         composite_score = (
             growth_score * 0.20
@@ -322,9 +318,7 @@ class MacroeconomicFeatures:
         deficit_sustainability = 1.0 - min(abs(fiscal_deficit) / 10.0, 1.0)
 
         debt_trajectory = (
-            1.0
-            if (indicators["gdp_growth"] > indicators["interest_rate"])
-            else 0.5
+            1.0 if (indicators["gdp_growth"] > indicators["interest_rate"]) else 0.5
         )
 
         revenue_adequacy = min(tax_revenue / 20.0, 1.0)
@@ -389,9 +383,7 @@ class MacroeconomicFeatures:
             return "High Risk"
         return "Very High Risk"
 
-    def generate_portfolio_macro_features(
-        self, num_projects: int = 30
-    ) -> pd.DataFrame:
+    def generate_portfolio_macro_features(self, num_projects: int = 30) -> pd.DataFrame:
         """Generate macro features for portfolio of projects."""
         countries = list(self.country_indicators.keys())
         data = []

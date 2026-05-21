@@ -11,17 +11,19 @@ Example usage:
     >>> print(risk_scores[['project_id', 'contagion_score']])
 """
 
+import json
+from collections import defaultdict
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional, Set, Tuple
+
 import numpy as np
 import pandas as pd
-from typing import Dict, List, Tuple, Optional, Set
-from dataclasses import dataclass, field
-from collections import defaultdict
-import json
 
 
 @dataclass
 class ProjectNode:
     """Represents a project in the dependency graph"""
+
     project_id: str
     sector: str  # transportation, energy, water, social
     country: str
@@ -34,6 +36,7 @@ class ProjectNode:
 @dataclass
 class ContagionMetrics:
     """Contagion risk metrics for a project"""
+
     project_id: str
     eigenvector_centrality: float
     in_degree_centrality: float
@@ -47,7 +50,7 @@ class ContagionMetrics:
 class PortfolioContagionIndex:
     """
     Calculates portfolio-level systemic risk through network analysis.
-    
+
     Uses adjacency matrix representation of project dependencies and
     eigenvector centrality to measure risk propagation potential.
     """
@@ -55,7 +58,7 @@ class PortfolioContagionIndex:
     def __init__(self, projects: int = 50, num_sectors: int = 4):
         """
         Initialize contagion index calculator.
-        
+
         Args:
             projects: Number of projects in portfolio
             num_sectors: Number of infrastructure sectors
@@ -119,12 +122,10 @@ class PortfolioContagionIndex:
             for proj1 in country_projects:
                 for proj2 in country_projects:
                     if proj1 != proj2:
-                        existing_corr = (
-                            self.adjacency_matrix[
-                                self.project_id_to_idx[proj1],
-                                self.project_id_to_idx[proj2],
-                            ]
-                        )
+                        existing_corr = self.adjacency_matrix[
+                            self.project_id_to_idx[proj1],
+                            self.project_id_to_idx[proj2],
+                        ]
                         if existing_corr == 0:
                             correlation = np.random.uniform(0.1, 0.4)
                             self.add_dependency(proj1, proj2, correlation)
@@ -134,13 +135,16 @@ class PortfolioContagionIndex:
     ) -> None:
         """
         Add dependency edge between two projects.
-        
+
         Args:
             source_proj: Source project ID
             target_proj: Target project ID
             correlation: Correlation strength 0-1
         """
-        if source_proj in self.project_id_to_idx and target_proj in self.project_id_to_idx:
+        if (
+            source_proj in self.project_id_to_idx
+            and target_proj in self.project_id_to_idx
+        ):
             source_idx = self.project_id_to_idx[source_proj]
             target_idx = self.project_id_to_idx[target_proj]
             self.adjacency_matrix[source_idx, target_idx] = correlation
@@ -151,7 +155,7 @@ class PortfolioContagionIndex:
     def _calculate_eigenvector_centrality(self) -> Dict[str, float]:
         """
         Calculate eigenvector centrality for each project.
-        
+
         Higher centrality = project is in more important positions
         """
         try:
@@ -192,7 +196,7 @@ class PortfolioContagionIndex:
     def _calculate_betweenness_centrality(self) -> Dict[str, float]:
         """
         Approximate betweenness centrality.
-        
+
         Projects with high betweenness are critical for shock transmission.
         """
         betweenness = {proj_id: 0.0 for proj_id in self.project_nodes.keys()}
@@ -217,14 +221,16 @@ class PortfolioContagionIndex:
                                     self.adjacency_matrix[idx_i, idx_k] > 0
                                     and self.adjacency_matrix[idx_k, idx_j] > 0
                                 ):
-                                    betweenness[proj_k] += 1.0 / (n_projects * n_projects)
+                                    betweenness[proj_k] += 1.0 / (
+                                        n_projects * n_projects
+                                    )
 
         return betweenness
 
     def calculate_contagion_index(self) -> pd.DataFrame:
         """
         Calculate comprehensive contagion metrics.
-        
+
         Returns:
             DataFrame with contagion scores for all projects
         """
@@ -241,15 +247,15 @@ class PortfolioContagionIndex:
             between_cent = betweenness.get(project_id, 0.0)
 
             shock_amplification = (
-                eig_centrality * 0.4 + (in_cent + out_cent) / 2 * 0.3 + between_cent * 0.3
+                eig_centrality * 0.4
+                + (in_cent + out_cent) / 2 * 0.3
+                + between_cent * 0.3
             )
 
-            contagion_score = (
-                node.baseline_risk * 0.5 + shock_amplification * 0.5
-            )
+            contagion_score = node.baseline_risk * 0.5 + shock_amplification * 0.5
 
-            systemic_importance = (
-                eig_centrality * (node.exposure / 1000)
+            systemic_importance = eig_centrality * (
+                node.exposure / 1000
             )  # Exposure-weighted
 
             results.append(
@@ -266,9 +272,7 @@ class PortfolioContagionIndex:
                     "shock_amplification": shock_amplification,
                     "contagion_score": contagion_score,
                     "systemic_importance": systemic_importance,
-                    "num_dependencies": len(
-                        node.correlation_dependencies
-                    ),
+                    "num_dependencies": len(node.correlation_dependencies),
                 }
             )
 
@@ -280,17 +284,15 @@ class PortfolioContagionIndex:
     def identify_systemic_risks(self, threshold: float = 0.65) -> Dict[str, List]:
         """
         Identify projects with systemic importance above threshold.
-        
+
         Args:
             threshold: Contagion score threshold
-            
+
         Returns:
             Dictionary grouping high-risk projects by sector
         """
         contagion_df = self.calculate_contagion_index()
-        systemic_projects = contagion_df[
-            contagion_df["contagion_score"] >= threshold
-        ]
+        systemic_projects = contagion_df[contagion_df["contagion_score"] >= threshold]
 
         by_sector = defaultdict(list)
         for _, row in systemic_projects.iterrows():
@@ -309,11 +311,11 @@ class PortfolioContagionIndex:
     ) -> pd.DataFrame:
         """
         Simulate shock propagation from a single project failure.
-        
+
         Args:
             shocked_project: Project ID experiencing shock
             shock_magnitude: Magnitude of shock (0-1)
-            
+
         Returns:
             DataFrame showing impact on all connected projects
         """
@@ -324,9 +326,7 @@ class PortfolioContagionIndex:
             new_impacts = shock_impacts.copy()
             for proj_id, current_impact in shock_impacts.items():
                 if current_impact > 0.01:
-                    neighbors = (
-                        self.project_nodes[proj_id].correlation_dependencies
-                    )
+                    neighbors = self.project_nodes[proj_id].correlation_dependencies
                     for neighbor_id, correlation in neighbors.items():
                         propagated_shock = current_impact * correlation
                         new_impacts[neighbor_id] = max(

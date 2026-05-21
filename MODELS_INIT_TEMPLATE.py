@@ -4,7 +4,7 @@ Complete analytical framework: simulation, interpretation, backtesting, monitori
 """
 
 try:
-    from .monte_carlo_pd import MonteCarloPDEngine, MCScenario
+    from .monte_carlo_pd import MCScenario, MonteCarloPDEngine
 except (ImportError, ModuleNotFoundError):
     MonteCarloPDEngine = None
     MCScenario = None
@@ -30,7 +30,7 @@ except (ImportError, ModuleNotFoundError):
     BacktestingFramework = None
 
 try:
-    from .model_registry import ModelRegistry, ModelVersion, ModelMetrics
+    from .model_registry import ModelMetrics, ModelRegistry, ModelVersion
 except (ImportError, ModuleNotFoundError):
     ModelRegistry = None
     ModelVersion = None
@@ -52,6 +52,7 @@ __all__ = [
 # Global registry
 _registry = None
 
+
 def get_registry():
     """Get global model registry"""
     global _registry
@@ -59,12 +60,18 @@ def get_registry():
         _registry = ModelRegistry()
     return _registry
 
-def register_model(model_name, metrics, hyperparameters=None, description="", tags=None):
+
+def register_model(
+    model_name, metrics, hyperparameters=None, description="", tags=None
+):
     """Register model in global registry"""
     registry = get_registry()
     if registry is None:
         raise RuntimeError("ModelRegistry not available")
-    return registry.register_model(model_name, metrics, hyperparameters, description, tags)
+    return registry.register_model(
+        model_name, metrics, hyperparameters, description, tags
+    )
+
 
 def get_production_model(model_name):
     """Get production model"""

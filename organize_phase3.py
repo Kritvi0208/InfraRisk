@@ -7,17 +7,18 @@ import os
 import shutil
 import sys
 
+
 def main():
     base = r"c:\Users\kayri\OneDrive - IIT BHU\Desktop\InfraRiskAI"
-    
+
     # Create directories
     src_dir = os.path.join(base, "src")
     models_dir = os.path.join(src_dir, "models")
-    
+
     print("Creating directories...")
     os.makedirs(src_dir, exist_ok=True)
     os.makedirs(models_dir, exist_ok=True)
-    
+
     # Model files
     model_files = [
         "p3_siamese_cnn.py",
@@ -29,7 +30,7 @@ def main():
         "p3_gradient_boosting.py",
         "p3_ensemble_stacking.py",
     ]
-    
+
     # Move files
     print("\nMoving model files to src/models/...")
     for fname in model_files:
@@ -38,13 +39,13 @@ def main():
         if os.path.exists(src):
             shutil.move(src, dst)
             print(f"  ✓ {fname}")
-    
+
     # Create src/__init__.py
-    with open(os.path.join(src_dir, "__init__.py"), 'w') as f:
+    with open(os.path.join(src_dir, "__init__.py"), "w") as f:
         f.write("# src package\n")
-    
+
     # Create models/__init__.py
-    with open(os.path.join(models_dir, "__init__.py"), 'w') as f:
+    with open(os.path.join(models_dir, "__init__.py"), "w") as f:
         f.write('''"""Phase 3 Core ML Models Package"""
 
 from .p3_siamese_cnn import SiameseCNN, SiameseLoss
@@ -67,13 +68,14 @@ __all__ = [
     'StackingEnsemble', 'MetaLearner', 'StackingLoss',
 ]
 ''')
-    
+
     print("\n✓ Directory structure created")
     print(f"  src/: {src_dir}")
     print(f"  src/models/: {models_dir}")
     print(f"  {len(model_files)} model files organized")
-    
+
     return True
+
 
 if __name__ == "__main__":
     try:
@@ -82,5 +84,6 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"ERROR: {e}")
         import traceback
+
         traceback.print_exc()
         sys.exit(1)

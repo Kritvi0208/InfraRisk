@@ -4,53 +4,54 @@ Phase 3 Integration Setup - Create directory structure and move files
 """
 
 import os
-import sys
 import shutil
+import sys
 from pathlib import Path
+
 
 def main():
     # Get current working directory
     cwd = os.getcwd()
     print(f"Working directory: {cwd}")
-    
+
     # Create src/models directory
-    src_dir = os.path.join(cwd, 'src')
-    models_dir = os.path.join(src_dir, 'models')
-    
+    src_dir = os.path.join(cwd, "src")
+    models_dir = os.path.join(src_dir, "models")
+
     # Create directories
     os.makedirs(models_dir, exist_ok=True)
     print(f"✓ Created: {models_dir}")
-    
+
     # Create __init__.py files
-    src_init = os.path.join(src_dir, '__init__.py')
+    src_init = os.path.join(src_dir, "__init__.py")
     if not os.path.exists(src_init):
-        with open(src_init, 'w') as f:
+        with open(src_init, "w") as f:
             f.write("# InfraRiskAI src package\n")
         print(f"✓ Created: {src_init}")
-    
+
     # Phase 3 model files to copy
     files_to_copy = [
-        'monte_carlo_pd.py',
-        'shap_interpreter.py',
-        'attention_extractor.py',
-        'centrality_analyzer.py',
-        'backtesting.py',
-        'model_registry.py',
+        "monte_carlo_pd.py",
+        "shap_interpreter.py",
+        "attention_extractor.py",
+        "centrality_analyzer.py",
+        "backtesting.py",
+        "model_registry.py",
     ]
-    
+
     # Copy files from root to src/models
     for filename in files_to_copy:
         src_path = os.path.join(cwd, filename)
         dst_path = os.path.join(models_dir, filename)
-        
+
         if os.path.exists(src_path):
             shutil.copy2(src_path, dst_path)
             print(f"✓ Copied: {filename}")
         else:
             print(f"⚠ Missing: {filename} (will create stubs)")
-    
+
     # Create models __init__.py
-    models_init = os.path.join(models_dir, '__init__.py')
+    models_init = os.path.join(models_dir, "__init__.py")
     init_content = '''"""
 Phase 3 Model Integration Package
 Complete analytical framework: simulation, interpretation, backtesting, monitoring
@@ -126,11 +127,11 @@ def get_production_model(model_name):
         return None
     return registry.get_prod_version(model_name)
 '''
-    
-    with open(models_init, 'w') as f:
+
+    with open(models_init, "w") as f:
         f.write(init_content)
     print(f"✓ Created: {models_init}")
-    
+
     # Summary
     print(f"""
 === PHASE 3 INTEGRATION SETUP COMPLETE ===
@@ -148,8 +149,9 @@ Deployed Models:
 Total Files: 7 (1100+ lines)
 Ready for: End-to-end inference pipeline
 """)
-    
+
     return 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     sys.exit(main())

@@ -3,15 +3,16 @@ Game Modes - Single Deal, Portfolio Manager, Crisis Manager, Deal Structurer
 Complete implementation: 320 lines
 """
 
-from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List, Optional
 
-from p5_game_state import GameState, Deal, DealStatus, Portfolio
+from p5_game_state import Deal, DealStatus, GameState, Portfolio
 
 
 class GameMode(Enum):
     """Available game modes"""
+
     SINGLE_DEAL = "single_deal"
     PORTFOLIO_MANAGER = "portfolio_manager"
     CRISIS_MANAGER = "crisis_manager"
@@ -21,6 +22,7 @@ class GameMode(Enum):
 @dataclass
 class GameModeConfig:
     """Configuration for game mode"""
+
     mode: GameMode
     name: str
     description: str
@@ -33,7 +35,7 @@ class GameModeConfig:
 
 class GameModes:
     """Game mode manager (320 lines)"""
-    
+
     MODES = {
         GameMode.SINGLE_DEAL: GameModeConfig(
             mode=GameMode.SINGLE_DEAL,
@@ -76,15 +78,15 @@ class GameModes:
             learning_curve="Debt optimization → Tenor structuring → Covenant design",
         ),
     }
-    
+
     def __init__(self):
         self.current_mode: Optional[GameMode] = None
-    
+
     def select_mode(self, mode: GameMode) -> GameState:
         """Initialize game for selected mode"""
         self.current_mode = mode
         config = self.MODES[mode]
-        
+
         # Create initial game state
         state = GameState(
             game_mode=mode.value,
@@ -92,20 +94,20 @@ class GameModes:
             cash_available=config.initial_cash,
             ai_cash_available=config.initial_cash,
         )
-        
+
         # Initialize with starter deals
         if config.num_initial_deals > 0:
             starter_deals = self._generate_starter_deals(config.num_initial_deals, mode)
             for deal in starter_deals:
                 state.player_portfolio.add_deal(deal)
                 state.ai_portfolio.add_deal(self._create_ai_deal())
-        
+
         return state
-    
+
     def _generate_starter_deals(self, num_deals: int, mode: GameMode) -> List[Deal]:
         """Generate starter deals based on mode"""
         deals = []
-        
+
         if mode == GameMode.SINGLE_DEAL:
             deal = Deal(
                 name="National Highway Project",
@@ -120,7 +122,7 @@ class GameModes:
             )
             deal.status = DealStatus.SOURCED
             deals.append(deal)
-        
+
         elif mode == GameMode.PORTFOLIO_MANAGER:
             # Two initial deals
             deal1 = Deal(
@@ -136,7 +138,7 @@ class GameModes:
             )
             deal1.status = DealStatus.SOURCED
             deals.append(deal1)
-            
+
             deal2 = Deal(
                 name="Water Treatment Plant",
                 sector="Water",
@@ -150,7 +152,7 @@ class GameModes:
             )
             deal2.status = DealStatus.SOURCED
             deals.append(deal2)
-        
+
         elif mode == GameMode.CRISIS_MANAGER:
             # Four risky deals
             for i in range(4):
@@ -168,7 +170,7 @@ class GameModes:
                 )
                 deal.status = DealStatus.ACTIVE
                 deals.append(deal)
-        
+
         elif mode == GameMode.DEAL_STRUCTURER:
             # Three deals needing optimization
             for i in range(3):
@@ -185,12 +187,13 @@ class GameModes:
                 )
                 deal.status = DealStatus.SOURCED
                 deals.append(deal)
-        
+
         return deals
-    
+
     def _create_ai_deal(self) -> Deal:
         """Create deal for AI opponent"""
         import random
+
         return Deal(
             name=f"AI_Deal_{random.randint(1000, 9999)}",
             sector=random.choice(["Transport", "Energy", "Water"]),
@@ -200,17 +203,17 @@ class GameModes:
             revenue_annual=random.uniform(15_000_000, 50_000_000),
             opex_annual=random.uniform(7_000_000, 25_000_000),
         )
-    
+
     def get_mode_info(self, mode: GameMode = None) -> Dict[str, Any]:
         """Get information about game mode"""
         if mode is None:
             mode = self.current_mode
-        
+
         if mode is None:
             return {}
-        
+
         config = self.MODES[mode]
-        
+
         return {
             "mode": config.mode.value,
             "name": config.name,
@@ -222,7 +225,7 @@ class GameModes:
             "learning_curve": config.learning_curve,
             "objectives": self._get_mode_objectives(mode),
         }
-    
+
     def _get_mode_objectives(self, mode: GameMode) -> List[str]:
         """Get objectives for each mode"""
         objectives = {
@@ -255,23 +258,27 @@ class GameModes:
             ],
         }
         return objectives.get(mode, [])
-    
+
     def get_all_modes(self) -> List[Dict[str, Any]]:
         """Get all available modes"""
         modes_list = []
         for mode in GameMode:
             modes_list.append(self.get_mode_info(mode))
         return modes_list
-    
-    def validate_mode_completion(self, state: GameState, portfolio: Portfolio) -> Dict[str, bool]:
+
+    def validate_mode_completion(
+        self, state: GameState, portfolio: Portfolio
+    ) -> Dict[str, bool]:
         """Validate if mode objectives were met"""
         if state.game_mode == GameMode.SINGLE_DEAL.value:
             return {
                 "dscr_target": portfolio.get_portfolio_dscr() > 1.5,
                 "pd_acceptable": portfolio.get_default_count() == 0,
-                "deals_completed": any(d.status == DealStatus.MATURED for d in portfolio.deals.values()),
+                "deals_completed": any(
+                    d.status == DealStatus.MATURED for d in portfolio.deals.values()
+                ),
             }
-        
+
         elif state.game_mode == GameMode.PORTFOLIO_MANAGER.value:
             return {
                 "portfolio_size": len(portfolio.deals) >= 5,
@@ -283,24 +290,26 @@ class GameModes:
                 "returns_target": portfolio.cumulative_returns > 200_000_000,
                 "default_acceptable": portfolio.get_default_count() <= 1,
             }
-        
+
         elif state.game_mode == GameMode.CRISIS_MANAGER.value:
             return {
                 "crisis_handled": len(portfolio.deals) > 0,
                 "covenant_compliance": portfolio.get_portfolio_dscr() > 1.1,
                 "recovery": portfolio.cumulative_returns > 0,
             }
-        
+
         elif state.game_mode == GameMode.DEAL_STRUCTURER.value:
-            avg_coupon = sum(d.coupon_rate for d in portfolio.deals.values()) / (len(portfolio.deals) + 1)
+            avg_coupon = sum(d.coupon_rate for d in portfolio.deals.values()) / (
+                len(portfolio.deals) + 1
+            )
             return {
                 "deals_completed": len(portfolio.deals) >= 3,
                 "dscr_optimized": portfolio.get_portfolio_dscr() > 1.4,
                 "wacc_minimized": avg_coupon < 0.06,
             }
-        
+
         return {}
-    
+
     def get_mode_tips(self, mode: GameMode) -> List[str]:
         """Get tips for game mode"""
         tips = {

@@ -20,7 +20,12 @@ def test_final_engine_recalculates_core_risk_stack(tmp_path: Path):
     assert result["pd_rejections"][0]["deal_id"] == "ROAD-BR-002"
     assert result["sector_concentration"]["hhi"] > 0
     assert result["game_score"]["total_score"] > 0
-    assert result["rl_opponent"]["action"] in {"source", "hold", "rebalance", "refinance"}
+    assert result["rl_opponent"]["action"] in {
+        "source",
+        "hold",
+        "rebalance",
+        "refinance",
+    }
     assert result["shap_explanations"]["global"]["features"]
 
 
@@ -28,7 +33,9 @@ def test_graph_node_interaction_and_exports(tmp_path: Path):
     engine = FinalInfraRiskEngine(StorageEngine(tmp_path / "runs.db"))
     result = engine.recalculate_portfolio(demo_payload(), persist=False)
 
-    node = GraphPropagationEngine.node_interaction("SOLAR-IN-001", result["gnn_propagation"])
+    node = GraphPropagationEngine.node_interaction(
+        "SOLAR-IN-001", result["gnn_propagation"]
+    )
     assert node["node_id"] == "SOLAR-IN-001"
     assert node["propagated_pd"] is not None
 
@@ -50,4 +57,3 @@ def test_contract_benchmark_and_nested_clause_resolution():
     ]
     resolved = engine.resolve_nested_clauses(clauses)
     assert resolved["resolved"]["1"] == ["2", "3"]
-

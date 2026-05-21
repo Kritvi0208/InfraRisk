@@ -4,27 +4,31 @@ Phase 3 Final Commit Script
 Stages all model files and commits to GitHub
 """
 
-import subprocess
 import os
+import subprocess
 import sys
+
 
 def run_git_command(cmd, cwd=None):
     """Run git command and return output."""
     try:
-        result = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True, text=True)
+        result = subprocess.run(
+            cmd, shell=True, cwd=cwd, capture_output=True, text=True
+        )
         return result.returncode, result.stdout, result.stderr
     except Exception as e:
         return 1, "", str(e)
 
+
 def main():
     """Main commit function."""
-    
+
     base_dir = r"c:\Users\kayri\OneDrive - IIT BHU\Desktop\InfraRiskAI"
-    
-    print("\n" + "="*70)
+
+    print("\n" + "=" * 70)
     print("PHASE 3: GIT COMMIT AND PUSH")
-    print("="*70 + "\n")
-    
+    print("=" * 70 + "\n")
+
     # Check git status
     print("[1] Checking git status...")
     ret, out, err = run_git_command("git status", cwd=base_dir)
@@ -32,7 +36,7 @@ def main():
         print(f"✗ Git error: {err}")
         return False
     print("✓ Repository is ready")
-    
+
     # Stage model files
     print("\n[2] Staging Phase 3 model files...")
     model_files = [
@@ -45,14 +49,14 @@ def main():
         "p3_gradient_boosting.py",
         "p3_ensemble_stacking.py",
     ]
-    
+
     for fname in model_files:
         ret, out, err = run_git_command(f"git add {fname}", cwd=base_dir)
         if ret == 0:
             print(f"  ✓ {fname}")
         else:
             print(f"  ✗ {fname}: {err}")
-    
+
     # Stage documentation
     print("\n[3] Staging documentation...")
     doc_files = [
@@ -61,12 +65,12 @@ def main():
         "PHASE3_MODEL_VALIDATION_REPORT.md",
         "PHASE3_SETUP.py",
     ]
-    
+
     for fname in doc_files:
         ret, out, err = run_git_command(f"git add {fname}", cwd=base_dir)
         if ret == 0:
             print(f"  ✓ {fname}")
-    
+
     # Commit
     print("\n[4] Creating commit...")
     commit_msg = """Phase 3: Build 8 Core ML Models (Architecture Focus)
@@ -117,7 +121,7 @@ All models:
 - Ready for Phase 4 training pipelines
 
 Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"""
-    
+
     ret, out, err = run_git_command(f'git commit -m "{commit_msg}"', cwd=base_dir)
     if ret == 0:
         print("✓ Commit created successfully")
@@ -125,18 +129,19 @@ Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"""
     else:
         print(f"✗ Commit failed: {err}")
         return False
-    
+
     # Show summary
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("✓ PHASE 3 COMMIT COMPLETE")
-    print("="*70)
+    print("=" * 70)
     print("\nReady to push to GitHub:")
     print("  Repository: https://github.com/Kritvi0208/InfraRisk")
     print("  Branch: main")
     print("  Files: 8 models + 3 docs = 11 files")
     print("  Total Lines: ~2900")
-    
+
     return True
+
 
 if __name__ == "__main__":
     success = main()

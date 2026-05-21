@@ -15,16 +15,18 @@ Example usage:
     >>> print(features['ca_rul'], features['degradation_factor'])
 """
 
+import json
+from dataclasses import dataclass
+from enum import Enum
+from typing import Dict, List, Optional, Tuple
+
 import numpy as np
 import pandas as pd
-from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
-from enum import Enum
-import json
 
 
 class ClimateScenario(Enum):
     """IPCC Climate Scenario Definitions"""
+
     RCP45 = "rcp45"  # Stabilization at 4.5 W/m²
     RCP85 = "rcp85"  # High-emission scenario at 8.5 W/m²
     BASELINE = "baseline"  # No climate change
@@ -33,6 +35,7 @@ class ClimateScenario(Enum):
 @dataclass
 class DegradationParameters:
     """Material degradation factors for different infrastructure types"""
+
     infrastructure_type: str
     base_degradation_rate: float  # Annual baseline degradation rate
     temp_sensitivity: float = 0.03  # Degradation increase per °C
@@ -44,6 +47,7 @@ class DegradationParameters:
 @dataclass
 class IPCCScenarioData:
     """IPCC climate scenario projections"""
+
     scenario: ClimateScenario
     year: int
     temperature_increase: float  # °C above baseline
@@ -55,7 +59,7 @@ class IPCCScenarioData:
 class ClimateAdjustedRUL:
     """
     Computes Climate-Adjusted RUL for infrastructure assets.
-    
+
     Incorporates temperature and precipitation impacts on material degradation.
     Supports multiple IPCC RCP scenarios for scenario analysis.
     """
@@ -63,7 +67,7 @@ class ClimateAdjustedRUL:
     def __init__(self, baseline_rul: float, infrastructure_type: str = "road"):
         """
         Initialize CA-RUL calculator.
-        
+
         Args:
             baseline_rul: Design life in years (e.g., 30 for asphalt roads)
             infrastructure_type: Type of infrastructure (road, bridge, power, port)
@@ -141,7 +145,9 @@ class ClimateAdjustedRUL:
             temp = data["temp_2050"] * progress
         else:
             progress = (projection_year - 2050) / 50.0
-            temp = data["temp_2050"] + (data["temp_2100"] - data["temp_2050"]) * progress
+            temp = (
+                data["temp_2050"] + (data["temp_2100"] - data["temp_2050"]) * progress
+            )
 
         return IPCCScenarioData(
             scenario=scenario,
@@ -162,14 +168,14 @@ class ClimateAdjustedRUL:
     ) -> Dict[str, float]:
         """
         Calculate climate-adjusted RUL.
-        
+
         Args:
             temp_increase: Temperature increase in °C (overrides scenario if provided)
             precip_change: Precipitation change as % (overrides scenario if provided)
             scenario: Climate scenario ("rcp45", "rcp85", "baseline")
             projection_year: Year for scenario projection
             current_age: Current age of asset in years
-            
+
         Returns:
             Dictionary with CA-RUL and component factors
         """
@@ -191,8 +197,7 @@ class ClimateAdjustedRUL:
         ca_rul = self.baseline_rul * total_degradation_factor - current_age
 
         remaining_annual_degradation = (
-            self.degradation_params.base_degradation_rate
-            / total_degradation_factor
+            self.degradation_params.base_degradation_rate / total_degradation_factor
         )
 
         return {
@@ -215,12 +220,12 @@ class ClimateAdjustedRUL:
     ) -> pd.DataFrame:
         """
         Generate degradation curves for multiple years.
-        
+
         Args:
             scenario: Climate scenario
             years_ahead: Number of years to project
             step: Year intervals for calculation
-            
+
         Returns:
             DataFrame with year, RUL, and degradation profile
         """
@@ -249,7 +254,7 @@ class ClimateAdjustedRUL:
     ) -> pd.DataFrame:
         """
         Compare CA-RUL across different IPCC scenarios.
-        
+
         Returns:
             DataFrame comparing RUL under RCP 4.5, RCP 8.5, and baseline
         """
@@ -292,16 +297,14 @@ def create_climate_adjusted_rul(
     return ClimateAdjustedRUL(baseline_rul, infrastructure_type)
 
 
-def batch_calculate_ca_rul(
-    assets: List[Dict], scenario: str = "rcp85"
-) -> pd.DataFrame:
+def batch_calculate_ca_rul(assets: List[Dict], scenario: str = "rcp85") -> pd.DataFrame:
     """
     Batch calculate CA-RUL for multiple assets.
-    
+
     Args:
         assets: List of dicts with keys: baseline_rul, type, age
         scenario: Climate scenario
-        
+
     Returns:
         DataFrame with CA-RUL for all assets
     """

@@ -16,7 +16,6 @@ from typing import Dict, List
 
 import pdfplumber
 
-
 ROOT = Path(__file__).resolve().parent
 PDF_PATH = ROOT / "483555C_Data_Scientist_InfraRisk_AI.docx.pdf"
 OUT_DIR = ROOT / "data" / "extracted" / "pdf_source_catalog"
@@ -115,4 +114,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

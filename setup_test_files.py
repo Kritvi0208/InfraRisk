@@ -19,7 +19,7 @@ markers =
     slow: Slow running tests
 """
 
-with open(pytest_ini_path, 'w') as f:
+with open(pytest_ini_path, "w") as f:
     f.write(pytest_ini_content)
 
 # Create test_coverage_summary.txt
@@ -51,7 +51,7 @@ Coverage: 88% (EXCEEDS 60% TARGET)
 All tests: PASSED ✅
 """
 
-with open(coverage_path, 'w') as f:
+with open(coverage_path, "w") as f:
     f.write(coverage_content)
 
 print(f"✓ Created {pytest_ini_path}")

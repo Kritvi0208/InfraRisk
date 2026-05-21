@@ -8,7 +8,6 @@ from pathlib import Path
 from ingest_public_real_sources import ingest_osm_small_bbox, ingest_yahoo_finance_proxy
 from real_data_ingestion import build_availability_report
 
-
 ROOT = Path(__file__).resolve().parent
 REPORT = ROOT / "data" / "processed" / "remaining_public_ingestion_report.json"
 
@@ -30,4 +29,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

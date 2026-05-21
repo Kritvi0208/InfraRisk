@@ -11,8 +11,8 @@ import base64
 from typing import Any, Dict, List
 
 from final_engine import (
-    ContractBenchmarkEngine,
     DATA_PROVENANCE,
+    ContractBenchmarkEngine,
     ExportEngine,
     FinalInfraRiskEngine,
     GraphPropagationEngine,
@@ -84,7 +84,9 @@ if app is not None:
 
     @app.post("/contract/benchmark")
     def contract_benchmark(req: BenchmarkRequest) -> Dict[str, Any]:
-        return benchmarks.compare(req.sector, req.country, req.project_value, req.tenor_years)
+        return benchmarks.compare(
+            req.sector, req.country, req.project_value, req.tenor_years
+        )
 
     @app.post("/contract/resolve-clauses")
     def resolve_clauses(req: ClauseRequest) -> Dict[str, Any]:
@@ -93,16 +95,20 @@ if app is not None:
     @app.post("/graph/node/{node_id}")
     def graph_node(node_id: str, req: PortfolioRequest) -> Dict[str, Any]:
         result = engine.recalculate_portfolio(req.deals, persist=False)
-        return GraphPropagationEngine.node_interaction(node_id, result["gnn_propagation"])
+        return GraphPropagationEngine.node_interaction(
+            node_id, result["gnn_propagation"]
+        )
 
     @app.post("/export/csv")
     def export_csv(req: PortfolioRequest) -> Dict[str, Any]:
         result = engine.recalculate_portfolio(req.deals, persist=False)
-        return {"filename": "infrarisk_portfolio.csv", "content": ExportEngine.to_csv(result)}
+        return {
+            "filename": "infrarisk_portfolio.csv",
+            "content": ExportEngine.to_csv(result),
+        }
 
     @app.post("/export/pdf")
     def export_pdf(req: PortfolioRequest) -> Dict[str, Any]:
         result = engine.recalculate_portfolio(req.deals, persist=False)
         encoded = base64.b64encode(ExportEngine.to_pdf_bytes(result)).decode("ascii")
         return {"filename": "infrarisk_portfolio.pdf", "content_base64": encoded}
-

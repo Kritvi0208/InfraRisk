@@ -6,35 +6,36 @@ Organize files into src/models structure and prepare for deployment
 import os
 import shutil
 
+
 def setup_phase3_integration():
     """Create src/models structure and organize all Phase 3 files"""
-    
+
     # Create src/models directory
-    src_models_dir = os.path.join(os.getcwd(), 'src', 'models')
+    src_models_dir = os.path.join(os.getcwd(), "src", "models")
     os.makedirs(src_models_dir, exist_ok=True)
     print(f"Created directory: {src_models_dir}")
-    
+
     # Files to copy/create
     files_to_integrate = {
-        'monte_carlo_pd.py': 'Monte Carlo PD engine',
-        'shap_interpreter.py': 'SHAP interpretability',
-        'attention_extractor.py': 'TFT attention extraction',
-        'centrality_analyzer.py': 'GNN centrality metrics',
-        'backtesting.py': 'Backtesting framework',
-        'model_registry.py': 'Model registry',
+        "monte_carlo_pd.py": "Monte Carlo PD engine",
+        "shap_interpreter.py": "SHAP interpretability",
+        "attention_extractor.py": "TFT attention extraction",
+        "centrality_analyzer.py": "GNN centrality metrics",
+        "backtesting.py": "Backtesting framework",
+        "model_registry.py": "Model registry",
     }
-    
+
     # Copy files if they exist in root
     for filename, description in files_to_integrate.items():
         src_path = os.path.join(os.getcwd(), filename)
         dst_path = os.path.join(src_models_dir, filename)
-        
+
         if os.path.exists(src_path):
             shutil.copy(src_path, dst_path)
             print(f"✓ {filename}: {description}")
         else:
             print(f"⚠ Missing: {filename}")
-    
+
     # Create __init__.py with all exports
     init_content = '''"""
 Phase 3 Model Integration Package
@@ -111,24 +112,24 @@ def get_production_model(model_name):
         return None
     return registry.get_prod_version(model_name)
 '''
-    
-    init_path = os.path.join(src_models_dir, '__init__.py')
-    with open(init_path, 'w') as f:
+
+    init_path = os.path.join(src_models_dir, "__init__.py")
+    with open(init_path, "w") as f:
         f.write(init_content)
     print(f"✓ Created __init__.py with exports")
-    
+
     # Create src/__init__.py if needed
-    src_init_path = os.path.join(os.path.dirname(src_models_dir), '__init__.py')
+    src_init_path = os.path.join(os.path.dirname(src_models_dir), "__init__.py")
     if not os.path.exists(src_init_path):
-        with open(src_init_path, 'w') as f:
+        with open(src_init_path, "w") as f:
             f.write("# src package\n")
         print(f"✓ Created src/__init__.py")
-    
+
     print(f"\n✅ Phase 3 integration complete!")
     print(f"Files organized in: {src_models_dir}")
-    
+
     return src_models_dir
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     setup_phase3_integration()

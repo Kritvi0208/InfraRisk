@@ -16,14 +16,19 @@ from typing import Dict, Iterable, List
 import pandas as pd
 import requests
 
-from real_data_ingestion import DEFAULT_COUNTRIES, WDI_INDICATORS, build_availability_report
-
+from real_data_ingestion import (
+    DEFAULT_COUNTRIES,
+    WDI_INDICATORS,
+    build_availability_report,
+)
 
 ROOT = Path(__file__).resolve().parent
 RAW = ROOT / "data" / "raw"
 PROCESSED = ROOT / "data" / "processed"
 
-PPI_DTA_URL = "https://www.worldbank.org/content/dam/PPI/documents/2024-PPI-Full-DTA.dta"
+PPI_DTA_URL = (
+    "https://www.worldbank.org/content/dam/PPI/documents/2024-PPI-Full-DTA.dta"
+)
 
 
 def download_file(url: str, target: Path, timeout: int = 120) -> Path:
@@ -89,11 +94,18 @@ def ingest_world_bank_wdi(
             time.sleep(0.03)
 
     long_df = pd.DataFrame(rows)
-    wide_df = long_df.pivot_table(index=["country", "year"], columns="indicator", values="value").reset_index()
+    wide_df = long_df.pivot_table(
+        index=["country", "year"], columns="indicator", values="value"
+    ).reset_index()
     target = RAW / "worldbank" / "wdi_macro.csv"
     target.parent.mkdir(parents=True, exist_ok=True)
     wide_df.to_csv(target, index=False)
-    return {"source_id": "world_bank_wdi", "status": "downloaded_real_data", "records": int(len(wide_df)), "csv_file": str(target)}
+    return {
+        "source_id": "world_bank_wdi",
+        "status": "downloaded_real_data",
+        "records": int(len(wide_df)),
+        "csv_file": str(target),
+    }
 
 
 def ingest_nbi_alabama_2024() -> Dict:
@@ -106,7 +118,12 @@ def ingest_nbi_alabama_2024() -> Dict:
     df["source_id"] = "national_bridge_inventory"
     df["source_url"] = url
     df.to_csv(csv_path, index=False)
-    return {"source_id": "national_bridge_inventory", "status": "downloaded_real_data", "records": int(len(df)), "csv_file": str(csv_path)}
+    return {
+        "source_id": "national_bridge_inventory",
+        "status": "downloaded_real_data",
+        "records": int(len(df)),
+        "csv_file": str(csv_path),
+    }
 
 
 def ingest_yahoo_finance_proxy() -> Dict:
@@ -126,7 +143,11 @@ def ingest_yahoo_finance_proxy() -> Dict:
         result = payload["chart"]["result"][0]
         timestamps = result["timestamp"]
         quote = result["indicators"]["quote"][0]
-        adjclose = result["indicators"].get("adjclose", [{}])[0].get("adjclose", [None] * len(timestamps))
+        adjclose = (
+            result["indicators"]
+            .get("adjclose", [{}])[0]
+            .get("adjclose", [None] * len(timestamps))
+        )
         df = pd.DataFrame(
             {
                 "date": pd.to_datetime(timestamps, unit="s").date.astype(str),
@@ -146,7 +167,12 @@ def ingest_yahoo_finance_proxy() -> Dict:
     target = RAW / "market" / "yahoo_finance_prices.csv"
     target.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(target, index=False)
-    return {"source_id": "yahoo_finance", "status": "downloaded_public_market_proxy", "records": int(len(out)), "csv_file": str(target)}
+    return {
+        "source_id": "yahoo_finance",
+        "status": "downloaded_public_market_proxy",
+        "records": int(len(out)),
+        "csv_file": str(target),
+    }
 
 
 def ingest_osm_small_bbox() -> Dict:
@@ -162,7 +188,12 @@ def ingest_osm_small_bbox() -> Dict:
     out skel qt;
     """
     headers = {"User-Agent": "InfraRiskAI/1.0 small bbox academic request"}
-    response = requests.post("https://overpass-api.de/api/interpreter", data=query.encode("utf-8"), headers=headers, timeout=60)
+    response = requests.post(
+        "https://overpass-api.de/api/interpreter",
+        data=query.encode("utf-8"),
+        headers=headers,
+        timeout=60,
+    )
     response.raise_for_status()
     payload = response.json()
     target = RAW / "osm" / "osm_roads.geojson"
@@ -197,7 +228,9 @@ def main() -> None:
             results.append(result)
 
     PROCESSED.mkdir(parents=True, exist_ok=True)
-    (PROCESSED / "public_real_ingestion_report.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
+    (PROCESSED / "public_real_ingestion_report.json").write_text(
+        json.dumps(results, indent=2), encoding="utf-8"
+    )
     availability = build_availability_report()
     print("Availability report updated.")
     print(json.dumps(availability, indent=2))

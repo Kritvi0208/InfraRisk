@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Setup script to create Phase 4 NLP directories and files"""
 
+import json
 import os
 import sys
-import json
 from pathlib import Path
 
 # Get current directory

@@ -3,10 +3,10 @@ Phase 5: Gamified Simulation & Dashboard
 Integrated simulation platform with game modes, scoring, and dashboard.
 """
 
-from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
+from typing import Any, Dict, List, Optional
 
 __version__ = "5.0.0"
 __all__ = [

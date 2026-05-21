@@ -7,11 +7,11 @@ Complete implementation in a single module for deployment flexibility
 import json
 import logging
 import re
-from typing import Dict, List, Tuple, Optional, Any
-from dataclasses import dataclass, asdict, field
-from collections import defaultdict
 import sqlite3
+from collections import defaultdict
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -21,9 +21,11 @@ logger = logging.getLogger(__name__)
 # SECTION 1: DOCUMENT PARSING (LayoutLM)
 # ============================================================================
 
+
 @dataclass
 class Section:
     """Represents a contract section"""
+
     title: str
     content: str
     level: int
@@ -35,6 +37,7 @@ class Section:
 @dataclass
 class Clause:
     """Represents a contract clause"""
+
     number: str
     title: str
     text: str
@@ -49,6 +52,7 @@ class Clause:
 @dataclass
 class EntityRegion:
     """Represents an entity and its location"""
+
     entity_type: str
     text: str
     confidence: float
@@ -74,6 +78,7 @@ class LayoutLMParser:
         try:
             try:
                 import pdfplumber
+
                 with pdfplumber.open(path) as pdf:
                     text_parts = []
                     for page in pdf.pages:
@@ -81,7 +86,7 @@ class LayoutLMParser:
                     self.document_text = "\n".join(text_parts)
             except ImportError:
                 logger.warning("pdfplumber not available, reading as text file")
-                with open(path, 'r', encoding='utf-8', errors='ignore') as f:
+                with open(path, "r", encoding="utf-8", errors="ignore") as f:
                     self.document_text = f.read()
 
             if self.verbose:
@@ -94,9 +99,9 @@ class LayoutLMParser:
 
     def extract_sections(self) -> Dict[str, Section]:
         """Identify contract sections (Definitions, Terms, Covenants, etc)."""
-        lines = self.document_text.split('\n')
+        lines = self.document_text.split("\n")
         current_section = None
-        section_pattern = r'^(ARTICLE|SECTION|PART|SCHEDULE)\s+(\d+[A-Z]*):?\s+(.+?)$'
+        section_pattern = r"^(ARTICLE|SECTION|PART|SCHEDULE)\s+(\d+[A-Z]*):?\s+(.+?)$"
 
         for idx, line in enumerate(lines):
             match = re.match(section_pattern, line.strip(), re.IGNORECASE)
@@ -110,7 +115,7 @@ class LayoutLMParser:
                     level=0,
                     start_line=idx,
                     end_line=idx,
-                    clauses=[]
+                    clauses=[],
                 )
                 self.sections[section_key] = current_section
 
@@ -125,10 +130,12 @@ class LayoutLMParser:
 
     def resolve_nested_clauses(self) -> Dict[str, Clause]:
         """Handle nested clause numbering like "14.3(b)(ii)"."""
-        clause_pattern = r'^(\d+(?:\.\d+)*(?:\([a-zA-Z]\))*(?:\([ivxlcdm]+\))*)\s*[.:\-]?\s*(.+?)$'
+        clause_pattern = (
+            r"^(\d+(?:\.\d+)*(?:\([a-zA-Z]\))*(?:\([ivxlcdm]+\))*)\s*[.:\-]?\s*(.+?)$"
+        )
 
         for section_key, section in self.sections.items():
-            lines = section.content.split('\n')
+            lines = section.content.split("\n")
             current_clause_num = None
 
             for idx, line in enumerate(lines):
@@ -142,10 +149,12 @@ class LayoutLMParser:
                         text=line.strip(),
                         section=section_key,
                         references=[],
-                        entities={}
+                        entities={},
                     )
 
-                    clause_key = f"{section_key}_{clause_num}".replace('(', '').replace(')', '')
+                    clause_key = f"{section_key}_{clause_num}".replace("(", "").replace(
+                        ")", ""
+                    )
                     self.clauses[clause_key] = clause
                     current_clause_num = clause_num
 
@@ -157,15 +166,15 @@ class LayoutLMParser:
     def build_clause_graph(self) -> Dict[str, List[str]]:
         """Create cross-reference network between clauses."""
         ref_patterns = [
-            r'(?:Section|Clause|Article)\s+(\d+(?:\.\d+)*(?:\([a-zA-Z]\))*)',
-            r'(\d+\.\d+(?:\([a-zA-Z]\))*)',
+            r"(?:Section|Clause|Article)\s+(\d+(?:\.\d+)*(?:\([a-zA-Z]\))*)",
+            r"(\d+\.\d+(?:\([a-zA-Z]\))*)",
         ]
 
         for clause_key, clause in self.clauses.items():
             for pattern in ref_patterns:
                 matches = re.findall(pattern, clause.text)
                 for match in matches:
-                    ref_key = f"CLAUSE_{match}".replace('(', '').replace(')', '')
+                    ref_key = f"CLAUSE_{match}".replace("(", "").replace(")", "")
                     if ref_key != clause_key:
                         self.clause_graph[clause_key].append(ref_key)
 
@@ -179,49 +188,49 @@ class LayoutLMParser:
         entities = []
 
         # Sponsor/Company patterns
-        company_pattern = r'(?:Sponsor|Developer|Operator|Borrower)[:\s]+([A-Z][A-Za-z\s&,]+(?:Inc|LLC|Ltd|Corp)?)'
+        company_pattern = r"(?:Sponsor|Developer|Operator|Borrower)[:\s]+([A-Z][A-Za-z\s&,]+(?:Inc|LLC|Ltd|Corp)?)"
         for match in re.finditer(company_pattern, self.document_text):
-            entities.append(EntityRegion(
-                entity_type="SPONSOR",
-                text=match.group(1).strip(),
-                confidence=0.95
-            ))
+            entities.append(
+                EntityRegion(
+                    entity_type="SPONSOR", text=match.group(1).strip(), confidence=0.95
+                )
+            )
 
         # Lender patterns
-        lender_pattern = r'(?:Lender|Bank|DFI|Financial Institution|Institution)[:\s]+([A-Z][A-Za-z\s&,]+(?:Bank|Group)?)'
+        lender_pattern = r"(?:Lender|Bank|DFI|Financial Institution|Institution)[:\s]+([A-Z][A-Za-z\s&,]+(?:Bank|Group)?)"
         for match in re.finditer(lender_pattern, self.document_text):
-            entities.append(EntityRegion(
-                entity_type="LENDER",
-                text=match.group(1).strip(),
-                confidence=0.92
-            ))
+            entities.append(
+                EntityRegion(
+                    entity_type="LENDER", text=match.group(1).strip(), confidence=0.92
+                )
+            )
 
         # Amount patterns
-        amount_pattern = r'(?:USD|EUR|GBP|INR)?\s*\$?\s*(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:Million|Billion|Thousand|M|B|K)?'
+        amount_pattern = r"(?:USD|EUR|GBP|INR)?\s*\$?\s*(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:Million|Billion|Thousand|M|B|K)?"
         for match in re.finditer(amount_pattern, self.document_text):
-            entities.append(EntityRegion(
-                entity_type="AMOUNT",
-                text=match.group(0).strip(),
-                confidence=0.88
-            ))
+            entities.append(
+                EntityRegion(
+                    entity_type="AMOUNT", text=match.group(0).strip(), confidence=0.88
+                )
+            )
 
         # Date patterns
-        date_pattern = r'\d{1,2}[/-]\d{1,2}[/-]\d{4}|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}'
+        date_pattern = r"\d{1,2}[/-]\d{1,2}[/-]\d{4}|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}"
         for match in re.finditer(date_pattern, self.document_text):
-            entities.append(EntityRegion(
-                entity_type="DATE",
-                text=match.group(0).strip(),
-                confidence=0.90
-            ))
+            entities.append(
+                EntityRegion(
+                    entity_type="DATE", text=match.group(0).strip(), confidence=0.90
+                )
+            )
 
         # Location patterns
-        location_keywords = r'(?:located in|jurisdiction|state|country|province)[:\s]+([A-Za-z\s]+?)(?:[,\n]|$)'
+        location_keywords = r"(?:located in|jurisdiction|state|country|province)[:\s]+([A-Za-z\s]+?)(?:[,\n]|$)"
         for match in re.finditer(location_keywords, self.document_text, re.IGNORECASE):
-            entities.append(EntityRegion(
-                entity_type="LOCATION",
-                text=match.group(1).strip(),
-                confidence=0.85
-            ))
+            entities.append(
+                EntityRegion(
+                    entity_type="LOCATION", text=match.group(1).strip(), confidence=0.85
+                )
+            )
 
         self.entity_regions = entities
         if self.verbose:
@@ -246,10 +255,7 @@ class LayoutLMParser:
                 }
                 for key, section in self.sections.items()
             },
-            "clauses": {
-                key: clause.to_dict()
-                for key, clause in self.clauses.items()
-            },
+            "clauses": {key: clause.to_dict() for key, clause in self.clauses.items()},
             "clause_references": self.clause_graph,
             "entities": [
                 {
@@ -264,7 +270,7 @@ class LayoutLMParser:
 
     def get_clause_by_number(self, clause_number: str) -> Optional[Clause]:
         """Retrieve a specific clause by its number."""
-        normalized_key = f"CLAUSE_{clause_number}".replace('(', '').replace(')', '')
+        normalized_key = f"CLAUSE_{clause_number}".replace("(", "").replace(")", "")
         return self.clauses.get(normalized_key)
 
     def get_entities_by_type(self, entity_type: str) -> List[EntityRegion]:
@@ -276,9 +282,11 @@ class LayoutLMParser:
 # SECTION 2: NAMED ENTITY RECOGNITION (NER)
 # ============================================================================
 
+
 @dataclass
 class EntityExtraction:
     """Result of entity extraction"""
+
     sponsors: List[Tuple[str, float]] = field(default_factory=list)
     lenders: List[Tuple[str, float]] = field(default_factory=list)
     amounts: List[Tuple[str, str, float]] = field(default_factory=list)
@@ -303,11 +311,14 @@ class ContractNER:
         # Try to load spaCy model with transformer
         try:
             import spacy
+
             model_name = "en_core_web_sm"
             try:
                 self.model = spacy.load(model_name)
             except OSError:
-                logger.warning(f"spaCy model {model_name} not found. Using basic patterns.")
+                logger.warning(
+                    f"spaCy model {model_name} not found. Using basic patterns."
+                )
         except ImportError:
             logger.warning("spaCy not available. Using pattern-based NER.")
 
@@ -326,15 +337,19 @@ class ContractNER:
         sponsors = []
 
         patterns = [
-            r'(?:Sponsor|Developer|Operator|Borrower)\s+(?:is\s+)?(?:named\s+)?(?:as\s+)?([A-Z][A-Za-z&\s,\.]+?)(?:\s+(?:Inc|LLC|Ltd|Corp|PLC|GmbH|SA))?(?:\s+\(|,|\.|\n)',
-            r'([A-Z][A-Za-z0-9&\s\.\-]+?)(?:\s+(?:Inc|LLC|Ltd|Corp|PLC|GmbH|SA))',
+            r"(?:Sponsor|Developer|Operator|Borrower)\s+(?:is\s+)?(?:named\s+)?(?:as\s+)?([A-Z][A-Za-z&\s,\.]+?)(?:\s+(?:Inc|LLC|Ltd|Corp|PLC|GmbH|SA))?(?:\s+\(|,|\.|\n)",
+            r"([A-Z][A-Za-z0-9&\s\.\-]+?)(?:\s+(?:Inc|LLC|Ltd|Corp|PLC|GmbH|SA))",
         ]
 
         for pattern in patterns:
             for match in re.finditer(pattern, text):
                 sponsor_name = match.group(1).strip()
                 if sponsor_name and len(sponsor_name) > 2:
-                    confidence = 0.90 if 'Inc' in match.group(0) or 'LLC' in match.group(0) else 0.75
+                    confidence = (
+                        0.90
+                        if "Inc" in match.group(0) or "LLC" in match.group(0)
+                        else 0.75
+                    )
                     sponsors.append((sponsor_name, confidence))
 
         # Remove duplicates
@@ -351,8 +366,8 @@ class ContractNER:
         lenders = []
 
         patterns = [
-            r'(?:Lender|Bank|Arranger|Lead|DFI|Financial Institution|Institution)[:\s]+([A-Z][A-Za-z\s&,\.\-]+?)(?:\s+(?:Bank|Group|plc|Limited)?)?(?:,|\.|\n)',
-            r'([A-Z][A-Za-z\s&]+?\s+(?:Bank|DFI|Fund|Capital))',
+            r"(?:Lender|Bank|Arranger|Lead|DFI|Financial Institution|Institution)[:\s]+([A-Z][A-Za-z\s&,\.\-]+?)(?:\s+(?:Bank|Group|plc|Limited)?)?(?:,|\.|\n)",
+            r"([A-Z][A-Za-z\s&]+?\s+(?:Bank|DFI|Fund|Capital))",
         ]
 
         for pattern in patterns:
@@ -374,16 +389,16 @@ class ContractNER:
         """Extract financial amounts with currency normalization."""
         amounts = []
 
-        pattern = r'(?:USD|EUR|GBP|INR|JPY|AUD|CAD|\$|€|£|¥)?\s*(\d+(?:[,\.]\d{3})*(?:\.\d{2})?)\s*(?:Million|Billion|Thousand|M|B|K|Mn|Bn)?'
+        pattern = r"(?:USD|EUR|GBP|INR|JPY|AUD|CAD|\$|€|£|¥)?\s*(\d+(?:[,\.]\d{3})*(?:\.\d{2})?)\s*(?:Million|Billion|Thousand|M|B|K|Mn|Bn)?"
 
         for match in re.finditer(pattern, text):
             amount_str = match.group(1)
             full_match = match.group(0)
-            if 'USD' in full_match or '$' in full_match:
+            if "USD" in full_match or "$" in full_match:
                 currency = "USD"
-            elif 'EUR' in full_match or '€' in full_match:
+            elif "EUR" in full_match or "€" in full_match:
                 currency = "EUR"
-            elif 'GBP' in full_match or '£' in full_match:
+            elif "GBP" in full_match or "£" in full_match:
                 currency = "GBP"
             else:
                 currency = "UNKNOWN"
@@ -397,10 +412,13 @@ class ContractNER:
         dates = []
 
         patterns = [
-            (r'(\d{4}-\d{2}-\d{2})', "ISO_DATE"),
-            (r'(\d{1,2}[/-]\d{1,2}[/-]\d{4})', "US_DATE"),
-            (r'(\d{1,2}[/-]\d{1,2}[/-]\d{2})', "SHORT_DATE"),
-            (r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(\d{4})', "LONG_DATE"),
+            (r"(\d{4}-\d{2}-\d{2})", "ISO_DATE"),
+            (r"(\d{1,2}[/-]\d{1,2}[/-]\d{4})", "US_DATE"),
+            (r"(\d{1,2}[/-]\d{1,2}[/-]\d{2})", "SHORT_DATE"),
+            (
+                r"\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(\d{4})",
+                "LONG_DATE",
+            ),
         ]
 
         for pattern, date_type in patterns:
@@ -414,13 +432,23 @@ class ContractNER:
         """Extract project location, sector, and capacity information."""
         projects = []
 
-        location_pattern = r'(?:located in|jurisdiction|based in|state of|province of|country of)\s+([A-Za-z\s]+?)(?:[,\n]|located|project)'
-        locations = [match.group(1).strip() for match in re.finditer(location_pattern, text, re.IGNORECASE)]
+        location_pattern = r"(?:located in|jurisdiction|based in|state of|province of|country of)\s+([A-Za-z\s]+?)(?:[,\n]|located|project)"
+        locations = [
+            match.group(1).strip()
+            for match in re.finditer(location_pattern, text, re.IGNORECASE)
+        ]
 
         sector_keywords = {
-            'solar': 0.95, 'wind': 0.95, 'hydro': 0.95, 'renewable': 0.90,
-            'transmission': 0.90, 'distribution': 0.90, 'power': 0.85,
-            'infrastructure': 0.80, 'transport': 0.85, 'water': 0.85
+            "solar": 0.95,
+            "wind": 0.95,
+            "hydro": 0.95,
+            "renewable": 0.90,
+            "transmission": 0.90,
+            "distribution": 0.90,
+            "power": 0.85,
+            "infrastructure": 0.80,
+            "transport": 0.85,
+            "water": 0.85,
         }
 
         sectors = []
@@ -441,7 +469,7 @@ class ContractNER:
             lenders=self.extract_lenders(text),
             amounts=self.extract_amounts(text),
             dates=self.extract_dates(text),
-            projects=self.extract_project_details(text)
+            projects=self.extract_project_details(text),
         )
 
     def to_dict(self, extraction: EntityExtraction) -> Dict:
@@ -478,7 +506,9 @@ CLAUSE_CATEGORIES = {
 class LegalBERTClassifier:
     """Classify clauses into 12 risk categories using Legal-BERT."""
 
-    def __init__(self, model_name: str = "distilbert-base-uncased", num_labels: int = 12):
+    def __init__(
+        self, model_name: str = "distilbert-base-uncased", num_labels: int = 12
+    ):
         """Initialize Legal-BERT classifier."""
         self.model_name = model_name
         self.num_labels = num_labels
@@ -487,10 +517,16 @@ class LegalBERTClassifier:
         self.label_map = {v: k for k, v in CLAUSE_CATEGORIES.items()}
 
         try:
-            from transformers import DistilBertForSequenceClassification, DistilBertTokenizer
+            from transformers import (
+                DistilBertForSequenceClassification,
+                DistilBertTokenizer,
+            )
+
             logger.info(f"Initialized {model_name} for {num_labels} labels")
         except ImportError:
-            logger.warning("transformers library not available. Using pattern-based classification.")
+            logger.warning(
+                "transformers library not available. Using pattern-based classification."
+            )
 
     def load_pretrained_legal_bert(self) -> bool:
         """Load pre-trained Legal-BERT model."""
@@ -502,7 +538,9 @@ class LegalBERTClassifier:
             logger.warning(f"Could not load Legal-BERT: {str(e)}")
             return False
 
-    def fine_tune_on_infrastructure_contracts(self, training_data: List[Tuple[str, int]], epochs: int = 3) -> Dict:
+    def fine_tune_on_infrastructure_contracts(
+        self, training_data: List[Tuple[str, int]], epochs: int = 3
+    ) -> Dict:
         """Fine-tune model on labeled infrastructure contracts."""
         logger.info(f"Fine-tuning on {len(training_data)} infrastructure contracts...")
         self.training_data = training_data
@@ -522,18 +560,38 @@ class LegalBERTClassifier:
     def classify_clause(self, text: str) -> Tuple[int, str, float]:
         """Classify a clause into risk category."""
         patterns = {
-            1: [r'force majeure', r'act of god', r'unforeseeable', r'beyond reasonable control'],
-            2: [r'termination', r'early termination', r'right to terminate', r'terminate at'],
-            3: [r'change of law', r'changes in legislation', r'regulatory change', r'legal change'],
-            4: [r'refinancing', r'refi', r'extension', r'refinance'],
-            5: [r'covenant', r'covenants', r'breach', r'violat'],
-            6: [r'parent company guarantee', r'parent guarantee', r'guarantor', r'guarantee'],
-            7: [r'subordinat', r'junior', r'subordinated'],
-            8: [r'step.down', r'step-down', r'reduction', r'ramp down'],
-            9: [r'buyout', r'buy.out', r'call option'],
-            10: [r'put option', r'put right', r'call right', r'call option'],
-            11: [r'dispute', r'arbitration', r'mediation', r'resolution'],
-            12: [r'default', r'material adverse', r'material change'],
+            1: [
+                r"force majeure",
+                r"act of god",
+                r"unforeseeable",
+                r"beyond reasonable control",
+            ],
+            2: [
+                r"termination",
+                r"early termination",
+                r"right to terminate",
+                r"terminate at",
+            ],
+            3: [
+                r"change of law",
+                r"changes in legislation",
+                r"regulatory change",
+                r"legal change",
+            ],
+            4: [r"refinancing", r"refi", r"extension", r"refinance"],
+            5: [r"covenant", r"covenants", r"breach", r"violat"],
+            6: [
+                r"parent company guarantee",
+                r"parent guarantee",
+                r"guarantor",
+                r"guarantee",
+            ],
+            7: [r"subordinat", r"junior", r"subordinated"],
+            8: [r"step.down", r"step-down", r"reduction", r"ramp down"],
+            9: [r"buyout", r"buy.out", r"call option"],
+            10: [r"put option", r"put right", r"call right", r"call option"],
+            11: [r"dispute", r"arbitration", r"mediation", r"resolution"],
+            12: [r"default", r"material adverse", r"material change"],
         }
 
         text_lower = text.lower()
@@ -561,6 +619,7 @@ class LegalBERTClassifier:
 # ============================================================================
 # SECTION 4: AUTOMATED RISK SCORING
 # ============================================================================
+
 
 class ContractRiskScorer:
     """Score clauses and aggregate to project-level risk."""
@@ -593,15 +652,15 @@ class ContractRiskScorer:
     def score_clause(self, category_id: int, text: str) -> int:
         """Score individual clause severity (1-5)."""
         base_scores = {
-            1: 4,   # Force Majeure
-            2: 4,   # Termination Rights
-            3: 3,   # Change of Law
-            4: 2,   # Refinancing
-            5: 4,   # Covenant Violations
-            6: 4,   # Parent Guarantees
-            7: 5,   # Subordination
-            8: 2,   # Step-Down
-            9: 2,   # Buyout Options
+            1: 4,  # Force Majeure
+            2: 4,  # Termination Rights
+            3: 3,  # Change of Law
+            4: 2,  # Refinancing
+            5: 4,  # Covenant Violations
+            6: 4,  # Parent Guarantees
+            7: 5,  # Subordination
+            8: 2,  # Step-Down
+            9: 2,  # Buyout Options
             10: 2,  # Put/Call Rights
             11: 3,  # Dispute Resolution
             12: 4,  # Default Definitions
@@ -610,21 +669,24 @@ class ContractRiskScorer:
         base_score = base_scores.get(category_id, 3)
 
         severity_modifiers = {
-            r'perpetual': 1,
-            r'unlimited': 1,
-            r'permanent': 1,
-            r'irrevocable': 1,
-            r'strict': 0.5,
-            r'onerous': 1,
-            r'material': 0.5,
-            r'discretionary': -1,
-            r'waived': -2,
-            r'optional': -1,
+            r"perpetual": 1,
+            r"unlimited": 1,
+            r"permanent": 1,
+            r"irrevocable": 1,
+            r"strict": 0.5,
+            r"onerous": 1,
+            r"material": 0.5,
+            r"discretionary": -1,
+            r"waived": -2,
+            r"optional": -1,
         }
 
         text_lower = text.lower()
-        modifier_sum = sum(count for keyword, count in severity_modifiers.items()
-                          if re.search(keyword, text_lower))
+        modifier_sum = sum(
+            count
+            for keyword, count in severity_modifiers.items()
+            if re.search(keyword, text_lower)
+        )
 
         final_score = max(1, min(5, base_score + modifier_sum))
         return int(final_score)
@@ -654,26 +716,28 @@ class ContractRiskScorer:
         """Highlight restrictive covenants."""
         flagged = []
         covenant_keywords = [
-            r'financial covenant',
-            r'maintenance covenant',
-            r'affirmative covenant',
-            r'negative covenant',
-            r'operating covenant',
-            r'debt ratio',
-            r'dscr',
-            r'interest coverage',
+            r"financial covenant",
+            r"maintenance covenant",
+            r"affirmative covenant",
+            r"negative covenant",
+            r"operating covenant",
+            r"debt ratio",
+            r"dscr",
+            r"interest coverage",
         ]
 
         for category_id, text in clauses:
             if category_id == 5:
                 for keyword in covenant_keywords:
                     if re.search(keyword, text, re.IGNORECASE):
-                        flagged.append({
-                            "type": "RESTRICTIVE_COVENANT",
-                            "keyword": keyword,
-                            "severity": self.score_clause(category_id, text),
-                            "text_preview": text[:100],
-                        })
+                        flagged.append(
+                            {
+                                "type": "RESTRICTIVE_COVENANT",
+                                "keyword": keyword,
+                                "severity": self.score_clause(category_id, text),
+                                "text_preview": text[:100],
+                            }
+                        )
 
         return flagged
 
@@ -692,12 +756,16 @@ class ContractRiskScorer:
                 if cat_id == category_id:
                     severity = self.score_clause(category_id, text)
                     if severity >= 4:
-                        bottlenecks.append({
-                            "category": CLAUSE_CATEGORIES.get(category_id, "Unknown"),
-                            "description": description,
-                            "severity": severity,
-                            "impact": "LIMIT_FINANCING",
-                        })
+                        bottlenecks.append(
+                            {
+                                "category": CLAUSE_CATEGORIES.get(
+                                    category_id, "Unknown"
+                                ),
+                                "description": description,
+                                "severity": severity,
+                                "impact": "LIMIT_FINANCING",
+                            }
+                        )
 
         return bottlenecks
 
@@ -723,11 +791,13 @@ class ContractRiskScorer:
 
         for category_id, scores in clause_scores.items():
             if scores and (sum(scores) / len(scores)) >= 4:
-                report["key_risks"].append({
-                    "category": CLAUSE_CATEGORIES.get(category_id),
-                    "severity": "HIGH",
-                    "action": f"Review {CLAUSE_CATEGORIES.get(category_id, 'Unknown')} carefully",
-                })
+                report["key_risks"].append(
+                    {
+                        "category": CLAUSE_CATEGORIES.get(category_id),
+                        "severity": "HIGH",
+                        "action": f"Review {CLAUSE_CATEGORIES.get(category_id, 'Unknown')} carefully",
+                    }
+                )
 
         return report
 
@@ -735,6 +805,7 @@ class ContractRiskScorer:
 # ============================================================================
 # SECTION 5: BENCHMARK DATABASE
 # ============================================================================
+
 
 class BenchmarkDatabase:
     """Maintain 1,000+ comparable transaction database."""
@@ -752,7 +823,7 @@ class BenchmarkDatabase:
             self.conn = sqlite3.connect(self.db_path)
             self.cursor = self.conn.cursor()
 
-            self.cursor.execute('''
+            self.cursor.execute("""
                 CREATE TABLE IF NOT EXISTS transactions (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     transaction_name TEXT NOT NULL,
@@ -771,9 +842,9 @@ class BenchmarkDatabase:
                     dispute_resolution TEXT,
                     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
-            ''')
+            """)
 
-            self.cursor.execute('''
+            self.cursor.execute("""
                 CREATE TABLE IF NOT EXISTS benchmark_metrics (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     transaction_id INTEGER,
@@ -781,7 +852,7 @@ class BenchmarkDatabase:
                     metric_value REAL,
                     FOREIGN KEY(transaction_id) REFERENCES transactions(id)
                 )
-            ''')
+            """)
 
             self.conn.commit()
             logger.info(f"Database initialized: {self.db_path}")
@@ -795,36 +866,47 @@ class BenchmarkDatabase:
         logger.info(f"Loading {sample_size} benchmark transactions...")
 
         import random
+
         sectors = ["Solar", "Wind", "Hydro", "Transmission", "Distribution"]
         countries = ["India", "USA", "Brazil", "Mexico", "UK", "Germany"]
-        lender_types = ["Commercial Bank", "DFI", "Development Bank", "Export Credit Agency"]
+        lender_types = [
+            "Commercial Bank",
+            "DFI",
+            "Development Bank",
+            "Export Credit Agency",
+        ]
         sponsor_types = ["IPP", "Utility", "Government", "Private Equity"]
 
         for i in range(sample_size):
             try:
-                self.cursor.execute('''
+                self.cursor.execute(
+                    """
                     INSERT INTO transactions (
                         transaction_name, project_sector, country, sponsor_name,
                         lender_type, debt_amount, equity_amount, debt_tenor,
                         spread_bps, dscr_requirement, step_down_available,
                         guarantee_required, subordination_level, dispute_resolution
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ''', (
-                    f"Transaction_{i+1}",
-                    random.choice(sectors),
-                    random.choice(countries),
-                    f"Sponsor_{random.randint(1, 100)}",
-                    random.choice(lender_types),
-                    random.uniform(50, 500),
-                    random.uniform(20, 150),
-                    random.choice([10, 15, 20, 25, 30]),
-                    random.uniform(150, 400),
-                    random.uniform(1.2, 1.8),
-                    random.choice([True, False]),
-                    random.choice([True, False]),
-                    random.choice(["Senior", "Mezzanine", "Junior"]),
-                    random.choice(["English Law", "Indian Law", "NY Law", "ICC Arbitration"]),
-                ))
+                """,
+                    (
+                        f"Transaction_{i+1}",
+                        random.choice(sectors),
+                        random.choice(countries),
+                        f"Sponsor_{random.randint(1, 100)}",
+                        random.choice(lender_types),
+                        random.uniform(50, 500),
+                        random.uniform(20, 150),
+                        random.choice([10, 15, 20, 25, 30]),
+                        random.uniform(150, 400),
+                        random.uniform(1.2, 1.8),
+                        random.choice([True, False]),
+                        random.choice([True, False]),
+                        random.choice(["Senior", "Mezzanine", "Junior"]),
+                        random.choice(
+                            ["English Law", "Indian Law", "NY Law", "ICC Arbitration"]
+                        ),
+                    ),
+                )
 
                 if (i + 1) % 100 == 0:
                     self.conn.commit()
@@ -840,7 +922,9 @@ class BenchmarkDatabase:
     def extract_benchmark_terms(self, transaction_id: int) -> Dict:
         """Extract key terms from a specific transaction."""
         try:
-            self.cursor.execute('''SELECT * FROM transactions WHERE id = ?''', (transaction_id,))
+            self.cursor.execute(
+                """SELECT * FROM transactions WHERE id = ?""", (transaction_id,)
+            )
             row = self.cursor.fetchone()
             if not row:
                 return {}
@@ -864,14 +948,18 @@ class BenchmarkDatabase:
     def compare_against_benchmark(self, current_contract: Dict) -> Dict:
         """Compare current contract against benchmark statistics."""
         try:
-            self.cursor.execute('SELECT COUNT(*) FROM transactions')
+            self.cursor.execute("SELECT COUNT(*) FROM transactions")
             total_count = self.cursor.fetchone()[0]
 
             if total_count == 0:
                 return {"error": "No benchmark data available"}
 
             sector = current_contract.get("project_sector", "")
-            query = "SELECT * FROM transactions WHERE project_sector = ?" if sector else "SELECT * FROM transactions LIMIT 100"
+            query = (
+                "SELECT * FROM transactions WHERE project_sector = ?"
+                if sector
+                else "SELECT * FROM transactions LIMIT 100"
+            )
             params = (sector,) if sector else ()
 
             self.cursor.execute(query, params)
@@ -888,15 +976,23 @@ class BenchmarkDatabase:
             }
 
             if current_contract.get("debt_tenor"):
-                avg_tenor = sum(t[7] for t in matching if t[7]) / len([t for t in matching if t[7]])
-                deviation = ((current_contract.get("debt_tenor") - avg_tenor) / avg_tenor * 100) if avg_tenor else 0
-                comparison["deviations"].append({
-                    "metric": "Debt Tenor",
-                    "current": current_contract.get("debt_tenor"),
-                    "benchmark_avg": avg_tenor,
-                    "deviation_percent": round(deviation, 2),
-                    "status": "HIGH" if abs(deviation) > 20 else "NORMAL",
-                })
+                avg_tenor = sum(t[7] for t in matching if t[7]) / len(
+                    [t for t in matching if t[7]]
+                )
+                deviation = (
+                    ((current_contract.get("debt_tenor") - avg_tenor) / avg_tenor * 100)
+                    if avg_tenor
+                    else 0
+                )
+                comparison["deviations"].append(
+                    {
+                        "metric": "Debt Tenor",
+                        "current": current_contract.get("debt_tenor"),
+                        "benchmark_avg": avg_tenor,
+                        "deviation_percent": round(deviation, 2),
+                        "status": "HIGH" if abs(deviation) > 20 else "NORMAL",
+                    }
+                )
 
             return comparison
 
@@ -909,7 +1005,9 @@ class BenchmarkDatabase:
         try:
             statistics = {}
 
-            self.cursor.execute('SELECT AVG(debt_amount), MIN(debt_amount), MAX(debt_amount) FROM transactions')
+            self.cursor.execute(
+                "SELECT AVG(debt_amount), MIN(debt_amount), MAX(debt_amount) FROM transactions"
+            )
             avg_debt, min_debt, max_debt = self.cursor.fetchone()
             statistics["debt_amount"] = {
                 "average": round(avg_debt or 0, 2),
@@ -917,7 +1015,9 @@ class BenchmarkDatabase:
                 "max": round(max_debt or 0, 2),
             }
 
-            self.cursor.execute('SELECT AVG(debt_tenor), MIN(debt_tenor), MAX(debt_tenor) FROM transactions')
+            self.cursor.execute(
+                "SELECT AVG(debt_tenor), MIN(debt_tenor), MAX(debt_tenor) FROM transactions"
+            )
             avg_tenor, min_tenor, max_tenor = self.cursor.fetchone()
             statistics["debt_tenor"] = {
                 "average": round(avg_tenor or 0, 2),
@@ -925,7 +1025,9 @@ class BenchmarkDatabase:
                 "max": int(max_tenor or 0),
             }
 
-            self.cursor.execute('SELECT AVG(spread_bps), MIN(spread_bps), MAX(spread_bps) FROM transactions')
+            self.cursor.execute(
+                "SELECT AVG(spread_bps), MIN(spread_bps), MAX(spread_bps) FROM transactions"
+            )
             avg_spread, min_spread, max_spread = self.cursor.fetchone()
             statistics["spread_bps"] = {
                 "average": round(avg_spread or 0, 2),
@@ -933,7 +1035,9 @@ class BenchmarkDatabase:
                 "max": round(max_spread or 0, 2),
             }
 
-            self.cursor.execute('SELECT AVG(dscr_requirement), MIN(dscr_requirement), MAX(dscr_requirement) FROM transactions')
+            self.cursor.execute(
+                "SELECT AVG(dscr_requirement), MIN(dscr_requirement), MAX(dscr_requirement) FROM transactions"
+            )
             avg_dscr, min_dscr, max_dscr = self.cursor.fetchone()
             statistics["dscr_requirement"] = {
                 "average": round(avg_dscr or 0, 2),
@@ -941,10 +1045,14 @@ class BenchmarkDatabase:
                 "max": round(max_dscr or 0, 2),
             }
 
-            self.cursor.execute('SELECT country, COUNT(*) as count FROM transactions GROUP BY country')
+            self.cursor.execute(
+                "SELECT country, COUNT(*) as count FROM transactions GROUP BY country"
+            )
             statistics["by_country"] = dict(self.cursor.fetchall())
 
-            self.cursor.execute('SELECT project_sector, COUNT(*) as count FROM transactions GROUP BY project_sector')
+            self.cursor.execute(
+                "SELECT project_sector, COUNT(*) as count FROM transactions GROUP BY project_sector"
+            )
             statistics["by_sector"] = dict(self.cursor.fetchall())
 
             return statistics

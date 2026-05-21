@@ -3,17 +3,24 @@ Comprehensive Test Suite for Phase 4: NLP & Contract Intelligence
 Tests for document parsing, NER, clause classification, risk scoring, and benchmarks
 """
 
-import unittest
 import json
-import tempfile
 import os
+import tempfile
+import unittest
 from pathlib import Path
 
 # Import all NLP modules
 from nlp_module import (
-    LayoutLMParser, ContractNER, LegalBERTClassifier,
-    ContractRiskScorer, BenchmarkDatabase, CLAUSE_CATEGORIES,
-    EntityExtraction, Section, Clause, EntityRegion
+    CLAUSE_CATEGORIES,
+    BenchmarkDatabase,
+    Clause,
+    ContractNER,
+    ContractRiskScorer,
+    EntityExtraction,
+    EntityRegion,
+    LayoutLMParser,
+    LegalBERTClassifier,
+    Section,
 )
 
 
@@ -257,7 +264,9 @@ class TestLegalBERTClassifier(unittest.TestCase):
             ("Termination rights", 2),
             ("Covenant restrictions", 5),
         ]
-        metrics = self.classifier.fine_tune_on_infrastructure_contracts(training_data, epochs=1)
+        metrics = self.classifier.fine_tune_on_infrastructure_contracts(
+            training_data, epochs=1
+        )
         self.assertIn("f1_score", metrics)
         self.assertIn("accuracy", metrics)
         self.assertGreater(metrics["f1_score"], 0.85)
@@ -294,8 +303,8 @@ class TestContractRiskScorer(unittest.TestCase):
         clause_scores = {
             1: [4, 4],  # Force Majeure
             5: [4, 3],  # Covenants
-            7: [5],     # Subordination
-            12: [3],    # Default
+            7: [5],  # Subordination
+            12: [3],  # Default
         }
         project_risk = self.scorer.aggregate_project_risk(clause_scores)
         self.assertGreater(project_risk, 0)
@@ -489,7 +498,9 @@ def run_tests():
     print(f"Successes: {result.testsRun - len(result.failures) - len(result.errors)}")
     print(f"Failures: {len(result.failures)}")
     print(f"Errors: {len(result.errors)}")
-    print(f"Success Rate: {((result.testsRun - len(result.failures) - len(result.errors)) / result.testsRun * 100):.1f}%")
+    print(
+        f"Success Rate: {((result.testsRun - len(result.failures) - len(result.errors)) / result.testsRun * 100):.1f}%"
+    )
     print("=" * 70)
 
     return result.wasSuccessful()

@@ -8,23 +8,24 @@ import os
 import shutil
 import sys
 
+
 def setup_phase3():
     """Main setup function."""
-    
+
     base_dir = r"c:\Users\kayri\OneDrive - IIT BHU\Desktop\InfraRiskAI"
     src_dir = os.path.join(base_dir, "src")
     models_dir = os.path.join(src_dir, "models")
-    
-    print("\n" + "="*70)
+
+    print("\n" + "=" * 70)
     print("PHASE 3: SETTING UP MODEL DIRECTORY STRUCTURE")
-    print("="*70)
-    
+    print("=" * 70)
+
     try:
         # Create directories
         print("\n[1] Creating directory structure...")
         os.makedirs(models_dir, exist_ok=True)
         print(f"  ✓ Created: {models_dir}")
-        
+
         # Model files to move
         model_files = {
             "p3_siamese_cnn.py": "siamese_cnn.py",
@@ -36,27 +37,27 @@ def setup_phase3():
             "p3_gradient_boosting.py": "gradient_boosting.py",
             "p3_ensemble_stacking.py": "ensemble_stacking.py",
         }
-        
+
         # Copy model files (don't move, in case needed)
         print("\n[2] Organizing model files...")
         for src_name, dst_name in model_files.items():
             src_path = os.path.join(base_dir, src_name)
             dst_path = os.path.join(models_dir, dst_name)
-            
+
             if os.path.exists(src_path):
                 shutil.copy2(src_path, dst_path)
                 print(f"  ✓ {src_name} → models/{dst_name}")
             else:
                 print(f"  ✗ File not found: {src_name}")
                 return False
-        
+
         # Create __init__.py for src
         print("\n[3] Creating package files...")
         src_init = os.path.join(src_dir, "__init__.py")
-        with open(src_init, 'w') as f:
+        with open(src_init, "w") as f:
             f.write("# src package\n")
         print(f"  ✓ src/__init__.py")
-        
+
         # Create __init__.py for models
         models_init = os.path.join(models_dir, "__init__.py")
         init_content = '''"""Phase 3 Core ML Models
@@ -92,14 +93,14 @@ __all__ = [
     'StackingEnsemble', 'MetaLearner', 'StackingLoss',
 ]
 '''
-        with open(models_init, 'w') as f:
+        with open(models_init, "w") as f:
             f.write(init_content)
         print(f"  ✓ models/__init__.py")
-        
+
         # Print summary
-        print("\n" + "="*70)
+        print("\n" + "=" * 70)
         print("✓ PHASE 3 SETUP COMPLETE")
-        print("="*70)
+        print("=" * 70)
         print(f"\nDirectory Structure:")
         print(f"  src/")
         print(f"    __init__.py")
@@ -107,15 +108,16 @@ __all__ = [
         for src_name, dst_name in model_files.items():
             print(f"      {dst_name}")
         print(f"      __init__.py")
-        
+
         print(f"\nTotal Files: 8 models + 2 __init__.py = 10 files")
         print(f"Total Lines: ~2900 architecture code")
-        
+
         return True
-        
+
     except Exception as e:
         print(f"\n✗ ERROR: {e}")
         import traceback
+
         traceback.print_exc()
         return False
 

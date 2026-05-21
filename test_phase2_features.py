@@ -7,10 +7,15 @@ Tests for all feature modules created in Phase 2.
 import numpy as np
 import pandas as pd
 import pytest
+
 from climate_rul_module import ClimateAdjustedRUL, batch_calculate_ca_rul
 from contagion_index_module import PortfolioContagionIndex, create_contagion_index
-from feast_integration_module import FeastFeatureStore, FeatureDefinition, FeatureDataType
-from revenue_features_module import RevenueFeatures, MacroeconomicFeatures
+from feast_integration_module import (
+    FeastFeatureStore,
+    FeatureDataType,
+    FeatureDefinition,
+)
+from revenue_features_module import MacroeconomicFeatures, RevenueFeatures
 
 
 class TestClimateAdjustedRUL:
@@ -26,9 +31,7 @@ class TestClimateAdjustedRUL:
         """Test CA-RUL calculation"""
         ca_rul = ClimateAdjustedRUL(baseline_rul=30)
         result = ca_rul.calculate_ca_rul(
-            temp_increase=2.5,
-            precip_change=-15.0,
-            scenario="rcp85"
+            temp_increase=2.5, precip_change=-15.0, scenario="rcp85"
         )
         assert "ca_rul" in result
         assert result["ca_rul"] >= 0
@@ -106,7 +109,7 @@ class TestFeastFeatureStore:
         feat_def = FeatureDefinition(
             name="test_feature",
             description="Test feature",
-            data_type=FeatureDataType.FLOAT32
+            data_type=FeatureDataType.FLOAT32,
         )
         result = store.register_feature(feat_def)
         assert result is True
@@ -115,10 +118,12 @@ class TestFeastFeatureStore:
     def test_store_and_retrieve_features(self):
         """Test feature storage and retrieval"""
         store = FeastFeatureStore()
-        df = pd.DataFrame({
-            "project_id": ["proj_001", "proj_002"],
-            "climate_adjusted_rul": [25.5, 28.3]
-        })
+        df = pd.DataFrame(
+            {
+                "project_id": ["proj_001", "proj_002"],
+                "climate_adjusted_rul": [25.5, 28.3],
+            }
+        )
         result = store.store_features(df, "climate_adjusted_rul")
         assert result is True
 
@@ -137,10 +142,7 @@ class TestFeastFeatureStore:
     def test_feature_validation(self):
         """Test feature validation"""
         store = FeastFeatureStore()
-        df = pd.DataFrame({
-            "project_id": ["proj_001"],
-            "sovereign_risk_score": [0.65]
-        })
+        df = pd.DataFrame({"project_id": ["proj_001"], "sovereign_risk_score": [0.65]})
         store.store_features(df, "sovereign_risk_score")
         validation = store.validate_features("sovereign_risk_score")
         assert "rows" in validation
@@ -159,9 +161,7 @@ class TestRevenueFeatures:
         """Test toll rate feature calculation"""
         revenue = RevenueFeatures()
         features = revenue.calculate_toll_rate_features(
-            vot_savings=45.0,
-            distance=25.0,
-            sector="road"
+            vot_savings=45.0, distance=25.0, sector="road"
         )
         assert "toll_rate_per_km" in features
         assert "toll_feasibility_score" in features
@@ -175,7 +175,7 @@ class TestRevenueFeatures:
             alternative_time=1.5,
             project_distance=25.0,
             project_time=1.0,
-            toll_rate=2.5
+            toll_rate=2.5,
         )
         assert "cost_difference_pct" in ratio
         assert "market_penetration_potential" in ratio
@@ -228,9 +228,7 @@ class TestMacroeconomicFeatures:
         """Test fiscal stress calculation"""
         macro = MacroeconomicFeatures()
         stress = macro.calculate_fiscal_stress_index(
-            "Country_A",
-            capex_spending=6.0,
-            tax_revenue=20.0
+            "Country_A", capex_spending=6.0, tax_revenue=20.0
         )
         assert "fiscal_stress_index" in stress
         assert 0 <= stress["fiscal_stress_index"] <= 1.0
