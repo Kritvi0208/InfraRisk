@@ -1,0 +1,1001 @@
+deal_id,deal_name,deal_type,financial_close_year,total_value_usd_million,debt_value_usd_million,sector,region,lead_arranger,spread_bps,tenor_years,defaulted
+IJG_00001,Infrastructure Deal 1,Acquisition,2023,128.7,100.4,Ports,Europe,JP Morgan,444,10,False
+IJG_00002,Infrastructure Deal 2,Project Finance,2019,164.9,113.1,Power,Europe,Citibank,167,10,False
+IJG_00003,Infrastructure Deal 3,Bond Issuance,2011,236.8,184.3,Roads,North America,Goldman Sachs,297,13,False
+IJG_00004,Infrastructure Deal 4,Acquisition,2014,239.6,163.1,Airports,Latin America,JP Morgan,446,13,False
+IJG_00005,Infrastructure Deal 5,Project Finance,2010,577.0,482.4,Telecom,Europe,Deutsche Bank,184,24,False
+IJG_00006,Infrastructure Deal 6,Bond Issuance,2017,704.3,584.0,Power,Europe,Deutsche Bank,445,19,False
+IJG_00007,Infrastructure Deal 7,Refinancing,2018,1305.7,786.6,Airports,Africa,Citibank,354,21,False
+IJG_00008,Infrastructure Deal 8,Refinancing,2017,5918.1,3947.8,Airports,Europe,Societe Generale,352,16,False
+IJG_00009,Infrastructure Deal 9,Refinancing,2016,67.8,55.7,Airports,Middle East,Societe Generale,448,23,False
+IJG_00010,Infrastructure Deal 10,Refinancing,2018,389.5,249.2,Airports,Asia Pacific,JP Morgan,245,10,False
+IJG_00011,Infrastructure Deal 11,Refinancing,2011,929.5,723.0,Power,Middle East,Citibank,241,22,False
+IJG_00012,Infrastructure Deal 12,Project Finance,2016,324.4,195.0,Water,Middle East,Standard Chartered,327,17,False
+IJG_00013,Infrastructure Deal 13,Bond Issuance,2019,72.8,59.6,Telecom,Asia Pacific,Citibank,181,24,False
+IJG_00014,Infrastructure Deal 14,Acquisition,2017,206.8,134.1,Power,Latin America,Societe Generale,406,23,False
+IJG_00015,Infrastructure Deal 15,Bond Issuance,2011,114.6,70.4,Airports,Africa,Goldman Sachs,323,15,False
+IJG_00016,Infrastructure Deal 16,Acquisition,2015,230.9,176.4,Telecom,Africa,Societe Generale,237,24,False
+IJG_00017,Infrastructure Deal 17,Acquisition,2019,2006.4,1521.2,Ports,Latin America,Societe Generale,330,21,False
+IJG_00018,Infrastructure Deal 18,Bond Issuance,2021,564.7,348.1,Telecom,Europe,Citibank,285,17,False
+IJG_00019,Infrastructure Deal 19,Refinancing,2014,669.8,411.3,Power,North America,HSBC,372,21,False
+IJG_00020,Infrastructure Deal 20,Project Finance,2020,317.1,220.5,Airports,Europe,Standard Chartered,355,11,False
+IJG_00021,Infrastructure Deal 21,Acquisition,2019,378.7,293.1,Roads,Africa,Societe Generale,164,11,False
+IJG_00022,Infrastructure Deal 22,Refinancing,2013,76.9,57.3,Water,North America,JP Morgan,428,14,False
+IJG_00023,Infrastructure Deal 23,Project Finance,2018,302.6,197.1,Airports,Africa,Standard Chartered,188,23,False
+IJG_00024,Infrastructure Deal 24,Bond Issuance,2017,479.1,297.2,Water,North America,Goldman Sachs,210,18,False
+IJG_00025,Infrastructure Deal 25,Refinancing,2011,981.7,693.1,Roads,Africa,Deutsche Bank,357,17,True
+IJG_00026,Infrastructure Deal 26,Acquisition,2013,448.6,272.8,Roads,Middle East,JP Morgan,360,24,False
+IJG_00027,Infrastructure Deal 27,Bond Issuance,2020,469.3,371.9,Telecom,Europe,Citibank,297,13,False
+IJG_00028,Infrastructure Deal 28,Refinancing,2015,188.8,137.7,Telecom,Africa,JP Morgan,353,16,False
+IJG_00029,Infrastructure Deal 29,Project Finance,2011,2943.9,1903.9,Ports,Europe,Goldman Sachs,298,12,False
+IJG_00030,Infrastructure Deal 30,Acquisition,2015,1507.6,939.0,Roads,Latin America,Citibank,297,24,False
+IJG_00031,Infrastructure Deal 31,Acquisition,2023,338.8,271.7,Water,Latin America,Standard Chartered,240,24,False
+IJG_00032,Infrastructure Deal 32,Refinancing,2013,117.9,87.1,Roads,North America,Citibank,262,14,False
+IJG_00033,Infrastructure Deal 33,Bond Issuance,2012,359.9,224.9,Roads,Latin America,Standard Chartered,331,24,False
+IJG_00034,Infrastructure Deal 34,Bond Issuance,2019,563.6,474.5,Roads,Latin America,Societe Generale,433,15,False
+IJG_00035,Infrastructure Deal 35,Refinancing,2014,1466.1,966.3,Roads,Europe,JP Morgan,181,11,False
+IJG_00036,Infrastructure Deal 36,Bond Issuance,2013,35.9,28.2,Water,Asia Pacific,HSBC,151,13,False
+IJG_00037,Infrastructure Deal 37,Refinancing,2018,30.7,23.3,Water,Asia Pacific,Goldman Sachs,345,18,False
+IJG_00038,Infrastructure Deal 38,Bond Issuance,2021,2899.8,2314.2,Telecom,Middle East,Deutsche Bank,411,10,False
+IJG_00039,Infrastructure Deal 39,Bond Issuance,2022,1392.7,995.6,Ports,Latin America,Standard Chartered,432,13,False
+IJG_00040,Infrastructure Deal 40,Acquisition,2013,319.5,258.7,Airports,Africa,JP Morgan,366,10,False
+IJG_00041,Infrastructure Deal 41,Acquisition,2017,680.7,468.8,Power,Latin America,HSBC,321,20,False
+IJG_00042,Infrastructure Deal 42,Bond Issuance,2023,275.1,226.4,Roads,Latin America,Citibank,434,17,False
+IJG_00043,Infrastructure Deal 43,Bond Issuance,2017,400.5,313.3,Roads,Latin America,Goldman Sachs,261,22,False
+IJG_00044,Infrastructure Deal 44,Bond Issuance,2012,333.3,203.2,Airports,Africa,Standard Chartered,332,10,False
+IJG_00045,Infrastructure Deal 45,Bond Issuance,2014,98.7,68.8,Roads,Europe,HSBC,431,16,False
+IJG_00046,Infrastructure Deal 46,Bond Issuance,2017,58.9,48.5,Telecom,Latin America,Standard Chartered,250,10,False
+IJG_00047,Infrastructure Deal 47,Bond Issuance,2021,789.0,572.4,Water,Africa,JP Morgan,185,12,False
+IJG_00048,Infrastructure Deal 48,Acquisition,2020,1131.4,832.2,Power,Middle East,BNP Paribas,319,14,False
+IJG_00049,Infrastructure Deal 49,Refinancing,2014,173.6,129.4,Power,North America,BNP Paribas,312,22,False
+IJG_00050,Infrastructure Deal 50,Acquisition,2010,136.9,86.3,Power,Middle East,Citibank,283,20,False
+IJG_00051,Infrastructure Deal 51,Acquisition,2015,632.1,431.8,Airports,Latin America,BNP Paribas,318,24,False
+IJG_00052,Infrastructure Deal 52,Acquisition,2012,771.1,553.4,Roads,North America,Standard Chartered,166,20,False
+IJG_00053,Infrastructure Deal 53,Project Finance,2015,115.6,77.2,Power,Asia Pacific,Societe Generale,170,15,False
+IJG_00054,Infrastructure Deal 54,Project Finance,2016,318.1,203.3,Water,Asia Pacific,JP Morgan,244,17,False
+IJG_00055,Infrastructure Deal 55,Bond Issuance,2023,338.9,252.5,Ports,Europe,Citibank,249,14,False
+IJG_00056,Infrastructure Deal 56,Refinancing,2016,3798.9,2437.7,Telecom,Africa,HSBC,427,20,False
+IJG_00057,Infrastructure Deal 57,Acquisition,2016,1059.4,851.8,Power,Europe,Goldman Sachs,410,21,False
+IJG_00058,Infrastructure Deal 58,Acquisition,2017,389.2,273.0,Telecom,Africa,Standard Chartered,229,16,False
+IJG_00059,Infrastructure Deal 59,Bond Issuance,2019,549.3,451.4,Roads,Asia Pacific,JP Morgan,234,13,False
+IJG_00060,Infrastructure Deal 60,Project Finance,2015,151.5,119.6,Airports,Asia Pacific,Citibank,446,17,False
+IJG_00061,Infrastructure Deal 61,Acquisition,2014,7832.3,5179.3,Water,Latin America,Standard Chartered,197,23,False
+IJG_00062,Infrastructure Deal 62,Refinancing,2016,291.8,202.5,Roads,Europe,Societe Generale,224,12,False
+IJG_00063,Infrastructure Deal 63,Refinancing,2020,242.7,160.1,Telecom,Europe,JP Morgan,342,13,False
+IJG_00064,Infrastructure Deal 64,Bond Issuance,2023,578.8,440.7,Roads,Latin America,BNP Paribas,249,10,False
+IJG_00065,Infrastructure Deal 65,Project Finance,2017,440.6,296.8,Telecom,Asia Pacific,Citibank,334,14,False
+IJG_00066,Infrastructure Deal 66,Acquisition,2022,1120.1,924.8,Power,Europe,Standard Chartered,380,23,False
+IJG_00067,Infrastructure Deal 67,Acquisition,2016,2542.5,1643.0,Telecom,Europe,Citibank,389,11,False
+IJG_00068,Infrastructure Deal 68,Acquisition,2017,213.6,144.5,Ports,Asia Pacific,Societe Generale,241,18,False
+IJG_00069,Infrastructure Deal 69,Bond Issuance,2021,918.1,765.0,Water,Middle East,Societe Generale,335,23,False
+IJG_00070,Infrastructure Deal 70,Refinancing,2015,1494.7,1204.5,Ports,Middle East,Goldman Sachs,284,21,False
+IJG_00071,Infrastructure Deal 71,Bond Issuance,2011,987.2,744.4,Ports,Europe,Deutsche Bank,262,21,False
+IJG_00072,Infrastructure Deal 72,Project Finance,2019,286.9,174.3,Airports,North America,Deutsche Bank,374,13,False
+IJG_00073,Infrastructure Deal 73,Acquisition,2018,752.9,490.3,Telecom,Africa,Deutsche Bank,320,16,False
+IJG_00074,Infrastructure Deal 74,Acquisition,2013,1723.6,1205.7,Power,Middle East,Standard Chartered,257,19,False
+IJG_00075,Infrastructure Deal 75,Bond Issuance,2010,1441.8,1163.4,Power,Europe,BNP Paribas,388,15,False
+IJG_00076,Infrastructure Deal 76,Refinancing,2020,442.0,361.6,Water,Africa,Societe Generale,279,10,False
+IJG_00077,Infrastructure Deal 77,Acquisition,2022,144.5,111.9,Ports,Africa,BNP Paribas,403,21,False
+IJG_00078,Infrastructure Deal 78,Bond Issuance,2010,254.0,199.5,Airports,Africa,Deutsche Bank,289,20,False
+IJG_00079,Infrastructure Deal 79,Acquisition,2023,439.5,341.8,Telecom,Europe,Societe Generale,282,22,False
+IJG_00080,Infrastructure Deal 80,Refinancing,2019,114.4,96.1,Water,Latin America,Deutsche Bank,187,11,False
+IJG_00081,Infrastructure Deal 81,Bond Issuance,2013,1787.8,1370.6,Telecom,Asia Pacific,HSBC,202,12,True
+IJG_00082,Infrastructure Deal 82,Refinancing,2011,173.5,117.0,Airports,Europe,BNP Paribas,446,19,False
+IJG_00083,Infrastructure Deal 83,Refinancing,2021,266.0,218.1,Telecom,Asia Pacific,Goldman Sachs,344,24,True
+IJG_00084,Infrastructure Deal 84,Bond Issuance,2010,219.3,140.4,Power,Asia Pacific,Citibank,436,20,False
+IJG_00085,Infrastructure Deal 85,Project Finance,2019,109.3,71.6,Water,Latin America,Goldman Sachs,155,16,False
+IJG_00086,Infrastructure Deal 86,Project Finance,2019,798.1,527.9,Ports,Asia Pacific,HSBC,232,18,False
+IJG_00087,Infrastructure Deal 87,Acquisition,2018,235.5,183.5,Telecom,Europe,Goldman Sachs,398,19,False
+IJG_00088,Infrastructure Deal 88,Acquisition,2017,217.9,162.8,Water,Africa,BNP Paribas,366,23,False
+IJG_00089,Infrastructure Deal 89,Refinancing,2019,285.8,207.1,Telecom,Europe,Deutsche Bank,391,24,False
+IJG_00090,Infrastructure Deal 90,Project Finance,2022,250.5,162.2,Airports,Latin America,Citibank,151,15,False
+IJG_00091,Infrastructure Deal 91,Project Finance,2022,251.9,157.2,Airports,Asia Pacific,Societe Generale,288,14,False
+IJG_00092,Infrastructure Deal 92,Project Finance,2011,100.8,72.5,Power,Middle East,Citibank,176,20,False
+IJG_00093,Infrastructure Deal 93,Bond Issuance,2011,2114.3,1652.9,Airports,North America,Societe Generale,350,14,False
+IJG_00094,Infrastructure Deal 94,Bond Issuance,2013,4459.0,3234.1,Power,Latin America,Standard Chartered,337,10,False
+IJG_00095,Infrastructure Deal 95,Project Finance,2014,543.3,398.9,Roads,Asia Pacific,BNP Paribas,366,16,False
+IJG_00096,Infrastructure Deal 96,Refinancing,2010,1075.6,836.3,Water,Latin America,HSBC,233,10,False
+IJG_00097,Infrastructure Deal 97,Acquisition,2019,113.1,94.0,Telecom,Europe,Goldman Sachs,212,11,False
+IJG_00098,Infrastructure Deal 98,Bond Issuance,2021,1062.1,801.6,Telecom,Europe,HSBC,376,11,False
+IJG_00099,Infrastructure Deal 99,Bond Issuance,2021,152.4,97.0,Water,Asia Pacific,HSBC,376,10,False
+IJG_00100,Infrastructure Deal 100,Bond Issuance,2023,1071.6,875.7,Ports,Middle East,Citibank,316,12,False
+IJG_00101,Infrastructure Deal 101,Refinancing,2014,86.7,52.8,Water,Latin America,Societe Generale,430,15,False
+IJG_00102,Infrastructure Deal 102,Acquisition,2014,498.4,401.8,Power,North America,Societe Generale,229,21,False
+IJG_00103,Infrastructure Deal 103,Refinancing,2011,119.0,88.2,Airports,Latin America,Goldman Sachs,434,12,False
+IJG_00104,Infrastructure Deal 104,Bond Issuance,2021,421.3,354.0,Telecom,Latin America,JP Morgan,355,13,False
+IJG_00105,Infrastructure Deal 105,Refinancing,2015,456.9,343.1,Water,Africa,Societe Generale,266,13,False
+IJG_00106,Infrastructure Deal 106,Acquisition,2023,132.7,107.6,Power,Europe,BNP Paribas,230,23,False
+IJG_00107,Infrastructure Deal 107,Project Finance,2021,1501.5,1241.9,Ports,Middle East,BNP Paribas,169,21,False
+IJG_00108,Infrastructure Deal 108,Bond Issuance,2010,1540.5,969.9,Water,Latin America,Deutsche Bank,267,10,False
+IJG_00109,Infrastructure Deal 109,Acquisition,2012,2858.2,1773.0,Telecom,Europe,Goldman Sachs,441,15,False
+IJG_00110,Infrastructure Deal 110,Project Finance,2023,259.9,188.6,Water,Europe,Standard Chartered,224,21,True
+IJG_00111,Infrastructure Deal 111,Acquisition,2012,399.1,304.0,Roads,Asia Pacific,BNP Paribas,325,11,False
+IJG_00112,Infrastructure Deal 112,Project Finance,2016,807.0,541.5,Roads,Europe,Societe Generale,373,18,False
+IJG_00113,Infrastructure Deal 113,Acquisition,2015,990.2,741.7,Power,North America,Goldman Sachs,390,24,False
+IJG_00114,Infrastructure Deal 114,Acquisition,2012,26.2,17.6,Telecom,Middle East,Citibank,388,14,False
+IJG_00115,Infrastructure Deal 115,Refinancing,2014,1058.7,722.4,Water,Latin America,Goldman Sachs,377,13,False
+IJG_00116,Infrastructure Deal 116,Refinancing,2019,500.2,302.1,Power,Middle East,Societe Generale,420,18,False
+IJG_00117,Infrastructure Deal 117,Refinancing,2017,1134.5,856.8,Water,North America,Deutsche Bank,205,14,False
+IJG_00118,Infrastructure Deal 118,Project Finance,2017,1771.9,1233.1,Telecom,Latin America,Deutsche Bank,436,15,False
+IJG_00119,Infrastructure Deal 119,Project Finance,2014,1333.1,1022.5,Airports,Latin America,HSBC,203,15,False
+IJG_00120,Infrastructure Deal 120,Refinancing,2019,2758.4,1875.1,Ports,Middle East,Societe Generale,375,23,False
+IJG_00121,Infrastructure Deal 121,Project Finance,2017,250.8,204.9,Ports,Latin America,Deutsche Bank,185,23,False
+IJG_00122,Infrastructure Deal 122,Bond Issuance,2018,385.3,251.0,Power,Africa,Citibank,165,18,True
+IJG_00123,Infrastructure Deal 123,Project Finance,2022,547.1,391.0,Power,Middle East,Citibank,395,17,False
+IJG_00124,Infrastructure Deal 124,Bond Issuance,2020,168.1,115.7,Power,Middle East,Societe Generale,269,17,False
+IJG_00125,Infrastructure Deal 125,Refinancing,2018,180.1,116.7,Roads,Asia Pacific,JP Morgan,259,11,False
+IJG_00126,Infrastructure Deal 126,Refinancing,2010,310.9,221.0,Ports,Africa,JP Morgan,378,21,False
+IJG_00127,Infrastructure Deal 127,Project Finance,2013,14.1,11.3,Telecom,Latin America,BNP Paribas,271,14,False
+IJG_00128,Infrastructure Deal 128,Project Finance,2022,115.9,88.6,Roads,Europe,HSBC,233,17,False
+IJG_00129,Infrastructure Deal 129,Acquisition,2023,441.3,318.1,Power,North America,Societe Generale,265,10,False
+IJG_00130,Infrastructure Deal 130,Acquisition,2021,2314.6,1556.9,Roads,Asia Pacific,Citibank,233,19,False
+IJG_00131,Infrastructure Deal 131,Refinancing,2021,1393.4,837.5,Roads,Europe,Societe Generale,298,21,False
+IJG_00132,Infrastructure Deal 132,Bond Issuance,2019,1152.3,694.2,Roads,Africa,HSBC,321,11,False
+IJG_00133,Infrastructure Deal 133,Acquisition,2011,113.6,79.5,Telecom,Latin America,Standard Chartered,361,13,False
+IJG_00134,Infrastructure Deal 134,Refinancing,2012,216.0,177.3,Water,North America,HSBC,335,13,False
+IJG_00135,Infrastructure Deal 135,Bond Issuance,2013,266.4,216.3,Water,North America,JP Morgan,263,11,False
+IJG_00136,Infrastructure Deal 136,Acquisition,2023,1144.4,709.6,Power,North America,Citibank,366,17,False
+IJG_00137,Infrastructure Deal 137,Refinancing,2021,4396.3,2978.0,Roads,Europe,Deutsche Bank,420,20,False
+IJG_00138,Infrastructure Deal 138,Bond Issuance,2017,610.7,473.0,Roads,Latin America,Standard Chartered,224,14,False
+IJG_00139,Infrastructure Deal 139,Acquisition,2022,67.0,43.2,Airports,Middle East,HSBC,230,12,False
+IJG_00140,Infrastructure Deal 140,Acquisition,2011,183.7,131.7,Ports,Asia Pacific,HSBC,318,14,False
+IJG_00141,Infrastructure Deal 141,Acquisition,2014,140.0,112.8,Power,Asia Pacific,HSBC,413,13,False
+IJG_00142,Infrastructure Deal 142,Bond Issuance,2010,1108.0,683.3,Power,Europe,HSBC,299,23,False
+IJG_00143,Infrastructure Deal 143,Bond Issuance,2010,111.2,78.3,Power,Asia Pacific,Goldman Sachs,402,21,False
+IJG_00144,Infrastructure Deal 144,Project Finance,2016,326.9,243.0,Telecom,Europe,Goldman Sachs,191,16,False
+IJG_00145,Infrastructure Deal 145,Acquisition,2016,116.0,92.6,Power,Africa,HSBC,449,21,False
+IJG_00146,Infrastructure Deal 146,Acquisition,2013,1344.5,862.1,Telecom,North America,BNP Paribas,267,23,False
+IJG_00147,Infrastructure Deal 147,Refinancing,2011,450.2,286.0,Power,Middle East,HSBC,250,16,False
+IJG_00148,Infrastructure Deal 148,Acquisition,2017,220.8,153.8,Ports,Latin America,Citibank,155,12,False
+IJG_00149,Infrastructure Deal 149,Project Finance,2019,914.6,663.2,Water,Europe,Goldman Sachs,155,10,False
+IJG_00150,Infrastructure Deal 150,Project Finance,2014,575.9,401.9,Roads,Asia Pacific,Standard Chartered,372,11,False
+IJG_00151,Infrastructure Deal 151,Bond Issuance,2012,121.4,99.3,Power,Europe,BNP Paribas,364,20,False
+IJG_00152,Infrastructure Deal 152,Acquisition,2017,183.7,150.0,Water,Europe,Societe Generale,298,22,False
+IJG_00153,Infrastructure Deal 153,Project Finance,2018,186.6,115.2,Roads,North America,HSBC,185,21,False
+IJG_00154,Infrastructure Deal 154,Bond Issuance,2022,578.2,454.7,Roads,Europe,Citibank,199,14,False
+IJG_00155,Infrastructure Deal 155,Project Finance,2013,211.2,141.8,Ports,Middle East,JP Morgan,252,15,False
+IJG_00156,Infrastructure Deal 156,Project Finance,2015,1181.4,965.3,Ports,North America,BNP Paribas,284,18,False
+IJG_00157,Infrastructure Deal 157,Acquisition,2011,1604.3,1078.2,Power,Latin America,Standard Chartered,444,10,False
+IJG_00158,Infrastructure Deal 158,Acquisition,2017,87.2,63.0,Airports,Latin America,Citibank,150,24,False
+IJG_00159,Infrastructure Deal 159,Refinancing,2016,584.7,418.8,Power,North America,Deutsche Bank,365,20,False
+IJG_00160,Infrastructure Deal 160,Project Finance,2020,65.1,54.2,Ports,Africa,Societe Generale,363,17,False
+IJG_00161,Infrastructure Deal 161,Acquisition,2010,180.0,117.7,Ports,Europe,JP Morgan,248,23,False
+IJG_00162,Infrastructure Deal 162,Acquisition,2018,345.3,258.9,Ports,Europe,JP Morgan,308,16,False
+IJG_00163,Infrastructure Deal 163,Refinancing,2011,104.8,87.0,Ports,Europe,BNP Paribas,433,23,False
+IJG_00164,Infrastructure Deal 164,Acquisition,2023,246.6,168.6,Airports,Europe,Goldman Sachs,222,23,False
+IJG_00165,Infrastructure Deal 165,Acquisition,2017,194.3,152.0,Water,Middle East,Standard Chartered,250,23,False
+IJG_00166,Infrastructure Deal 166,Project Finance,2023,886.2,710.9,Ports,Latin America,Citibank,233,21,False
+IJG_00167,Infrastructure Deal 167,Refinancing,2020,372.8,253.9,Telecom,North America,JP Morgan,174,24,True
+IJG_00168,Infrastructure Deal 168,Acquisition,2012,95.4,67.0,Roads,North America,Standard Chartered,152,23,False
+IJG_00169,Infrastructure Deal 169,Acquisition,2014,660.1,425.8,Airports,Asia Pacific,JP Morgan,204,13,False
+IJG_00170,Infrastructure Deal 170,Bond Issuance,2018,158.1,110.2,Ports,Europe,Deutsche Bank,314,22,False
+IJG_00171,Infrastructure Deal 171,Bond Issuance,2016,153.0,107.8,Telecom,Europe,Standard Chartered,187,18,False
+IJG_00172,Infrastructure Deal 172,Acquisition,2018,87.2,70.9,Roads,Asia Pacific,Societe Generale,356,13,False
+IJG_00173,Infrastructure Deal 173,Acquisition,2018,468.3,364.9,Ports,Latin America,Goldman Sachs,156,23,False
+IJG_00174,Infrastructure Deal 174,Refinancing,2013,1667.0,1095.4,Airports,Europe,JP Morgan,352,11,False
+IJG_00175,Infrastructure Deal 175,Refinancing,2018,32.8,24.4,Telecom,North America,Deutsche Bank,387,22,False
+IJG_00176,Infrastructure Deal 176,Refinancing,2017,210.8,160.6,Airports,Middle East,BNP Paribas,222,24,False
+IJG_00177,Infrastructure Deal 177,Refinancing,2013,512.4,385.2,Water,Europe,BNP Paribas,191,14,False
+IJG_00178,Infrastructure Deal 178,Acquisition,2021,1538.9,957.4,Water,Africa,Deutsche Bank,161,20,False
+IJG_00179,Infrastructure Deal 179,Acquisition,2011,488.1,375.4,Airports,Europe,BNP Paribas,267,23,False
+IJG_00180,Infrastructure Deal 180,Bond Issuance,2010,2880.0,2428.3,Roads,Europe,Societe Generale,405,16,False
+IJG_00181,Infrastructure Deal 181,Refinancing,2016,351.0,278.4,Ports,Europe,Deutsche Bank,391,21,False
+IJG_00182,Infrastructure Deal 182,Project Finance,2011,1374.6,962.0,Water,Europe,HSBC,253,11,False
+IJG_00183,Infrastructure Deal 183,Refinancing,2010,2469.2,1856.9,Airports,North America,JP Morgan,371,24,False
+IJG_00184,Infrastructure Deal 184,Bond Issuance,2015,403.2,341.0,Airports,Latin America,Standard Chartered,175,23,False
+IJG_00185,Infrastructure Deal 185,Acquisition,2017,85.3,64.7,Telecom,Asia Pacific,JP Morgan,176,23,False
+IJG_00186,Infrastructure Deal 186,Bond Issuance,2011,98.4,59.8,Telecom,Africa,Standard Chartered,232,22,False
+IJG_00187,Infrastructure Deal 187,Bond Issuance,2022,2407.3,1728.8,Water,Europe,Citibank,367,16,False
+IJG_00188,Infrastructure Deal 188,Bond Issuance,2012,1396.4,1054.5,Telecom,North America,Societe Generale,360,21,False
+IJG_00189,Infrastructure Deal 189,Refinancing,2010,418.7,251.8,Roads,Europe,Goldman Sachs,403,16,False
+IJG_00190,Infrastructure Deal 190,Bond Issuance,2023,215.8,149.5,Airports,Africa,HSBC,190,12,False
+IJG_00191,Infrastructure Deal 191,Project Finance,2013,82.5,64.0,Roads,Latin America,JP Morgan,368,20,False
+IJG_00192,Infrastructure Deal 192,Refinancing,2014,7534.9,5924.1,Water,Europe,Citibank,350,14,True
+IJG_00193,Infrastructure Deal 193,Acquisition,2010,145.9,110.9,Water,Europe,Deutsche Bank,205,15,False
+IJG_00194,Infrastructure Deal 194,Refinancing,2016,197.7,123.3,Roads,North America,Societe Generale,316,19,False
+IJG_00195,Infrastructure Deal 195,Bond Issuance,2020,611.9,396.1,Roads,Latin America,Societe Generale,276,20,False
+IJG_00196,Infrastructure Deal 196,Project Finance,2014,1238.7,1010.0,Ports,Europe,Goldman Sachs,153,19,False
+IJG_00197,Infrastructure Deal 197,Refinancing,2020,1435.7,1216.5,Water,Asia Pacific,HSBC,199,18,False
+IJG_00198,Infrastructure Deal 198,Refinancing,2014,622.8,403.0,Roads,Asia Pacific,JP Morgan,262,17,False
+IJG_00199,Infrastructure Deal 199,Bond Issuance,2021,955.8,602.5,Ports,Europe,Societe Generale,237,22,False
+IJG_00200,Infrastructure Deal 200,Refinancing,2020,206.5,163.6,Roads,North America,Societe Generale,173,14,False
+IJG_00201,Infrastructure Deal 201,Acquisition,2015,1450.8,1056.7,Power,North America,Standard Chartered,304,12,False
+IJG_00202,Infrastructure Deal 202,Bond Issuance,2011,132.6,86.4,Power,Middle East,Citibank,271,18,False
+IJG_00203,Infrastructure Deal 203,Refinancing,2012,2367.8,1797.2,Water,Latin America,Citibank,236,20,False
+IJG_00204,Infrastructure Deal 204,Project Finance,2010,2449.0,1727.5,Ports,Europe,Citibank,214,19,True
+IJG_00205,Infrastructure Deal 205,Project Finance,2021,198.5,132.4,Power,North America,Goldman Sachs,370,24,False
+IJG_00206,Infrastructure Deal 206,Acquisition,2020,628.9,428.5,Water,North America,Deutsche Bank,363,15,False
+IJG_00207,Infrastructure Deal 207,Project Finance,2020,795.8,492.5,Telecom,Latin America,HSBC,427,24,False
+IJG_00208,Infrastructure Deal 208,Refinancing,2022,628.2,443.5,Power,Middle East,Deutsche Bank,218,24,False
+IJG_00209,Infrastructure Deal 209,Project Finance,2015,1134.1,897.3,Ports,Asia Pacific,Deutsche Bank,185,24,False
+IJG_00210,Infrastructure Deal 210,Project Finance,2011,133.7,92.9,Power,Middle East,Goldman Sachs,166,18,False
+IJG_00211,Infrastructure Deal 211,Bond Issuance,2018,306.0,228.3,Power,Africa,Goldman Sachs,420,13,False
+IJG_00212,Infrastructure Deal 212,Refinancing,2016,310.3,204.7,Water,Latin America,BNP Paribas,369,10,False
+IJG_00213,Infrastructure Deal 213,Refinancing,2011,59.5,36.2,Ports,Middle East,HSBC,366,20,False
+IJG_00214,Infrastructure Deal 214,Refinancing,2023,262.3,203.5,Ports,Africa,BNP Paribas,414,23,False
+IJG_00215,Infrastructure Deal 215,Acquisition,2020,484.4,397.6,Telecom,Africa,Deutsche Bank,414,20,False
+IJG_00216,Infrastructure Deal 216,Acquisition,2012,340.2,212.8,Roads,Latin America,Standard Chartered,436,19,False
+IJG_00217,Infrastructure Deal 217,Bond Issuance,2018,589.8,355.6,Water,Asia Pacific,Standard Chartered,251,12,False
+IJG_00218,Infrastructure Deal 218,Refinancing,2012,179.9,113.7,Power,Middle East,HSBC,158,10,False
+IJG_00219,Infrastructure Deal 219,Acquisition,2021,1094.2,695.6,Power,Europe,Standard Chartered,428,24,False
+IJG_00220,Infrastructure Deal 220,Project Finance,2010,54.3,37.5,Roads,North America,Societe Generale,422,24,False
+IJG_00221,Infrastructure Deal 221,Project Finance,2010,1962.5,1642.6,Ports,Africa,Goldman Sachs,207,20,False
+IJG_00222,Infrastructure Deal 222,Acquisition,2013,1631.5,1083.3,Ports,Europe,Goldman Sachs,250,19,False
+IJG_00223,Infrastructure Deal 223,Project Finance,2021,279.8,207.5,Power,Latin America,Citibank,307,17,False
+IJG_00224,Infrastructure Deal 224,Bond Issuance,2012,963.1,763.8,Airports,North America,Standard Chartered,440,24,False
+IJG_00225,Infrastructure Deal 225,Acquisition,2014,670.7,552.1,Telecom,Latin America,JP Morgan,410,19,False
+IJG_00226,Infrastructure Deal 226,Refinancing,2023,369.3,280.5,Airports,Middle East,BNP Paribas,359,17,True
+IJG_00227,Infrastructure Deal 227,Refinancing,2023,337.3,235.3,Roads,Asia Pacific,Standard Chartered,274,12,False
+IJG_00228,Infrastructure Deal 228,Acquisition,2023,617.7,508.9,Roads,North America,Goldman Sachs,210,21,False
+IJG_00229,Infrastructure Deal 229,Project Finance,2015,103.3,72.0,Water,Middle East,Deutsche Bank,417,18,False
+IJG_00230,Infrastructure Deal 230,Acquisition,2018,183.0,116.5,Telecom,North America,JP Morgan,233,13,False
+IJG_00231,Infrastructure Deal 231,Project Finance,2012,108.7,85.6,Power,Europe,HSBC,199,17,False
+IJG_00232,Infrastructure Deal 232,Acquisition,2013,619.7,483.6,Ports,Middle East,Goldman Sachs,217,18,False
+IJG_00233,Infrastructure Deal 233,Acquisition,2018,367.2,290.9,Power,Latin America,JP Morgan,372,20,False
+IJG_00234,Infrastructure Deal 234,Project Finance,2013,450.3,278.0,Airports,Africa,Deutsche Bank,427,13,False
+IJG_00235,Infrastructure Deal 235,Project Finance,2015,769.9,503.9,Power,Latin America,Standard Chartered,340,14,False
+IJG_00236,Infrastructure Deal 236,Project Finance,2023,168.4,109.8,Ports,North America,BNP Paribas,197,20,False
+IJG_00237,Infrastructure Deal 237,Acquisition,2010,232.8,174.8,Roads,North America,JP Morgan,358,13,False
+IJG_00238,Infrastructure Deal 238,Refinancing,2022,885.6,624.6,Water,Asia Pacific,JP Morgan,382,11,False
+IJG_00239,Infrastructure Deal 239,Bond Issuance,2013,127.5,101.4,Roads,Latin America,BNP Paribas,242,24,False
+IJG_00240,Infrastructure Deal 240,Project Finance,2015,1126.6,807.4,Telecom,Europe,HSBC,424,18,False
+IJG_00241,Infrastructure Deal 241,Project Finance,2020,3662.2,2891.8,Airports,Asia Pacific,Deutsche Bank,380,20,False
+IJG_00242,Infrastructure Deal 242,Bond Issuance,2013,130.3,83.4,Roads,North America,Goldman Sachs,171,20,False
+IJG_00243,Infrastructure Deal 243,Acquisition,2011,255.3,199.5,Telecom,Latin America,Goldman Sachs,322,17,False
+IJG_00244,Infrastructure Deal 244,Refinancing,2021,692.0,498.4,Power,Middle East,Societe Generale,155,15,False
+IJG_00245,Infrastructure Deal 245,Bond Issuance,2023,2668.3,2012.2,Airports,North America,Societe Generale,218,18,False
+IJG_00246,Infrastructure Deal 246,Project Finance,2023,225.1,156.8,Airports,Asia Pacific,Goldman Sachs,255,18,False
+IJG_00247,Infrastructure Deal 247,Bond Issuance,2012,211.3,166.1,Telecom,Asia Pacific,JP Morgan,328,10,False
+IJG_00248,Infrastructure Deal 248,Project Finance,2011,199.4,142.7,Roads,Europe,Societe Generale,279,21,False
+IJG_00249,Infrastructure Deal 249,Refinancing,2023,907.7,668.8,Power,Africa,HSBC,359,21,False
+IJG_00250,Infrastructure Deal 250,Project Finance,2016,504.4,369.5,Power,Europe,Deutsche Bank,385,14,False
+IJG_00251,Infrastructure Deal 251,Acquisition,2011,4787.1,3435.1,Roads,Africa,JP Morgan,420,18,False
+IJG_00252,Infrastructure Deal 252,Bond Issuance,2023,261.9,196.5,Water,Europe,Societe Generale,275,14,False
+IJG_00253,Infrastructure Deal 253,Refinancing,2014,434.7,279.7,Airports,Europe,HSBC,309,17,False
+IJG_00254,Infrastructure Deal 254,Refinancing,2018,410.8,309.5,Roads,Asia Pacific,Standard Chartered,361,19,False
+IJG_00255,Infrastructure Deal 255,Project Finance,2014,2276.5,1634.6,Airports,Africa,Societe Generale,250,13,False
+IJG_00256,Infrastructure Deal 256,Project Finance,2016,196.2,139.0,Roads,Asia Pacific,BNP Paribas,397,11,False
+IJG_00257,Infrastructure Deal 257,Bond Issuance,2015,604.9,426.9,Power,Africa,Citibank,415,16,False
+IJG_00258,Infrastructure Deal 258,Bond Issuance,2016,410.4,281.4,Ports,Middle East,Societe Generale,398,23,False
+IJG_00259,Infrastructure Deal 259,Project Finance,2012,135.7,99.4,Telecom,Asia Pacific,JP Morgan,311,21,False
+IJG_00260,Infrastructure Deal 260,Project Finance,2012,885.9,570.0,Telecom,Asia Pacific,Standard Chartered,156,16,False
+IJG_00261,Infrastructure Deal 261,Bond Issuance,2021,133.9,83.1,Power,Middle East,BNP Paribas,153,17,False
+IJG_00262,Infrastructure Deal 262,Project Finance,2021,1478.2,1233.5,Roads,Latin America,Societe Generale,405,10,False
+IJG_00263,Infrastructure Deal 263,Project Finance,2018,153.5,109.6,Roads,Africa,JP Morgan,333,19,False
+IJG_00264,Infrastructure Deal 264,Acquisition,2021,147.7,96.1,Telecom,North America,Deutsche Bank,411,22,False
+IJG_00265,Infrastructure Deal 265,Refinancing,2023,681.9,519.9,Ports,Africa,Deutsche Bank,383,13,False
+IJG_00266,Infrastructure Deal 266,Acquisition,2018,263.5,206.4,Power,Middle East,Goldman Sachs,351,17,False
+IJG_00267,Infrastructure Deal 267,Refinancing,2020,261.5,212.2,Airports,North America,HSBC,286,17,False
+IJG_00268,Infrastructure Deal 268,Acquisition,2016,872.9,596.6,Airports,Latin America,Deutsche Bank,405,10,True
+IJG_00269,Infrastructure Deal 269,Project Finance,2010,2662.1,2034.8,Airports,North America,JP Morgan,379,23,False
+IJG_00270,Infrastructure Deal 270,Acquisition,2022,157.4,111.6,Water,Middle East,Standard Chartered,218,15,False
+IJG_00271,Infrastructure Deal 271,Bond Issuance,2010,1226.2,977.4,Airports,Africa,Societe Generale,358,16,False
+IJG_00272,Infrastructure Deal 272,Bond Issuance,2018,447.7,311.6,Telecom,Asia Pacific,HSBC,209,23,False
+IJG_00273,Infrastructure Deal 273,Bond Issuance,2020,335.2,265.7,Airports,Middle East,HSBC,355,22,False
+IJG_00274,Infrastructure Deal 274,Refinancing,2017,86.0,61.0,Power,Asia Pacific,Goldman Sachs,417,21,False
+IJG_00275,Infrastructure Deal 275,Bond Issuance,2020,725.2,550.8,Water,Europe,JP Morgan,285,12,False
+IJG_00276,Infrastructure Deal 276,Project Finance,2016,483.3,342.9,Water,Europe,BNP Paribas,448,11,False
+IJG_00277,Infrastructure Deal 277,Bond Issuance,2015,620.0,525.5,Power,Europe,Societe Generale,174,22,False
+IJG_00278,Infrastructure Deal 278,Bond Issuance,2013,1175.2,761.2,Airports,Africa,BNP Paribas,411,24,False
+IJG_00279,Infrastructure Deal 279,Acquisition,2021,86.4,64.1,Power,Latin America,JP Morgan,215,17,False
+IJG_00280,Infrastructure Deal 280,Bond Issuance,2020,110.9,85.2,Ports,Africa,HSBC,278,24,False
+IJG_00281,Infrastructure Deal 281,Acquisition,2011,532.4,406.7,Telecom,Middle East,Goldman Sachs,320,23,False
+IJG_00282,Infrastructure Deal 282,Acquisition,2010,1467.5,1071.2,Telecom,Middle East,JP Morgan,230,22,False
+IJG_00283,Infrastructure Deal 283,Bond Issuance,2019,728.3,467.4,Roads,North America,HSBC,409,18,False
+IJG_00284,Infrastructure Deal 284,Refinancing,2011,4.2,3.3,Power,Africa,Citibank,379,14,False
+IJG_00285,Infrastructure Deal 285,Acquisition,2022,154.8,103.2,Telecom,North America,Standard Chartered,161,24,False
+IJG_00286,Infrastructure Deal 286,Bond Issuance,2012,573.2,394.3,Airports,Asia Pacific,BNP Paribas,379,17,True
+IJG_00287,Infrastructure Deal 287,Bond Issuance,2014,572.6,425.0,Telecom,Latin America,Societe Generale,282,14,False
+IJG_00288,Infrastructure Deal 288,Acquisition,2015,47.0,30.6,Telecom,Europe,JP Morgan,278,11,False
+IJG_00289,Infrastructure Deal 289,Acquisition,2014,512.9,413.6,Power,Asia Pacific,Societe Generale,154,12,False
+IJG_00290,Infrastructure Deal 290,Refinancing,2018,2557.4,1773.9,Power,Latin America,Societe Generale,155,15,False
+IJG_00291,Infrastructure Deal 291,Bond Issuance,2020,116.0,79.0,Ports,Asia Pacific,JP Morgan,200,16,False
+IJG_00292,Infrastructure Deal 292,Acquisition,2019,432.3,366.6,Ports,Europe,Standard Chartered,225,13,False
+IJG_00293,Infrastructure Deal 293,Project Finance,2022,766.8,535.9,Ports,Middle East,Standard Chartered,289,19,False
+IJG_00294,Infrastructure Deal 294,Acquisition,2010,1040.0,816.7,Water,Middle East,Standard Chartered,398,14,False
+IJG_00295,Infrastructure Deal 295,Acquisition,2018,230.3,187.3,Power,Africa,HSBC,266,18,False
+IJG_00296,Infrastructure Deal 296,Bond Issuance,2017,380.3,296.0,Telecom,Asia Pacific,Standard Chartered,353,12,False
+IJG_00297,Infrastructure Deal 297,Acquisition,2022,58.1,44.5,Ports,Africa,Standard Chartered,154,21,False
+IJG_00298,Infrastructure Deal 298,Project Finance,2016,2315.1,1950.6,Ports,Latin America,HSBC,322,18,False
+IJG_00299,Infrastructure Deal 299,Bond Issuance,2023,892.6,613.1,Water,Latin America,BNP Paribas,384,10,False
+IJG_00300,Infrastructure Deal 300,Acquisition,2017,410.0,320.9,Power,North America,Goldman Sachs,203,24,False
+IJG_00301,Infrastructure Deal 301,Acquisition,2011,1266.6,884.9,Water,Asia Pacific,BNP Paribas,188,23,False
+IJG_00302,Infrastructure Deal 302,Refinancing,2023,617.4,468.8,Telecom,Asia Pacific,HSBC,366,16,False
+IJG_00303,Infrastructure Deal 303,Refinancing,2016,156.5,121.4,Ports,Middle East,Standard Chartered,417,20,False
+IJG_00304,Infrastructure Deal 304,Project Finance,2022,511.2,400.8,Ports,Middle East,Deutsche Bank,326,24,False
+IJG_00305,Infrastructure Deal 305,Refinancing,2019,163.2,135.5,Ports,North America,Societe Generale,340,20,False
+IJG_00306,Infrastructure Deal 306,Acquisition,2016,771.6,632.1,Water,Middle East,Societe Generale,188,10,False
+IJG_00307,Infrastructure Deal 307,Bond Issuance,2016,278.1,188.4,Water,Europe,Deutsche Bank,232,12,False
+IJG_00308,Infrastructure Deal 308,Acquisition,2011,363.3,266.0,Roads,Latin America,HSBC,247,18,False
+IJG_00309,Infrastructure Deal 309,Project Finance,2016,282.8,173.4,Roads,Middle East,JP Morgan,441,12,False
+IJG_00310,Infrastructure Deal 310,Project Finance,2014,343.0,221.8,Ports,Europe,Deutsche Bank,208,24,False
+IJG_00311,Infrastructure Deal 311,Bond Issuance,2012,81.2,61.2,Airports,Africa,HSBC,414,19,False
+IJG_00312,Infrastructure Deal 312,Bond Issuance,2015,64.1,47.1,Airports,Asia Pacific,Standard Chartered,210,23,False
+IJG_00313,Infrastructure Deal 313,Project Finance,2022,1264.2,959.8,Roads,North America,HSBC,250,22,False
+IJG_00314,Infrastructure Deal 314,Project Finance,2022,206.3,144.2,Water,Latin America,Societe Generale,412,21,False
+IJG_00315,Infrastructure Deal 315,Refinancing,2022,52.3,38.0,Roads,North America,Goldman Sachs,384,10,False
+IJG_00316,Infrastructure Deal 316,Bond Issuance,2010,889.1,753.3,Telecom,Asia Pacific,Goldman Sachs,312,24,False
+IJG_00317,Infrastructure Deal 317,Refinancing,2018,182.0,149.3,Telecom,Africa,Goldman Sachs,333,21,False
+IJG_00318,Infrastructure Deal 318,Bond Issuance,2023,286.6,242.9,Telecom,Latin America,BNP Paribas,343,12,True
+IJG_00319,Infrastructure Deal 319,Acquisition,2022,87.5,70.7,Roads,Latin America,Deutsche Bank,171,23,False
+IJG_00320,Infrastructure Deal 320,Project Finance,2020,269.2,165.5,Power,Latin America,BNP Paribas,443,24,False
+IJG_00321,Infrastructure Deal 321,Refinancing,2021,277.6,226.5,Airports,Latin America,Citibank,170,17,False
+IJG_00322,Infrastructure Deal 322,Refinancing,2013,1393.2,1090.9,Roads,North America,Goldman Sachs,242,13,False
+IJG_00323,Infrastructure Deal 323,Refinancing,2016,113.1,79.4,Airports,Latin America,JP Morgan,396,22,False
+IJG_00324,Infrastructure Deal 324,Bond Issuance,2022,808.5,638.3,Roads,Asia Pacific,Goldman Sachs,221,21,False
+IJG_00325,Infrastructure Deal 325,Bond Issuance,2022,13.3,9.9,Power,Latin America,Citibank,252,13,False
+IJG_00326,Infrastructure Deal 326,Project Finance,2010,334.5,217.7,Power,Europe,Goldman Sachs,292,11,False
+IJG_00327,Infrastructure Deal 327,Acquisition,2015,156.7,113.4,Water,Asia Pacific,Standard Chartered,372,10,False
+IJG_00328,Infrastructure Deal 328,Bond Issuance,2016,578.6,394.2,Power,North America,HSBC,301,10,False
+IJG_00329,Infrastructure Deal 329,Refinancing,2018,662.7,420.1,Ports,Latin America,Citibank,153,12,False
+IJG_00330,Infrastructure Deal 330,Project Finance,2016,91.0,61.8,Roads,Africa,JP Morgan,150,16,False
+IJG_00331,Infrastructure Deal 331,Acquisition,2013,311.5,196.9,Telecom,Middle East,Deutsche Bank,189,11,False
+IJG_00332,Infrastructure Deal 332,Acquisition,2012,504.3,385.5,Power,Asia Pacific,Citibank,373,16,False
+IJG_00333,Infrastructure Deal 333,Acquisition,2011,135.3,89.3,Power,Europe,Societe Generale,265,18,False
+IJG_00334,Infrastructure Deal 334,Project Finance,2018,2185.1,1444.4,Water,Asia Pacific,BNP Paribas,383,16,False
+IJG_00335,Infrastructure Deal 335,Acquisition,2022,406.0,270.7,Telecom,Middle East,Standard Chartered,409,20,False
+IJG_00336,Infrastructure Deal 336,Refinancing,2011,308.9,230.3,Power,Africa,Citibank,354,20,False
+IJG_00337,Infrastructure Deal 337,Acquisition,2019,250.3,198.5,Airports,North America,Societe Generale,420,10,False
+IJG_00338,Infrastructure Deal 338,Acquisition,2010,243.5,166.4,Roads,Latin America,Societe Generale,182,18,False
+IJG_00339,Infrastructure Deal 339,Acquisition,2018,124.9,88.2,Roads,North America,BNP Paribas,243,21,False
+IJG_00340,Infrastructure Deal 340,Bond Issuance,2020,1047.3,687.4,Water,Middle East,Citibank,362,24,False
+IJG_00341,Infrastructure Deal 341,Bond Issuance,2011,56.4,42.0,Airports,Europe,BNP Paribas,332,15,False
+IJG_00342,Infrastructure Deal 342,Project Finance,2014,465.0,380.0,Water,Europe,Deutsche Bank,243,20,False
+IJG_00343,Infrastructure Deal 343,Refinancing,2013,167.6,127.8,Ports,Latin America,HSBC,293,12,False
+IJG_00344,Infrastructure Deal 344,Acquisition,2023,173.8,121.8,Telecom,Asia Pacific,JP Morgan,439,19,False
+IJG_00345,Infrastructure Deal 345,Project Finance,2011,32.4,26.9,Telecom,Asia Pacific,HSBC,169,12,False
+IJG_00346,Infrastructure Deal 346,Project Finance,2016,289.6,189.8,Water,North America,Deutsche Bank,364,21,False
+IJG_00347,Infrastructure Deal 347,Refinancing,2017,375.6,317.3,Airports,Latin America,BNP Paribas,270,13,False
+IJG_00348,Infrastructure Deal 348,Bond Issuance,2019,69.6,52.2,Telecom,Asia Pacific,Goldman Sachs,316,20,False
+IJG_00349,Infrastructure Deal 349,Refinancing,2020,546.6,391.1,Power,Europe,Citibank,418,24,False
+IJG_00350,Infrastructure Deal 350,Acquisition,2012,1482.4,1219.3,Telecom,Asia Pacific,JP Morgan,416,20,False
+IJG_00351,Infrastructure Deal 351,Acquisition,2013,574.5,439.6,Telecom,Europe,Citibank,288,18,False
+IJG_00352,Infrastructure Deal 352,Acquisition,2017,235.7,177.8,Roads,Latin America,Citibank,254,18,False
+IJG_00353,Infrastructure Deal 353,Project Finance,2022,95.8,67.8,Water,Latin America,JP Morgan,178,24,True
+IJG_00354,Infrastructure Deal 354,Bond Issuance,2015,384.0,308.2,Ports,Middle East,Citibank,398,14,False
+IJG_00355,Infrastructure Deal 355,Project Finance,2023,196.7,129.8,Ports,North America,Standard Chartered,372,12,False
+IJG_00356,Infrastructure Deal 356,Acquisition,2023,505.5,379.4,Water,Asia Pacific,HSBC,345,11,False
+IJG_00357,Infrastructure Deal 357,Bond Issuance,2019,1001.9,624.6,Ports,North America,Standard Chartered,221,11,False
+IJG_00358,Infrastructure Deal 358,Project Finance,2023,196.7,124.3,Power,Latin America,Citibank,301,23,False
+IJG_00359,Infrastructure Deal 359,Bond Issuance,2010,316.7,202.1,Airports,Europe,Goldman Sachs,270,15,False
+IJG_00360,Infrastructure Deal 360,Bond Issuance,2020,50.4,41.7,Roads,Latin America,HSBC,158,19,False
+IJG_00361,Infrastructure Deal 361,Acquisition,2012,298.9,211.5,Airports,Africa,BNP Paribas,313,18,False
+IJG_00362,Infrastructure Deal 362,Acquisition,2012,828.2,655.7,Water,Middle East,BNP Paribas,209,18,False
+IJG_00363,Infrastructure Deal 363,Acquisition,2023,154.6,127.9,Power,Latin America,HSBC,317,13,False
+IJG_00364,Infrastructure Deal 364,Acquisition,2018,406.9,295.1,Power,Africa,HSBC,390,18,False
+IJG_00365,Infrastructure Deal 365,Acquisition,2013,455.6,323.2,Water,North America,HSBC,394,22,False
+IJG_00366,Infrastructure Deal 366,Acquisition,2011,190.5,150.8,Telecom,Latin America,Societe Generale,438,10,False
+IJG_00367,Infrastructure Deal 367,Project Finance,2014,211.3,179.0,Water,Europe,Standard Chartered,449,18,False
+IJG_00368,Infrastructure Deal 368,Refinancing,2023,188.1,132.8,Telecom,Africa,JP Morgan,245,14,False
+IJG_00369,Infrastructure Deal 369,Acquisition,2020,191.9,158.7,Telecom,Europe,BNP Paribas,325,23,False
+IJG_00370,Infrastructure Deal 370,Refinancing,2011,288.4,202.4,Airports,North America,BNP Paribas,305,11,False
+IJG_00371,Infrastructure Deal 371,Project Finance,2010,957.5,596.8,Airports,Europe,Citibank,333,22,False
+IJG_00372,Infrastructure Deal 372,Bond Issuance,2023,179.9,127.9,Power,North America,Goldman Sachs,440,10,False
+IJG_00373,Infrastructure Deal 373,Project Finance,2016,284.4,211.3,Telecom,Latin America,Standard Chartered,194,14,False
+IJG_00374,Infrastructure Deal 374,Refinancing,2010,517.1,393.6,Ports,Latin America,Goldman Sachs,232,23,False
+IJG_00375,Infrastructure Deal 375,Project Finance,2011,445.5,333.7,Telecom,Latin America,Societe Generale,224,24,False
+IJG_00376,Infrastructure Deal 376,Bond Issuance,2012,2163.5,1520.4,Power,Middle East,Societe Generale,181,18,False
+IJG_00377,Infrastructure Deal 377,Bond Issuance,2021,1752.6,1201.5,Roads,Asia Pacific,Deutsche Bank,183,13,False
+IJG_00378,Infrastructure Deal 378,Refinancing,2017,891.5,703.1,Water,Africa,Goldman Sachs,443,22,False
+IJG_00379,Infrastructure Deal 379,Bond Issuance,2014,2507.8,1586.8,Power,Asia Pacific,HSBC,331,12,False
+IJG_00380,Infrastructure Deal 380,Bond Issuance,2015,1393.1,1173.2,Ports,Europe,Standard Chartered,256,10,False
+IJG_00381,Infrastructure Deal 381,Acquisition,2010,301.7,253.8,Water,Africa,BNP Paribas,253,15,False
+IJG_00382,Infrastructure Deal 382,Refinancing,2014,294.5,223.8,Power,Latin America,Goldman Sachs,434,15,False
+IJG_00383,Infrastructure Deal 383,Refinancing,2014,371.1,277.5,Water,Europe,Societe Generale,218,21,False
+IJG_00384,Infrastructure Deal 384,Refinancing,2019,1170.1,704.3,Roads,Africa,HSBC,403,19,True
+IJG_00385,Infrastructure Deal 385,Bond Issuance,2019,464.0,385.0,Ports,Asia Pacific,BNP Paribas,155,18,False
+IJG_00386,Infrastructure Deal 386,Project Finance,2019,359.1,264.7,Water,Latin America,Goldman Sachs,335,21,True
+IJG_00387,Infrastructure Deal 387,Refinancing,2022,389.4,275.8,Power,North America,Standard Chartered,268,15,False
+IJG_00388,Infrastructure Deal 388,Refinancing,2014,610.8,383.0,Water,Africa,BNP Paribas,445,16,False
+IJG_00389,Infrastructure Deal 389,Bond Issuance,2020,631.8,451.1,Ports,Africa,BNP Paribas,240,14,False
+IJG_00390,Infrastructure Deal 390,Refinancing,2022,405.3,251.1,Roads,North America,BNP Paribas,169,17,False
+IJG_00391,Infrastructure Deal 391,Bond Issuance,2014,1646.7,1267.9,Ports,Latin America,HSBC,349,21,False
+IJG_00392,Infrastructure Deal 392,Project Finance,2022,90.2,72.6,Airports,Asia Pacific,JP Morgan,331,12,False
+IJG_00393,Infrastructure Deal 393,Project Finance,2019,319.8,218.3,Airports,Africa,HSBC,242,17,False
+IJG_00394,Infrastructure Deal 394,Refinancing,2011,35.0,25.6,Power,Europe,Citibank,356,24,False
+IJG_00395,Infrastructure Deal 395,Refinancing,2014,4995.8,3683.7,Airports,Europe,Societe Generale,358,21,False
+IJG_00396,Infrastructure Deal 396,Refinancing,2021,319.2,227.3,Power,Middle East,BNP Paribas,345,23,False
+IJG_00397,Infrastructure Deal 397,Project Finance,2016,1674.9,1166.7,Telecom,Middle East,BNP Paribas,382,15,True
+IJG_00398,Infrastructure Deal 398,Project Finance,2019,1568.5,954.2,Airports,Latin America,HSBC,397,22,False
+IJG_00399,Infrastructure Deal 399,Acquisition,2016,392.7,264.8,Water,Asia Pacific,HSBC,211,19,False
+IJG_00400,Infrastructure Deal 400,Project Finance,2017,257.3,169.3,Telecom,North America,Standard Chartered,368,12,False
+IJG_00401,Infrastructure Deal 401,Acquisition,2015,452.1,329.5,Roads,Latin America,Societe Generale,381,23,False
+IJG_00402,Infrastructure Deal 402,Refinancing,2010,172.1,129.2,Water,Africa,Goldman Sachs,393,19,False
+IJG_00403,Infrastructure Deal 403,Acquisition,2016,190.0,159.4,Roads,Africa,Citibank,409,13,False
+IJG_00404,Infrastructure Deal 404,Bond Issuance,2013,600.1,410.5,Airports,Latin America,Standard Chartered,354,10,False
+IJG_00405,Infrastructure Deal 405,Project Finance,2011,487.1,318.0,Telecom,Middle East,Goldman Sachs,436,19,False
+IJG_00406,Infrastructure Deal 406,Project Finance,2015,83.2,59.0,Roads,Africa,Goldman Sachs,224,13,False
+IJG_00407,Infrastructure Deal 407,Refinancing,2018,1445.3,886.6,Ports,Africa,Deutsche Bank,153,11,False
+IJG_00408,Infrastructure Deal 408,Acquisition,2012,708.0,526.9,Water,Latin America,Standard Chartered,261,19,False
+IJG_00409,Infrastructure Deal 409,Acquisition,2013,1671.7,1316.7,Airports,Europe,HSBC,296,11,False
+IJG_00410,Infrastructure Deal 410,Refinancing,2012,172.7,118.6,Roads,Africa,BNP Paribas,218,11,False
+IJG_00411,Infrastructure Deal 411,Acquisition,2022,1966.5,1529.3,Airports,Middle East,Societe Generale,206,12,False
+IJG_00412,Infrastructure Deal 412,Project Finance,2011,4185.7,3211.3,Ports,Asia Pacific,BNP Paribas,150,12,False
+IJG_00413,Infrastructure Deal 413,Acquisition,2018,314.5,230.5,Power,Europe,Deutsche Bank,389,12,False
+IJG_00414,Infrastructure Deal 414,Acquisition,2013,1531.4,1052.5,Ports,Africa,Societe Generale,285,20,False
+IJG_00415,Infrastructure Deal 415,Acquisition,2013,283.0,172.8,Telecom,Latin America,Standard Chartered,307,13,False
+IJG_00416,Infrastructure Deal 416,Refinancing,2022,174.0,124.6,Roads,Africa,HSBC,415,23,False
+IJG_00417,Infrastructure Deal 417,Acquisition,2015,355.2,291.2,Roads,Africa,Citibank,367,17,False
+IJG_00418,Infrastructure Deal 418,Bond Issuance,2016,724.3,518.2,Water,Middle East,JP Morgan,302,16,False
+IJG_00419,Infrastructure Deal 419,Project Finance,2014,934.3,660.6,Ports,Asia Pacific,Citibank,259,11,True
+IJG_00420,Infrastructure Deal 420,Refinancing,2011,251.3,200.7,Water,North America,Goldman Sachs,420,14,False
+IJG_00421,Infrastructure Deal 421,Project Finance,2016,2575.1,2053.2,Telecom,Asia Pacific,HSBC,383,16,False
+IJG_00422,Infrastructure Deal 422,Acquisition,2013,1052.7,699.7,Roads,Latin America,HSBC,153,13,False
+IJG_00423,Infrastructure Deal 423,Bond Issuance,2016,118.3,91.4,Power,Europe,Societe Generale,420,13,False
+IJG_00424,Infrastructure Deal 424,Acquisition,2011,2257.4,1657.1,Airports,Middle East,JP Morgan,348,19,False
+IJG_00425,Infrastructure Deal 425,Project Finance,2023,1064.6,683.1,Power,Middle East,JP Morgan,400,14,False
+IJG_00426,Infrastructure Deal 426,Bond Issuance,2016,74.0,45.5,Airports,Europe,HSBC,372,11,False
+IJG_00427,Infrastructure Deal 427,Project Finance,2013,224.9,165.0,Ports,Latin America,Deutsche Bank,269,21,False
+IJG_00428,Infrastructure Deal 428,Acquisition,2013,114.6,89.4,Airports,Asia Pacific,Citibank,216,19,False
+IJG_00429,Infrastructure Deal 429,Bond Issuance,2013,3498.4,2341.5,Power,North America,Societe Generale,378,24,False
+IJG_00430,Infrastructure Deal 430,Refinancing,2022,505.1,392.9,Roads,Europe,Citibank,204,19,False
+IJG_00431,Infrastructure Deal 431,Bond Issuance,2019,456.9,375.0,Telecom,North America,BNP Paribas,326,22,False
+IJG_00432,Infrastructure Deal 432,Project Finance,2016,350.7,266.3,Water,Middle East,Deutsche Bank,312,11,False
+IJG_00433,Infrastructure Deal 433,Bond Issuance,2011,151.3,92.6,Roads,Middle East,HSBC,207,23,False
+IJG_00434,Infrastructure Deal 434,Project Finance,2014,408.1,291.6,Roads,Africa,Deutsche Bank,379,16,False
+IJG_00435,Infrastructure Deal 435,Refinancing,2012,111.9,81.5,Roads,Africa,Societe Generale,298,13,False
+IJG_00436,Infrastructure Deal 436,Acquisition,2022,181.0,148.3,Power,Latin America,JP Morgan,272,22,False
+IJG_00437,Infrastructure Deal 437,Project Finance,2010,216.0,168.5,Airports,North America,Deutsche Bank,283,17,False
+IJG_00438,Infrastructure Deal 438,Refinancing,2011,960.5,694.7,Power,Europe,BNP Paribas,326,21,False
+IJG_00439,Infrastructure Deal 439,Refinancing,2017,897.7,760.5,Telecom,North America,Citibank,265,11,False
+IJG_00440,Infrastructure Deal 440,Bond Issuance,2015,2089.9,1440.7,Ports,Middle East,Standard Chartered,391,15,False
+IJG_00441,Infrastructure Deal 441,Project Finance,2021,2306.3,1687.1,Roads,North America,JP Morgan,306,17,False
+IJG_00442,Infrastructure Deal 442,Refinancing,2021,1171.6,768.0,Power,Africa,Deutsche Bank,178,12,False
+IJG_00443,Infrastructure Deal 443,Bond Issuance,2010,349.0,264.3,Roads,Asia Pacific,Societe Generale,163,18,False
+IJG_00444,Infrastructure Deal 444,Acquisition,2015,282.4,209.4,Ports,Latin America,Deutsche Bank,256,22,False
+IJG_00445,Infrastructure Deal 445,Bond Issuance,2023,1746.7,1418.8,Roads,Latin America,Goldman Sachs,337,19,False
+IJG_00446,Infrastructure Deal 446,Acquisition,2018,837.3,707.4,Power,Latin America,Deutsche Bank,372,17,False
+IJG_00447,Infrastructure Deal 447,Project Finance,2019,724.7,452.2,Water,Latin America,BNP Paribas,435,18,False
+IJG_00448,Infrastructure Deal 448,Bond Issuance,2011,153.6,110.6,Ports,Asia Pacific,Goldman Sachs,324,14,False
+IJG_00449,Infrastructure Deal 449,Bond Issuance,2020,35.8,28.0,Water,Africa,JP Morgan,271,19,False
+IJG_00450,Infrastructure Deal 450,Refinancing,2016,89.4,72.6,Power,Asia Pacific,BNP Paribas,430,12,False
+IJG_00451,Infrastructure Deal 451,Project Finance,2019,73.0,51.9,Airports,Middle East,Societe Generale,340,10,False
+IJG_00452,Infrastructure Deal 452,Project Finance,2019,163.1,117.8,Water,North America,JP Morgan,239,10,False
+IJG_00453,Infrastructure Deal 453,Refinancing,2013,1466.5,977.1,Roads,Asia Pacific,Standard Chartered,191,12,False
+IJG_00454,Infrastructure Deal 454,Acquisition,2018,155.1,127.4,Power,Africa,Deutsche Bank,189,12,False
+IJG_00455,Infrastructure Deal 455,Bond Issuance,2016,106.6,78.0,Roads,Asia Pacific,Deutsche Bank,179,13,False
+IJG_00456,Infrastructure Deal 456,Bond Issuance,2022,925.3,593.5,Roads,Asia Pacific,Standard Chartered,442,19,False
+IJG_00457,Infrastructure Deal 457,Refinancing,2015,285.5,197.0,Water,Latin America,HSBC,293,19,False
+IJG_00458,Infrastructure Deal 458,Refinancing,2018,117.7,72.9,Airports,Africa,Goldman Sachs,331,13,False
+IJG_00459,Infrastructure Deal 459,Bond Issuance,2019,103.0,87.2,Telecom,Middle East,Citibank,278,24,False
+IJG_00460,Infrastructure Deal 460,Acquisition,2014,73.3,54.2,Airports,Asia Pacific,Societe Generale,251,18,False
+IJG_00461,Infrastructure Deal 461,Bond Issuance,2011,481.5,294.1,Power,Latin America,BNP Paribas,224,12,False
+IJG_00462,Infrastructure Deal 462,Refinancing,2016,453.7,302.2,Power,Middle East,Citibank,417,16,False
+IJG_00463,Infrastructure Deal 463,Bond Issuance,2015,920.7,563.7,Power,Europe,JP Morgan,386,17,False
+IJG_00464,Infrastructure Deal 464,Refinancing,2020,335.3,236.5,Water,North America,Goldman Sachs,312,17,False
+IJG_00465,Infrastructure Deal 465,Acquisition,2017,84.1,60.0,Airports,Africa,Deutsche Bank,262,22,False
+IJG_00466,Infrastructure Deal 466,Refinancing,2011,337.1,284.1,Airports,Latin America,Citibank,252,10,False
+IJG_00467,Infrastructure Deal 467,Acquisition,2021,253.6,211.2,Airports,North America,Deutsche Bank,169,22,False
+IJG_00468,Infrastructure Deal 468,Refinancing,2012,2150.2,1623.7,Telecom,Middle East,JP Morgan,353,14,False
+IJG_00469,Infrastructure Deal 469,Project Finance,2021,884.4,607.6,Water,Latin America,Deutsche Bank,339,11,False
+IJG_00470,Infrastructure Deal 470,Refinancing,2022,209.8,172.6,Ports,North America,HSBC,318,16,False
+IJG_00471,Infrastructure Deal 471,Refinancing,2016,415.8,279.7,Airports,Middle East,Standard Chartered,227,12,False
+IJG_00472,Infrastructure Deal 472,Acquisition,2010,799.5,580.4,Airports,North America,Societe Generale,400,11,False
+IJG_00473,Infrastructure Deal 473,Bond Issuance,2010,102.8,74.0,Roads,Middle East,Citibank,336,14,False
+IJG_00474,Infrastructure Deal 474,Acquisition,2011,74.7,59.1,Airports,Latin America,Goldman Sachs,370,17,False
+IJG_00475,Infrastructure Deal 475,Acquisition,2023,196.8,159.7,Airports,Asia Pacific,JP Morgan,392,12,False
+IJG_00476,Infrastructure Deal 476,Project Finance,2015,980.9,730.1,Telecom,Middle East,JP Morgan,221,23,False
+IJG_00477,Infrastructure Deal 477,Project Finance,2021,243.0,175.0,Ports,Latin America,BNP Paribas,292,23,False
+IJG_00478,Infrastructure Deal 478,Project Finance,2021,153.6,118.2,Water,Middle East,BNP Paribas,153,16,False
+IJG_00479,Infrastructure Deal 479,Acquisition,2017,26.6,19.3,Water,Europe,Societe Generale,392,13,False
+IJG_00480,Infrastructure Deal 480,Refinancing,2017,642.5,454.8,Roads,Latin America,Deutsche Bank,449,13,False
+IJG_00481,Infrastructure Deal 481,Acquisition,2010,64.2,53.1,Power,North America,Societe Generale,356,20,False
+IJG_00482,Infrastructure Deal 482,Refinancing,2018,1160.2,914.6,Power,Latin America,Standard Chartered,438,11,False
+IJG_00483,Infrastructure Deal 483,Acquisition,2014,140.3,104.4,Power,Africa,Societe Generale,165,15,True
+IJG_00484,Infrastructure Deal 484,Refinancing,2012,111.1,76.8,Telecom,North America,JP Morgan,413,13,False
+IJG_00485,Infrastructure Deal 485,Bond Issuance,2010,771.8,626.7,Ports,Middle East,Societe Generale,286,10,False
+IJG_00486,Infrastructure Deal 486,Project Finance,2014,167.9,139.5,Power,Latin America,Goldman Sachs,344,19,False
+IJG_00487,Infrastructure Deal 487,Project Finance,2010,837.2,528.7,Telecom,Africa,Citibank,338,24,False
+IJG_00488,Infrastructure Deal 488,Refinancing,2011,170.6,135.1,Roads,Latin America,Deutsche Bank,447,22,False
+IJG_00489,Infrastructure Deal 489,Project Finance,2012,1835.8,1249.3,Power,Africa,Goldman Sachs,170,19,False
+IJG_00490,Infrastructure Deal 490,Acquisition,2010,2741.6,1970.8,Power,North America,JP Morgan,291,21,False
+IJG_00491,Infrastructure Deal 491,Bond Issuance,2017,40.6,26.7,Power,North America,Societe Generale,352,12,False
+IJG_00492,Infrastructure Deal 492,Project Finance,2013,179.4,124.8,Ports,Latin America,Standard Chartered,164,12,False
+IJG_00493,Infrastructure Deal 493,Refinancing,2018,317.3,254.4,Roads,Asia Pacific,JP Morgan,410,13,False
+IJG_00494,Infrastructure Deal 494,Refinancing,2021,249.1,182.4,Roads,North America,JP Morgan,392,10,False
+IJG_00495,Infrastructure Deal 495,Refinancing,2013,199.9,125.7,Power,Latin America,Deutsche Bank,152,13,False
+IJG_00496,Infrastructure Deal 496,Acquisition,2014,3087.5,2216.7,Water,Africa,JP Morgan,432,20,False
+IJG_00497,Infrastructure Deal 497,Bond Issuance,2017,845.1,692.4,Telecom,North America,HSBC,446,11,False
+IJG_00498,Infrastructure Deal 498,Bond Issuance,2017,439.4,265.7,Power,Middle East,Citibank,410,22,False
+IJG_00499,Infrastructure Deal 499,Acquisition,2022,51.4,37.6,Roads,Europe,Deutsche Bank,416,18,False
+IJG_00500,Infrastructure Deal 500,Bond Issuance,2022,375.3,249.3,Airports,Asia Pacific,Goldman Sachs,356,19,False
+IJG_00501,Infrastructure Deal 501,Bond Issuance,2022,52.5,42.0,Power,Latin America,BNP Paribas,333,15,False
+IJG_00502,Infrastructure Deal 502,Refinancing,2017,172.1,133.4,Telecom,North America,Goldman Sachs,338,16,True
+IJG_00503,Infrastructure Deal 503,Bond Issuance,2023,812.9,562.9,Roads,Africa,Goldman Sachs,404,21,False
+IJG_00504,Infrastructure Deal 504,Refinancing,2015,1266.1,1014.3,Roads,North America,Societe Generale,321,14,False
+IJG_00505,Infrastructure Deal 505,Project Finance,2016,282.9,191.2,Roads,Middle East,BNP Paribas,374,17,False
+IJG_00506,Infrastructure Deal 506,Bond Issuance,2021,253.9,180.6,Power,North America,Societe Generale,220,21,False
+IJG_00507,Infrastructure Deal 507,Acquisition,2022,1002.4,792.0,Ports,Latin America,Deutsche Bank,246,21,False
+IJG_00508,Infrastructure Deal 508,Project Finance,2010,1865.4,1258.2,Power,Europe,Standard Chartered,256,14,False
+IJG_00509,Infrastructure Deal 509,Project Finance,2014,308.5,209.7,Roads,Africa,BNP Paribas,255,17,False
+IJG_00510,Infrastructure Deal 510,Bond Issuance,2010,385.0,291.6,Water,Europe,Citibank,388,12,False
+IJG_00511,Infrastructure Deal 511,Acquisition,2020,829.5,616.3,Water,North America,Standard Chartered,312,21,False
+IJG_00512,Infrastructure Deal 512,Acquisition,2015,44.3,34.3,Roads,Middle East,BNP Paribas,203,19,False
+IJG_00513,Infrastructure Deal 513,Project Finance,2019,1350.6,1040.0,Power,Africa,BNP Paribas,223,23,False
+IJG_00514,Infrastructure Deal 514,Bond Issuance,2016,697.2,492.4,Roads,Asia Pacific,Citibank,369,23,False
+IJG_00515,Infrastructure Deal 515,Acquisition,2012,1643.2,1122.6,Telecom,Asia Pacific,HSBC,300,11,False
+IJG_00516,Infrastructure Deal 516,Project Finance,2015,2402.3,1718.7,Water,Middle East,Societe Generale,185,20,True
+IJG_00517,Infrastructure Deal 517,Bond Issuance,2017,500.4,333.3,Telecom,Latin America,Standard Chartered,200,13,False
+IJG_00518,Infrastructure Deal 518,Bond Issuance,2022,70.7,45.9,Airports,Middle East,HSBC,257,22,False
+IJG_00519,Infrastructure Deal 519,Project Finance,2011,449.5,370.2,Water,Asia Pacific,Citibank,410,24,False
+IJG_00520,Infrastructure Deal 520,Acquisition,2012,880.6,589.2,Telecom,Latin America,BNP Paribas,159,19,False
+IJG_00521,Infrastructure Deal 521,Project Finance,2020,238.9,196.1,Airports,Europe,Standard Chartered,445,14,False
+IJG_00522,Infrastructure Deal 522,Refinancing,2017,286.9,242.5,Ports,Latin America,BNP Paribas,389,20,False
+IJG_00523,Infrastructure Deal 523,Acquisition,2012,163.7,103.1,Water,North America,BNP Paribas,291,11,False
+IJG_00524,Infrastructure Deal 524,Acquisition,2014,1271.9,785.0,Roads,Latin America,HSBC,290,22,False
+IJG_00525,Infrastructure Deal 525,Project Finance,2017,2501.5,1915.8,Telecom,Africa,Deutsche Bank,268,11,False
+IJG_00526,Infrastructure Deal 526,Project Finance,2012,1435.6,925.4,Water,Europe,Deutsche Bank,426,22,False
+IJG_00527,Infrastructure Deal 527,Project Finance,2020,363.4,286.6,Roads,Asia Pacific,BNP Paribas,249,20,False
+IJG_00528,Infrastructure Deal 528,Acquisition,2016,253.6,195.6,Telecom,Africa,Standard Chartered,445,16,False
+IJG_00529,Infrastructure Deal 529,Refinancing,2020,1950.8,1223.5,Water,North America,HSBC,302,24,False
+IJG_00530,Infrastructure Deal 530,Bond Issuance,2011,437.7,347.1,Roads,Middle East,Deutsche Bank,433,11,False
+IJG_00531,Infrastructure Deal 531,Bond Issuance,2016,369.2,238.0,Roads,Africa,JP Morgan,298,17,False
+IJG_00532,Infrastructure Deal 532,Acquisition,2020,754.4,619.3,Telecom,Middle East,JP Morgan,415,11,False
+IJG_00533,Infrastructure Deal 533,Bond Issuance,2023,133.7,87.3,Water,Europe,JP Morgan,332,22,False
+IJG_00534,Infrastructure Deal 534,Bond Issuance,2010,530.4,375.2,Water,Asia Pacific,Goldman Sachs,164,10,False
+IJG_00535,Infrastructure Deal 535,Project Finance,2019,101.5,76.3,Water,Asia Pacific,Citibank,356,13,False
+IJG_00536,Infrastructure Deal 536,Refinancing,2017,1519.1,1087.9,Ports,Europe,Goldman Sachs,262,24,False
+IJG_00537,Infrastructure Deal 537,Project Finance,2017,184.1,115.3,Water,North America,Deutsche Bank,337,14,False
+IJG_00538,Infrastructure Deal 538,Acquisition,2010,607.0,442.0,Ports,North America,Citibank,171,22,False
+IJG_00539,Infrastructure Deal 539,Bond Issuance,2022,394.0,333.7,Airports,North America,Goldman Sachs,175,15,False
+IJG_00540,Infrastructure Deal 540,Refinancing,2023,64.4,45.4,Water,Asia Pacific,Standard Chartered,212,12,False
+IJG_00541,Infrastructure Deal 541,Refinancing,2016,208.0,173.3,Roads,Middle East,Citibank,373,10,False
+IJG_00542,Infrastructure Deal 542,Acquisition,2023,243.6,165.1,Water,Asia Pacific,Standard Chartered,257,11,False
+IJG_00543,Infrastructure Deal 543,Project Finance,2020,336.8,260.0,Power,North America,Deutsche Bank,367,12,False
+IJG_00544,Infrastructure Deal 544,Project Finance,2023,211.3,166.9,Power,Latin America,BNP Paribas,381,14,False
+IJG_00545,Infrastructure Deal 545,Acquisition,2021,168.0,102.2,Roads,Europe,HSBC,405,19,False
+IJG_00546,Infrastructure Deal 546,Acquisition,2010,1469.4,1242.6,Roads,Middle East,Goldman Sachs,445,10,True
+IJG_00547,Infrastructure Deal 547,Refinancing,2019,694.0,537.2,Water,Asia Pacific,Standard Chartered,304,17,False
+IJG_00548,Infrastructure Deal 548,Project Finance,2023,1086.4,913.2,Airports,North America,Goldman Sachs,178,19,False
+IJG_00549,Infrastructure Deal 549,Refinancing,2017,297.1,180.5,Ports,Middle East,Standard Chartered,419,19,False
+IJG_00550,Infrastructure Deal 550,Bond Issuance,2014,216.9,160.7,Telecom,North America,Standard Chartered,182,14,False
+IJG_00551,Infrastructure Deal 551,Project Finance,2019,276.6,206.0,Roads,Europe,BNP Paribas,440,16,False
+IJG_00552,Infrastructure Deal 552,Acquisition,2012,118.0,96.1,Roads,Latin America,Standard Chartered,227,20,False
+IJG_00553,Infrastructure Deal 553,Bond Issuance,2012,245.8,190.3,Airports,Middle East,Deutsche Bank,239,10,False
+IJG_00554,Infrastructure Deal 554,Bond Issuance,2015,900.8,738.6,Power,Africa,JP Morgan,346,24,False
+IJG_00555,Infrastructure Deal 555,Refinancing,2010,120.2,78.9,Airports,Asia Pacific,JP Morgan,182,17,False
+IJG_00556,Infrastructure Deal 556,Bond Issuance,2013,373.8,273.5,Ports,Africa,Standard Chartered,330,21,False
+IJG_00557,Infrastructure Deal 557,Project Finance,2012,305.2,193.4,Roads,Europe,BNP Paribas,333,16,False
+IJG_00558,Infrastructure Deal 558,Project Finance,2018,398.0,240.9,Power,Africa,Standard Chartered,176,21,False
+IJG_00559,Infrastructure Deal 559,Acquisition,2018,376.3,315.8,Airports,North America,Standard Chartered,311,22,False
+IJG_00560,Infrastructure Deal 560,Project Finance,2012,2802.1,1869.8,Power,Middle East,Standard Chartered,208,24,False
+IJG_00561,Infrastructure Deal 561,Acquisition,2022,146.5,104.7,Power,North America,HSBC,291,20,False
+IJG_00562,Infrastructure Deal 562,Project Finance,2020,40.6,32.6,Roads,Europe,Goldman Sachs,190,13,False
+IJG_00563,Infrastructure Deal 563,Acquisition,2010,612.6,407.6,Telecom,Middle East,JP Morgan,306,16,False
+IJG_00564,Infrastructure Deal 564,Refinancing,2015,93.7,57.7,Ports,Europe,Societe Generale,445,18,False
+IJG_00565,Infrastructure Deal 565,Refinancing,2016,622.2,401.1,Telecom,Europe,BNP Paribas,373,23,False
+IJG_00566,Infrastructure Deal 566,Bond Issuance,2022,266.0,175.0,Water,Middle East,Societe Generale,195,12,False
+IJG_00567,Infrastructure Deal 567,Refinancing,2020,744.9,614.2,Power,Europe,Standard Chartered,267,24,False
+IJG_00568,Infrastructure Deal 568,Refinancing,2016,312.0,240.3,Airports,North America,Goldman Sachs,357,24,False
+IJG_00569,Infrastructure Deal 569,Project Finance,2021,352.5,239.9,Roads,Africa,BNP Paribas,384,16,False
+IJG_00570,Infrastructure Deal 570,Acquisition,2020,411.0,259.5,Airports,Europe,Societe Generale,296,12,False
+IJG_00571,Infrastructure Deal 571,Bond Issuance,2011,508.1,405.1,Ports,Latin America,BNP Paribas,156,24,False
+IJG_00572,Infrastructure Deal 572,Project Finance,2012,74.7,53.6,Ports,Africa,HSBC,428,20,False
+IJG_00573,Infrastructure Deal 573,Bond Issuance,2022,301.3,188.7,Power,North America,Standard Chartered,184,22,False
+IJG_00574,Infrastructure Deal 574,Project Finance,2011,105.4,75.3,Telecom,Africa,BNP Paribas,267,11,False
+IJG_00575,Infrastructure Deal 575,Acquisition,2011,279.0,188.1,Roads,Middle East,JP Morgan,236,22,False
+IJG_00576,Infrastructure Deal 576,Project Finance,2015,1789.6,1516.1,Telecom,Asia Pacific,HSBC,169,18,False
+IJG_00577,Infrastructure Deal 577,Project Finance,2014,430.6,269.5,Airports,Europe,Goldman Sachs,153,13,False
+IJG_00578,Infrastructure Deal 578,Bond Issuance,2015,1530.1,1174.4,Water,Asia Pacific,Standard Chartered,325,11,False
+IJG_00579,Infrastructure Deal 579,Project Finance,2017,245.7,172.7,Roads,Asia Pacific,Deutsche Bank,223,11,False
+IJG_00580,Infrastructure Deal 580,Acquisition,2014,620.0,389.7,Water,Middle East,Standard Chartered,421,13,True
+IJG_00581,Infrastructure Deal 581,Refinancing,2023,215.2,137.2,Airports,Middle East,Citibank,329,24,False
+IJG_00582,Infrastructure Deal 582,Refinancing,2020,1461.2,1231.1,Roads,North America,Deutsche Bank,255,13,False
+IJG_00583,Infrastructure Deal 583,Acquisition,2017,1460.5,1197.6,Water,Middle East,BNP Paribas,307,22,False
+IJG_00584,Infrastructure Deal 584,Project Finance,2023,4947.6,3185.8,Airports,Latin America,Goldman Sachs,384,21,False
+IJG_00585,Infrastructure Deal 585,Refinancing,2010,149.5,90.9,Ports,Asia Pacific,Deutsche Bank,375,20,False
+IJG_00586,Infrastructure Deal 586,Acquisition,2019,308.6,239.8,Roads,Asia Pacific,Societe Generale,358,21,False
+IJG_00587,Infrastructure Deal 587,Acquisition,2022,62.9,44.0,Telecom,Asia Pacific,Societe Generale,272,24,False
+IJG_00588,Infrastructure Deal 588,Project Finance,2012,5810.4,3826.6,Ports,Middle East,Citibank,426,16,False
+IJG_00589,Infrastructure Deal 589,Acquisition,2023,19.3,12.7,Airports,Europe,Societe Generale,170,11,False
+IJG_00590,Infrastructure Deal 590,Project Finance,2012,379.5,254.2,Ports,North America,Goldman Sachs,152,19,False
+IJG_00591,Infrastructure Deal 591,Acquisition,2018,964.3,818.4,Power,Middle East,HSBC,275,19,False
+IJG_00592,Infrastructure Deal 592,Acquisition,2020,148.5,101.0,Ports,Middle East,Goldman Sachs,412,10,False
+IJG_00593,Infrastructure Deal 593,Project Finance,2016,295.8,221.4,Ports,Europe,Citibank,444,17,False
+IJG_00594,Infrastructure Deal 594,Acquisition,2011,3518.7,2815.4,Water,North America,Citibank,350,21,False
+IJG_00595,Infrastructure Deal 595,Acquisition,2017,83.3,67.5,Airports,North America,Standard Chartered,219,21,False
+IJG_00596,Infrastructure Deal 596,Acquisition,2019,47.8,31.0,Ports,Latin America,JP Morgan,344,23,False
+IJG_00597,Infrastructure Deal 597,Acquisition,2023,752.9,563.7,Water,Asia Pacific,HSBC,311,22,False
+IJG_00598,Infrastructure Deal 598,Bond Issuance,2014,154.1,108.5,Roads,North America,Citibank,386,15,False
+IJG_00599,Infrastructure Deal 599,Acquisition,2012,1219.5,885.6,Water,North America,Citibank,247,15,False
+IJG_00600,Infrastructure Deal 600,Bond Issuance,2016,146.7,109.4,Roads,Europe,Societe Generale,179,16,False
+IJG_00601,Infrastructure Deal 601,Project Finance,2021,377.3,260.5,Ports,Latin America,Citibank,272,17,False
+IJG_00602,Infrastructure Deal 602,Acquisition,2021,106.9,76.1,Airports,Europe,Citibank,362,11,False
+IJG_00603,Infrastructure Deal 603,Acquisition,2014,868.4,727.4,Water,Middle East,Goldman Sachs,159,13,False
+IJG_00604,Infrastructure Deal 604,Project Finance,2020,982.5,610.7,Airports,North America,Standard Chartered,314,22,False
+IJG_00605,Infrastructure Deal 605,Acquisition,2013,367.1,268.8,Water,Africa,HSBC,174,10,False
+IJG_00606,Infrastructure Deal 606,Acquisition,2021,356.5,245.2,Roads,North America,BNP Paribas,361,13,False
+IJG_00607,Infrastructure Deal 607,Bond Issuance,2021,1091.9,746.4,Telecom,Africa,Deutsche Bank,409,24,False
+IJG_00608,Infrastructure Deal 608,Project Finance,2022,525.3,431.2,Airports,Europe,Citibank,218,22,False
+IJG_00609,Infrastructure Deal 609,Project Finance,2020,565.8,438.1,Water,Middle East,JP Morgan,424,17,False
+IJG_00610,Infrastructure Deal 610,Project Finance,2014,125.0,92.9,Water,Middle East,Citibank,354,12,False
+IJG_00611,Infrastructure Deal 611,Acquisition,2020,72.3,55.1,Ports,North America,JP Morgan,376,12,False
+IJG_00612,Infrastructure Deal 612,Refinancing,2017,394.5,243.3,Airports,Asia Pacific,HSBC,209,24,False
+IJG_00613,Infrastructure Deal 613,Bond Issuance,2022,77.8,60.7,Telecom,Africa,Deutsche Bank,229,12,False
+IJG_00614,Infrastructure Deal 614,Acquisition,2020,1766.7,1170.2,Power,North America,Standard Chartered,171,24,False
+IJG_00615,Infrastructure Deal 615,Bond Issuance,2021,18.9,13.8,Airports,Middle East,Societe Generale,339,12,False
+IJG_00616,Infrastructure Deal 616,Bond Issuance,2019,455.7,351.7,Airports,Europe,Goldman Sachs,202,19,False
+IJG_00617,Infrastructure Deal 617,Acquisition,2023,590.1,445.9,Roads,North America,Citibank,209,14,False
+IJG_00618,Infrastructure Deal 618,Acquisition,2011,614.7,377.3,Airports,Europe,HSBC,213,18,False
+IJG_00619,Infrastructure Deal 619,Refinancing,2023,64.0,45.2,Water,Europe,BNP Paribas,260,13,False
+IJG_00620,Infrastructure Deal 620,Acquisition,2015,169.8,116.0,Roads,Asia Pacific,BNP Paribas,362,23,False
+IJG_00621,Infrastructure Deal 621,Refinancing,2021,105.3,83.8,Power,Asia Pacific,BNP Paribas,293,21,False
+IJG_00622,Infrastructure Deal 622,Acquisition,2013,1707.3,1090.4,Roads,Middle East,Societe Generale,387,10,False
+IJG_00623,Infrastructure Deal 623,Bond Issuance,2019,147.1,107.7,Ports,Europe,HSBC,418,15,False
+IJG_00624,Infrastructure Deal 624,Project Finance,2019,411.0,289.5,Power,Europe,JP Morgan,407,22,False
+IJG_00625,Infrastructure Deal 625,Acquisition,2012,221.9,173.6,Airports,Europe,BNP Paribas,252,12,False
+IJG_00626,Infrastructure Deal 626,Acquisition,2016,846.4,684.8,Roads,Middle East,Citibank,305,16,False
+IJG_00627,Infrastructure Deal 627,Refinancing,2015,986.4,785.9,Water,Europe,Deutsche Bank,300,18,False
+IJG_00628,Infrastructure Deal 628,Project Finance,2012,690.3,537.9,Telecom,Asia Pacific,BNP Paribas,442,15,False
+IJG_00629,Infrastructure Deal 629,Refinancing,2014,422.6,263.5,Water,Africa,Societe Generale,324,11,False
+IJG_00630,Infrastructure Deal 630,Acquisition,2016,269.7,221.4,Roads,Europe,Goldman Sachs,346,23,False
+IJG_00631,Infrastructure Deal 631,Bond Issuance,2014,1232.1,925.4,Roads,Asia Pacific,Standard Chartered,167,23,False
+IJG_00632,Infrastructure Deal 632,Project Finance,2010,762.3,614.0,Power,Latin America,Deutsche Bank,254,15,False
+IJG_00633,Infrastructure Deal 633,Project Finance,2017,575.6,366.4,Power,Asia Pacific,HSBC,226,13,False
+IJG_00634,Infrastructure Deal 634,Project Finance,2010,289.5,183.1,Telecom,Latin America,BNP Paribas,338,22,False
+IJG_00635,Infrastructure Deal 635,Bond Issuance,2023,241.2,168.9,Airports,Europe,HSBC,209,12,False
+IJG_00636,Infrastructure Deal 636,Bond Issuance,2021,715.1,505.7,Water,Latin America,Societe Generale,368,10,False
+IJG_00637,Infrastructure Deal 637,Bond Issuance,2013,599.2,366.7,Airports,Latin America,Goldman Sachs,343,18,False
+IJG_00638,Infrastructure Deal 638,Bond Issuance,2022,127.1,103.0,Ports,Asia Pacific,Citibank,438,21,False
+IJG_00639,Infrastructure Deal 639,Refinancing,2012,795.5,544.6,Ports,Middle East,Goldman Sachs,199,23,True
+IJG_00640,Infrastructure Deal 640,Refinancing,2011,913.4,660.9,Power,Asia Pacific,Standard Chartered,295,17,False
+IJG_00641,Infrastructure Deal 641,Bond Issuance,2017,38.2,31.9,Power,Africa,Citibank,261,18,False
+IJG_00642,Infrastructure Deal 642,Acquisition,2020,118.0,85.4,Water,Latin America,HSBC,284,19,False
+IJG_00643,Infrastructure Deal 643,Bond Issuance,2015,1609.2,1274.4,Power,Asia Pacific,BNP Paribas,284,15,False
+IJG_00644,Infrastructure Deal 644,Refinancing,2010,335.6,225.5,Telecom,Asia Pacific,Societe Generale,430,16,False
+IJG_00645,Infrastructure Deal 645,Project Finance,2023,1402.0,1024.2,Telecom,Europe,Citibank,175,11,False
+IJG_00646,Infrastructure Deal 646,Refinancing,2014,326.9,205.0,Power,North America,JP Morgan,413,14,False
+IJG_00647,Infrastructure Deal 647,Project Finance,2019,843.5,580.9,Power,Europe,Societe Generale,161,20,False
+IJG_00648,Infrastructure Deal 648,Bond Issuance,2021,26.4,18.7,Water,Africa,Societe Generale,405,14,False
+IJG_00649,Infrastructure Deal 649,Refinancing,2023,756.1,579.9,Airports,Middle East,HSBC,287,15,False
+IJG_00650,Infrastructure Deal 650,Project Finance,2013,188.1,123.1,Airports,Europe,Deutsche Bank,357,10,False
+IJG_00651,Infrastructure Deal 651,Refinancing,2018,961.0,580.3,Telecom,Europe,JP Morgan,411,15,False
+IJG_00652,Infrastructure Deal 652,Refinancing,2018,1832.3,1169.3,Telecom,Latin America,HSBC,278,14,False
+IJG_00653,Infrastructure Deal 653,Acquisition,2010,674.9,409.9,Telecom,Asia Pacific,JP Morgan,240,21,False
+IJG_00654,Infrastructure Deal 654,Bond Issuance,2018,146.5,94.3,Roads,Europe,Citibank,216,14,False
+IJG_00655,Infrastructure Deal 655,Refinancing,2017,367.3,246.3,Telecom,North America,Standard Chartered,426,13,False
+IJG_00656,Infrastructure Deal 656,Refinancing,2014,1106.8,789.1,Water,Asia Pacific,Deutsche Bank,257,23,False
+IJG_00657,Infrastructure Deal 657,Bond Issuance,2012,178.2,149.1,Power,Middle East,Goldman Sachs,160,17,False
+IJG_00658,Infrastructure Deal 658,Project Finance,2015,463.2,326.9,Roads,Middle East,Goldman Sachs,313,10,False
+IJG_00659,Infrastructure Deal 659,Project Finance,2020,727.9,579.0,Airports,North America,Citibank,252,24,False
+IJG_00660,Infrastructure Deal 660,Refinancing,2019,53.4,37.6,Water,Latin America,Deutsche Bank,399,20,False
+IJG_00661,Infrastructure Deal 661,Acquisition,2012,72.3,56.7,Power,Africa,Deutsche Bank,442,12,False
+IJG_00662,Infrastructure Deal 662,Bond Issuance,2011,918.4,758.2,Airports,Asia Pacific,Societe Generale,248,24,False
+IJG_00663,Infrastructure Deal 663,Bond Issuance,2023,3148.4,2604.1,Roads,Latin America,Societe Generale,172,10,False
+IJG_00664,Infrastructure Deal 664,Bond Issuance,2022,912.4,552.2,Airports,North America,JP Morgan,233,21,False
+IJG_00665,Infrastructure Deal 665,Acquisition,2023,56.4,37.5,Roads,Asia Pacific,Standard Chartered,377,14,False
+IJG_00666,Infrastructure Deal 666,Refinancing,2023,1123.1,685.0,Airports,Middle East,JP Morgan,328,18,False
+IJG_00667,Infrastructure Deal 667,Bond Issuance,2010,194.7,126.6,Airports,Asia Pacific,BNP Paribas,283,15,False
+IJG_00668,Infrastructure Deal 668,Bond Issuance,2017,155.6,93.5,Ports,Europe,Societe Generale,404,20,False
+IJG_00669,Infrastructure Deal 669,Refinancing,2018,50.9,41.2,Roads,Latin America,Deutsche Bank,277,14,False
+IJG_00670,Infrastructure Deal 670,Bond Issuance,2016,414.5,295.9,Telecom,Europe,Goldman Sachs,268,14,False
+IJG_00671,Infrastructure Deal 671,Acquisition,2015,1986.2,1587.3,Roads,Middle East,JP Morgan,220,20,False
+IJG_00672,Infrastructure Deal 672,Refinancing,2021,855.7,725.5,Ports,North America,HSBC,383,15,False
+IJG_00673,Infrastructure Deal 673,Acquisition,2011,183.4,148.1,Ports,Latin America,Societe Generale,402,20,False
+IJG_00674,Infrastructure Deal 674,Project Finance,2011,199.4,127.5,Ports,North America,Societe Generale,252,23,False
+IJG_00675,Infrastructure Deal 675,Acquisition,2018,963.1,750.5,Roads,Asia Pacific,HSBC,432,23,False
+IJG_00676,Infrastructure Deal 676,Acquisition,2019,770.5,528.9,Airports,Europe,Goldman Sachs,260,15,False
+IJG_00677,Infrastructure Deal 677,Bond Issuance,2012,113.1,71.2,Roads,Middle East,Citibank,421,17,False
+IJG_00678,Infrastructure Deal 678,Project Finance,2015,72.8,55.3,Ports,Asia Pacific,BNP Paribas,245,18,False
+IJG_00679,Infrastructure Deal 679,Acquisition,2012,448.8,344.2,Airports,Africa,BNP Paribas,309,18,False
+IJG_00680,Infrastructure Deal 680,Acquisition,2018,3702.7,3107.3,Power,Latin America,HSBC,294,17,False
+IJG_00681,Infrastructure Deal 681,Bond Issuance,2023,534.9,348.0,Power,Asia Pacific,JP Morgan,415,11,False
+IJG_00682,Infrastructure Deal 682,Project Finance,2018,66.9,53.7,Airports,Middle East,Goldman Sachs,305,22,False
+IJG_00683,Infrastructure Deal 683,Acquisition,2010,1586.4,1252.3,Ports,Middle East,HSBC,400,19,False
+IJG_00684,Infrastructure Deal 684,Project Finance,2023,2206.6,1414.8,Telecom,Africa,JP Morgan,412,13,False
+IJG_00685,Infrastructure Deal 685,Refinancing,2019,426.5,344.7,Telecom,Latin America,Societe Generale,166,14,False
+IJG_00686,Infrastructure Deal 686,Bond Issuance,2020,2090.9,1279.3,Airports,Latin America,Goldman Sachs,257,15,False
+IJG_00687,Infrastructure Deal 687,Bond Issuance,2013,131.6,86.2,Telecom,Europe,Deutsche Bank,327,14,False
+IJG_00688,Infrastructure Deal 688,Bond Issuance,2012,2287.5,1752.7,Telecom,Middle East,JP Morgan,434,12,False
+IJG_00689,Infrastructure Deal 689,Project Finance,2015,1442.0,979.8,Ports,Europe,Deutsche Bank,337,24,False
+IJG_00690,Infrastructure Deal 690,Project Finance,2023,286.7,197.3,Airports,Asia Pacific,BNP Paribas,169,13,False
+IJG_00691,Infrastructure Deal 691,Bond Issuance,2018,472.7,362.0,Telecom,North America,BNP Paribas,256,18,False
+IJG_00692,Infrastructure Deal 692,Bond Issuance,2014,345.9,256.3,Roads,Middle East,Citibank,374,12,False
+IJG_00693,Infrastructure Deal 693,Bond Issuance,2020,236.6,193.5,Water,North America,HSBC,233,10,False
+IJG_00694,Infrastructure Deal 694,Acquisition,2020,443.3,355.8,Power,Middle East,Goldman Sachs,391,14,False
+IJG_00695,Infrastructure Deal 695,Refinancing,2018,2229.7,1845.9,Roads,Latin America,Standard Chartered,411,13,False
+IJG_00696,Infrastructure Deal 696,Project Finance,2016,7634.4,5871.9,Airports,North America,HSBC,165,19,False
+IJG_00697,Infrastructure Deal 697,Project Finance,2017,2512.4,1902.1,Airports,Europe,Standard Chartered,289,16,False
+IJG_00698,Infrastructure Deal 698,Project Finance,2018,1151.3,912.8,Power,Middle East,Societe Generale,361,11,False
+IJG_00699,Infrastructure Deal 699,Acquisition,2023,1342.2,1012.5,Ports,Asia Pacific,JP Morgan,274,21,False
+IJG_00700,Infrastructure Deal 700,Refinancing,2017,195.8,119.3,Power,Europe,HSBC,203,24,False
+IJG_00701,Infrastructure Deal 701,Refinancing,2011,914.7,688.2,Telecom,Europe,Societe Generale,418,11,False
+IJG_00702,Infrastructure Deal 702,Acquisition,2023,3107.6,2319.0,Airports,Latin America,HSBC,160,11,False
+IJG_00703,Infrastructure Deal 703,Acquisition,2016,382.5,306.9,Telecom,Middle East,HSBC,290,19,False
+IJG_00704,Infrastructure Deal 704,Refinancing,2017,171.4,103.0,Power,North America,Citibank,295,13,False
+IJG_00705,Infrastructure Deal 705,Project Finance,2011,231.7,149.2,Telecom,Africa,HSBC,339,19,False
+IJG_00706,Infrastructure Deal 706,Project Finance,2010,266.2,165.6,Water,Asia Pacific,Goldman Sachs,166,14,False
+IJG_00707,Infrastructure Deal 707,Project Finance,2017,126.5,87.6,Water,Latin America,JP Morgan,277,20,False
+IJG_00708,Infrastructure Deal 708,Acquisition,2012,932.1,659.6,Power,North America,JP Morgan,248,22,False
+IJG_00709,Infrastructure Deal 709,Bond Issuance,2012,1056.0,756.8,Power,Latin America,JP Morgan,386,23,False
+IJG_00710,Infrastructure Deal 710,Refinancing,2012,88.0,63.6,Airports,North America,Deutsche Bank,278,10,False
+IJG_00711,Infrastructure Deal 711,Refinancing,2017,1149.0,837.6,Ports,North America,Standard Chartered,268,18,False
+IJG_00712,Infrastructure Deal 712,Bond Issuance,2017,360.1,266.3,Water,Asia Pacific,HSBC,436,19,False
+IJG_00713,Infrastructure Deal 713,Project Finance,2016,1861.1,1308.4,Water,Europe,JP Morgan,164,13,False
+IJG_00714,Infrastructure Deal 714,Refinancing,2013,908.8,733.8,Roads,North America,Societe Generale,366,24,False
+IJG_00715,Infrastructure Deal 715,Refinancing,2020,622.3,499.1,Roads,North America,HSBC,248,18,False
+IJG_00716,Infrastructure Deal 716,Project Finance,2020,686.7,540.3,Water,Europe,BNP Paribas,416,18,False
+IJG_00717,Infrastructure Deal 717,Refinancing,2016,431.4,304.1,Ports,Europe,Citibank,436,18,False
+IJG_00718,Infrastructure Deal 718,Bond Issuance,2014,24.9,18.4,Power,Europe,Citibank,339,11,True
+IJG_00719,Infrastructure Deal 719,Acquisition,2018,1772.2,1475.6,Roads,Middle East,HSBC,333,13,False
+IJG_00720,Infrastructure Deal 720,Project Finance,2017,364.4,269.4,Airports,Europe,BNP Paribas,181,16,False
+IJG_00721,Infrastructure Deal 721,Project Finance,2017,438.7,349.2,Ports,Europe,Deutsche Bank,449,16,False
+IJG_00722,Infrastructure Deal 722,Bond Issuance,2019,1618.7,1325.7,Ports,Latin America,JP Morgan,266,18,False
+IJG_00723,Infrastructure Deal 723,Project Finance,2015,939.4,703.2,Airports,Latin America,JP Morgan,336,12,False
+IJG_00724,Infrastructure Deal 724,Project Finance,2019,413.1,272.0,Airports,Latin America,JP Morgan,188,16,False
+IJG_00725,Infrastructure Deal 725,Refinancing,2012,5904.4,4846.7,Ports,Asia Pacific,Deutsche Bank,186,21,False
+IJG_00726,Infrastructure Deal 726,Bond Issuance,2019,64.5,53.2,Water,Europe,Goldman Sachs,228,11,True
+IJG_00727,Infrastructure Deal 727,Bond Issuance,2013,250.7,157.6,Ports,North America,JP Morgan,171,10,False
+IJG_00728,Infrastructure Deal 728,Refinancing,2014,180.5,112.5,Power,Europe,Citibank,153,23,False
+IJG_00729,Infrastructure Deal 729,Acquisition,2021,280.1,227.6,Telecom,Europe,Goldman Sachs,240,17,False
+IJG_00730,Infrastructure Deal 730,Acquisition,2020,26.8,18.4,Roads,Europe,Citibank,213,14,False
+IJG_00731,Infrastructure Deal 731,Refinancing,2016,394.5,278.5,Telecom,Africa,Deutsche Bank,175,17,False
+IJG_00732,Infrastructure Deal 732,Refinancing,2017,666.1,404.4,Water,Asia Pacific,Citibank,295,16,False
+IJG_00733,Infrastructure Deal 733,Acquisition,2012,2919.5,2353.5,Power,Latin America,Deutsche Bank,214,11,False
+IJG_00734,Infrastructure Deal 734,Refinancing,2016,550.7,423.2,Telecom,Europe,Standard Chartered,295,22,False
+IJG_00735,Infrastructure Deal 735,Refinancing,2022,314.1,208.8,Water,Latin America,Citibank,290,18,False
+IJG_00736,Infrastructure Deal 736,Acquisition,2017,70.3,58.4,Airports,North America,Goldman Sachs,427,15,True
+IJG_00737,Infrastructure Deal 737,Refinancing,2021,2017.3,1701.3,Telecom,Asia Pacific,Citibank,426,18,False
+IJG_00738,Infrastructure Deal 738,Acquisition,2019,459.8,359.9,Power,Latin America,Societe Generale,233,18,False
+IJG_00739,Infrastructure Deal 739,Bond Issuance,2016,603.1,389.0,Telecom,North America,Deutsche Bank,263,21,False
+IJG_00740,Infrastructure Deal 740,Bond Issuance,2021,331.9,255.4,Water,Africa,Deutsche Bank,399,11,False
+IJG_00741,Infrastructure Deal 741,Project Finance,2019,2719.1,2013.9,Power,Asia Pacific,HSBC,243,14,False
+IJG_00742,Infrastructure Deal 742,Bond Issuance,2019,202.7,128.3,Ports,Asia Pacific,HSBC,274,14,False
+IJG_00743,Infrastructure Deal 743,Acquisition,2010,446.4,309.7,Water,Latin America,BNP Paribas,176,19,False
+IJG_00744,Infrastructure Deal 744,Project Finance,2012,262.5,163.2,Roads,Latin America,BNP Paribas,180,14,False
+IJG_00745,Infrastructure Deal 745,Acquisition,2020,348.4,211.6,Power,Africa,Societe Generale,332,18,False
+IJG_00746,Infrastructure Deal 746,Acquisition,2010,786.2,523.8,Water,Europe,HSBC,225,24,False
+IJG_00747,Infrastructure Deal 747,Refinancing,2012,18190.1,14001.2,Roads,Europe,Deutsche Bank,413,12,False
+IJG_00748,Infrastructure Deal 748,Bond Issuance,2020,213.4,172.9,Telecom,Middle East,Societe Generale,399,23,False
+IJG_00749,Infrastructure Deal 749,Bond Issuance,2015,654.7,483.7,Airports,Asia Pacific,BNP Paribas,290,17,False
+IJG_00750,Infrastructure Deal 750,Refinancing,2020,730.9,451.4,Power,Latin America,JP Morgan,418,10,False
+IJG_00751,Infrastructure Deal 751,Bond Issuance,2023,2476.4,1970.0,Water,Latin America,Standard Chartered,181,13,True
+IJG_00752,Infrastructure Deal 752,Acquisition,2022,176.4,140.4,Telecom,Europe,Goldman Sachs,168,15,False
+IJG_00753,Infrastructure Deal 753,Project Finance,2013,17.0,11.6,Ports,Latin America,Deutsche Bank,314,21,False
+IJG_00754,Infrastructure Deal 754,Refinancing,2018,317.4,210.2,Power,North America,BNP Paribas,233,21,False
+IJG_00755,Infrastructure Deal 755,Bond Issuance,2011,233.6,190.2,Water,Middle East,Societe Generale,356,18,False
+IJG_00756,Infrastructure Deal 756,Acquisition,2022,2509.9,2010.8,Ports,North America,Citibank,207,14,False
+IJG_00757,Infrastructure Deal 757,Acquisition,2017,180.3,142.4,Water,Africa,Standard Chartered,161,24,False
+IJG_00758,Infrastructure Deal 758,Refinancing,2023,45.2,29.9,Water,Europe,BNP Paribas,261,15,False
+IJG_00759,Infrastructure Deal 759,Refinancing,2016,423.9,270.4,Water,Middle East,Deutsche Bank,266,14,False
+IJG_00760,Infrastructure Deal 760,Project Finance,2021,97.4,76.4,Airports,Asia Pacific,HSBC,153,24,False
+IJG_00761,Infrastructure Deal 761,Refinancing,2021,220.0,133.1,Power,Middle East,Standard Chartered,349,24,False
+IJG_00762,Infrastructure Deal 762,Acquisition,2021,2274.7,1370.6,Power,North America,Standard Chartered,430,11,False
+IJG_00763,Infrastructure Deal 763,Refinancing,2015,165.9,120.0,Airports,Middle East,BNP Paribas,415,18,False
+IJG_00764,Infrastructure Deal 764,Project Finance,2010,2285.1,1938.8,Telecom,Europe,Goldman Sachs,256,20,False
+IJG_00765,Infrastructure Deal 765,Refinancing,2017,258.9,168.5,Airports,North America,JP Morgan,257,16,False
+IJG_00766,Infrastructure Deal 766,Refinancing,2012,969.5,602.2,Power,Asia Pacific,Standard Chartered,237,14,False
+IJG_00767,Infrastructure Deal 767,Bond Issuance,2017,1307.0,829.3,Airports,Africa,Standard Chartered,307,18,False
+IJG_00768,Infrastructure Deal 768,Acquisition,2012,1560.5,1099.4,Roads,Asia Pacific,Societe Generale,159,16,False
+IJG_00769,Infrastructure Deal 769,Refinancing,2020,1850.9,1517.3,Roads,North America,Citibank,351,18,False
+IJG_00770,Infrastructure Deal 770,Project Finance,2023,73.7,54.1,Water,North America,Standard Chartered,398,18,False
+IJG_00771,Infrastructure Deal 771,Bond Issuance,2021,818.2,663.1,Water,Latin America,Goldman Sachs,268,18,False
+IJG_00772,Infrastructure Deal 772,Project Finance,2018,838.9,603.2,Roads,Middle East,Standard Chartered,324,21,False
+IJG_00773,Infrastructure Deal 773,Bond Issuance,2016,108.8,72.4,Water,Middle East,JP Morgan,258,15,False
+IJG_00774,Infrastructure Deal 774,Project Finance,2023,401.2,307.7,Roads,Middle East,Standard Chartered,202,20,False
+IJG_00775,Infrastructure Deal 775,Refinancing,2011,73.5,60.1,Water,Africa,BNP Paribas,293,21,True
+IJG_00776,Infrastructure Deal 776,Project Finance,2023,222.7,164.0,Power,Africa,Citibank,285,14,False
+IJG_00777,Infrastructure Deal 777,Project Finance,2011,191.7,148.5,Water,Asia Pacific,Societe Generale,427,24,False
+IJG_00778,Infrastructure Deal 778,Bond Issuance,2012,286.2,239.6,Power,Europe,Standard Chartered,357,11,False
+IJG_00779,Infrastructure Deal 779,Project Finance,2012,399.6,249.7,Airports,Africa,Societe Generale,258,19,False
+IJG_00780,Infrastructure Deal 780,Bond Issuance,2022,1172.8,704.6,Roads,Middle East,Citibank,157,24,False
+IJG_00781,Infrastructure Deal 781,Refinancing,2021,319.8,213.7,Roads,Europe,BNP Paribas,242,17,False
+IJG_00782,Infrastructure Deal 782,Bond Issuance,2020,953.9,716.3,Ports,Africa,BNP Paribas,208,14,False
+IJG_00783,Infrastructure Deal 783,Bond Issuance,2016,175.7,118.9,Telecom,Middle East,Standard Chartered,321,18,False
+IJG_00784,Infrastructure Deal 784,Project Finance,2010,351.0,297.1,Airports,Asia Pacific,Goldman Sachs,369,12,False
+IJG_00785,Infrastructure Deal 785,Project Finance,2012,701.5,548.1,Power,Middle East,Societe Generale,299,11,False
+IJG_00786,Infrastructure Deal 786,Project Finance,2020,118.6,81.2,Telecom,Middle East,Societe Generale,410,19,False
+IJG_00787,Infrastructure Deal 787,Bond Issuance,2016,50.2,34.3,Roads,Latin America,HSBC,202,19,False
+IJG_00788,Infrastructure Deal 788,Project Finance,2011,1363.1,1122.7,Roads,North America,Societe Generale,314,22,False
+IJG_00789,Infrastructure Deal 789,Acquisition,2023,181.6,113.7,Telecom,North America,Goldman Sachs,176,18,False
+IJG_00790,Infrastructure Deal 790,Acquisition,2012,2751.1,1956.1,Ports,Latin America,Goldman Sachs,227,24,False
+IJG_00791,Infrastructure Deal 791,Bond Issuance,2018,3758.4,3157.9,Water,Middle East,BNP Paribas,202,20,False
+IJG_00792,Infrastructure Deal 792,Project Finance,2020,1391.9,1027.2,Roads,Middle East,Societe Generale,237,19,False
+IJG_00793,Infrastructure Deal 793,Bond Issuance,2021,577.3,373.7,Water,Africa,Deutsche Bank,364,15,True
+IJG_00794,Infrastructure Deal 794,Refinancing,2010,594.0,366.3,Telecom,Middle East,Societe Generale,375,16,False
+IJG_00795,Infrastructure Deal 795,Refinancing,2014,373.3,272.3,Power,Middle East,Deutsche Bank,418,24,False
+IJG_00796,Infrastructure Deal 796,Refinancing,2021,1906.9,1246.3,Airports,Middle East,HSBC,352,18,False
+IJG_00797,Infrastructure Deal 797,Project Finance,2017,91.6,69.5,Airports,North America,Standard Chartered,158,17,False
+IJG_00798,Infrastructure Deal 798,Bond Issuance,2012,24.6,16.6,Water,Africa,Goldman Sachs,384,22,False
+IJG_00799,Infrastructure Deal 799,Bond Issuance,2013,200.6,131.5,Airports,Europe,Standard Chartered,161,13,False
+IJG_00800,Infrastructure Deal 800,Project Finance,2020,3025.1,2109.3,Power,Europe,Societe Generale,301,10,False
+IJG_00801,Infrastructure Deal 801,Acquisition,2019,317.5,241.5,Water,Middle East,BNP Paribas,170,11,True
+IJG_00802,Infrastructure Deal 802,Bond Issuance,2014,230.8,181.4,Telecom,Latin America,Societe Generale,284,20,False
+IJG_00803,Infrastructure Deal 803,Bond Issuance,2021,98.3,71.0,Power,Asia Pacific,Deutsche Bank,220,23,False
+IJG_00804,Infrastructure Deal 804,Project Finance,2010,527.8,359.1,Telecom,Africa,Goldman Sachs,228,13,False
+IJG_00805,Infrastructure Deal 805,Project Finance,2020,519.4,418.7,Power,Europe,JP Morgan,353,24,False
+IJG_00806,Infrastructure Deal 806,Bond Issuance,2016,295.9,204.2,Water,Europe,Deutsche Bank,177,20,False
+IJG_00807,Infrastructure Deal 807,Acquisition,2010,3189.5,2011.4,Telecom,Asia Pacific,JP Morgan,353,10,False
+IJG_00808,Infrastructure Deal 808,Refinancing,2016,1141.7,812.2,Airports,Middle East,BNP Paribas,424,15,True
+IJG_00809,Infrastructure Deal 809,Bond Issuance,2017,225.5,150.9,Airports,Middle East,Citibank,341,23,False
+IJG_00810,Infrastructure Deal 810,Refinancing,2015,2636.4,1707.7,Roads,Middle East,Deutsche Bank,193,16,False
+IJG_00811,Infrastructure Deal 811,Bond Issuance,2021,19.9,14.8,Ports,Asia Pacific,BNP Paribas,367,10,False
+IJG_00812,Infrastructure Deal 812,Refinancing,2016,1537.9,1220.3,Airports,Africa,Goldman Sachs,334,20,False
+IJG_00813,Infrastructure Deal 813,Bond Issuance,2014,168.3,132.4,Ports,Middle East,JP Morgan,345,13,False
+IJG_00814,Infrastructure Deal 814,Bond Issuance,2021,942.4,694.7,Airports,Latin America,BNP Paribas,349,22,False
+IJG_00815,Infrastructure Deal 815,Bond Issuance,2019,1809.0,1395.8,Roads,Africa,Societe Generale,427,20,False
+IJG_00816,Infrastructure Deal 816,Bond Issuance,2012,474.1,352.4,Water,Europe,JP Morgan,424,14,False
+IJG_00817,Infrastructure Deal 817,Bond Issuance,2011,73.5,59.4,Water,Latin America,Standard Chartered,201,22,False
+IJG_00818,Infrastructure Deal 818,Acquisition,2023,43.3,36.7,Airports,North America,Deutsche Bank,237,13,False
+IJG_00819,Infrastructure Deal 819,Refinancing,2017,236.6,163.7,Airports,Latin America,Standard Chartered,174,18,False
+IJG_00820,Infrastructure Deal 820,Project Finance,2017,1443.1,1219.9,Airports,Latin America,HSBC,215,11,False
+IJG_00821,Infrastructure Deal 821,Refinancing,2021,155.5,115.1,Power,Europe,HSBC,258,18,False
+IJG_00822,Infrastructure Deal 822,Bond Issuance,2023,272.7,168.7,Roads,Europe,Standard Chartered,188,15,False
+IJG_00823,Infrastructure Deal 823,Bond Issuance,2020,1024.1,633.6,Water,Latin America,JP Morgan,419,22,False
+IJG_00824,Infrastructure Deal 824,Project Finance,2018,764.9,566.7,Roads,Middle East,Deutsche Bank,355,15,False
+IJG_00825,Infrastructure Deal 825,Refinancing,2010,120.4,94.3,Water,North America,Deutsche Bank,334,10,False
+IJG_00826,Infrastructure Deal 826,Bond Issuance,2015,618.9,515.4,Airports,Asia Pacific,Citibank,323,23,False
+IJG_00827,Infrastructure Deal 827,Acquisition,2011,4316.1,2890.7,Ports,Europe,Societe Generale,444,15,False
+IJG_00828,Infrastructure Deal 828,Bond Issuance,2017,477.0,297.7,Ports,Europe,Societe Generale,352,11,False
+IJG_00829,Infrastructure Deal 829,Project Finance,2013,153.0,96.4,Ports,North America,Standard Chartered,310,12,False
+IJG_00830,Infrastructure Deal 830,Bond Issuance,2014,3533.3,2534.5,Ports,Middle East,Deutsche Bank,303,21,False
+IJG_00831,Infrastructure Deal 831,Acquisition,2017,1075.7,717.7,Water,Asia Pacific,Standard Chartered,150,19,False
+IJG_00832,Infrastructure Deal 832,Bond Issuance,2018,2736.1,2268.2,Power,Africa,Societe Generale,261,14,False
+IJG_00833,Infrastructure Deal 833,Refinancing,2013,632.7,488.4,Airports,Asia Pacific,Deutsche Bank,439,10,False
+IJG_00834,Infrastructure Deal 834,Acquisition,2016,465.3,369.9,Roads,North America,JP Morgan,217,13,True
+IJG_00835,Infrastructure Deal 835,Project Finance,2014,397.0,321.6,Water,Middle East,JP Morgan,368,21,False
+IJG_00836,Infrastructure Deal 836,Acquisition,2020,497.8,371.9,Roads,Latin America,BNP Paribas,298,12,False
+IJG_00837,Infrastructure Deal 837,Refinancing,2017,1122.2,873.9,Airports,Europe,JP Morgan,379,22,False
+IJG_00838,Infrastructure Deal 838,Bond Issuance,2020,107.7,69.6,Ports,North America,Citibank,390,24,False
+IJG_00839,Infrastructure Deal 839,Acquisition,2019,52.8,41.4,Roads,North America,JP Morgan,171,10,False
+IJG_00840,Infrastructure Deal 840,Project Finance,2021,484.8,362.7,Telecom,Asia Pacific,JP Morgan,358,17,False
+IJG_00841,Infrastructure Deal 841,Acquisition,2012,677.6,430.8,Power,North America,Societe Generale,198,19,False
+IJG_00842,Infrastructure Deal 842,Project Finance,2017,67.9,44.3,Ports,Europe,Deutsche Bank,285,12,False
+IJG_00843,Infrastructure Deal 843,Bond Issuance,2018,413.5,251.7,Roads,Africa,Deutsche Bank,389,17,False
+IJG_00844,Infrastructure Deal 844,Project Finance,2015,65.5,49.8,Telecom,Africa,Societe Generale,278,21,False
+IJG_00845,Infrastructure Deal 845,Refinancing,2022,888.7,671.5,Roads,Middle East,BNP Paribas,153,13,False
+IJG_00846,Infrastructure Deal 846,Acquisition,2010,533.5,370.7,Water,Europe,BNP Paribas,276,19,False
+IJG_00847,Infrastructure Deal 847,Refinancing,2019,35.8,25.8,Power,Asia Pacific,Citibank,227,13,False
+IJG_00848,Infrastructure Deal 848,Bond Issuance,2023,132.8,109.2,Airports,Asia Pacific,HSBC,334,22,False
+IJG_00849,Infrastructure Deal 849,Acquisition,2014,668.7,495.0,Roads,North America,Societe Generale,411,21,False
+IJG_00850,Infrastructure Deal 850,Refinancing,2018,379.3,288.1,Power,Latin America,BNP Paribas,400,10,False
+IJG_00851,Infrastructure Deal 851,Refinancing,2011,237.4,151.5,Roads,Middle East,Citibank,410,18,False
+IJG_00852,Infrastructure Deal 852,Acquisition,2022,113.4,73.3,Power,Europe,Standard Chartered,330,20,False
+IJG_00853,Infrastructure Deal 853,Acquisition,2011,422.8,323.2,Ports,Latin America,Societe Generale,167,10,False
+IJG_00854,Infrastructure Deal 854,Bond Issuance,2012,376.7,247.1,Ports,Middle East,BNP Paribas,181,10,False
+IJG_00855,Infrastructure Deal 855,Bond Issuance,2015,255.3,159.5,Airports,Europe,Citibank,435,13,False
+IJG_00856,Infrastructure Deal 856,Acquisition,2010,135.6,102.0,Airports,Middle East,Deutsche Bank,242,14,False
+IJG_00857,Infrastructure Deal 857,Acquisition,2011,473.8,364.1,Telecom,Latin America,Citibank,314,21,False
+IJG_00858,Infrastructure Deal 858,Bond Issuance,2016,6980.0,4656.9,Water,Middle East,Societe Generale,211,19,False
+IJG_00859,Infrastructure Deal 859,Acquisition,2011,454.9,329.9,Ports,Europe,Societe Generale,322,18,False
+IJG_00860,Infrastructure Deal 860,Bond Issuance,2013,2488.8,2039.9,Ports,North America,Standard Chartered,405,13,False
+IJG_00861,Infrastructure Deal 861,Acquisition,2013,218.2,147.0,Water,Middle East,Societe Generale,328,16,False
+IJG_00862,Infrastructure Deal 862,Bond Issuance,2012,1080.5,651.0,Telecom,Middle East,HSBC,320,22,False
+IJG_00863,Infrastructure Deal 863,Acquisition,2014,482.7,394.7,Telecom,Latin America,Deutsche Bank,364,10,False
+IJG_00864,Infrastructure Deal 864,Refinancing,2018,97.0,66.7,Water,Europe,HSBC,304,17,False
+IJG_00865,Infrastructure Deal 865,Bond Issuance,2015,247.5,162.6,Ports,Asia Pacific,BNP Paribas,188,18,False
+IJG_00866,Infrastructure Deal 866,Project Finance,2014,5996.8,4297.0,Roads,Africa,Goldman Sachs,181,20,False
+IJG_00867,Infrastructure Deal 867,Bond Issuance,2021,308.2,195.4,Ports,North America,BNP Paribas,320,19,False
+IJG_00868,Infrastructure Deal 868,Acquisition,2014,324.9,248.0,Airports,Asia Pacific,Citibank,402,14,False
+IJG_00869,Infrastructure Deal 869,Refinancing,2011,729.0,542.5,Airports,Latin America,Goldman Sachs,373,16,False
+IJG_00870,Infrastructure Deal 870,Acquisition,2016,28.9,19.6,Ports,North America,HSBC,166,18,False
+IJG_00871,Infrastructure Deal 871,Bond Issuance,2017,477.6,351.5,Water,Europe,Citibank,379,22,False
+IJG_00872,Infrastructure Deal 872,Project Finance,2013,930.8,750.1,Telecom,Asia Pacific,Citibank,225,13,False
+IJG_00873,Infrastructure Deal 873,Project Finance,2010,589.9,434.2,Water,Africa,Citibank,233,12,False
+IJG_00874,Infrastructure Deal 874,Project Finance,2020,139.5,106.1,Water,Latin America,JP Morgan,436,23,False
+IJG_00875,Infrastructure Deal 875,Bond Issuance,2014,2068.1,1692.5,Telecom,Europe,Deutsche Bank,334,15,False
+IJG_00876,Infrastructure Deal 876,Acquisition,2018,110.9,76.6,Roads,Middle East,Citibank,231,13,False
+IJG_00877,Infrastructure Deal 877,Acquisition,2016,643.9,472.1,Telecom,Middle East,Standard Chartered,212,17,False
+IJG_00878,Infrastructure Deal 878,Refinancing,2011,513.2,386.4,Power,Africa,Citibank,252,24,False
+IJG_00879,Infrastructure Deal 879,Bond Issuance,2012,2961.9,1913.9,Telecom,Asia Pacific,Deutsche Bank,417,13,False
+IJG_00880,Infrastructure Deal 880,Refinancing,2016,517.1,407.6,Power,Asia Pacific,Societe Generale,368,17,False
+IJG_00881,Infrastructure Deal 881,Acquisition,2011,1561.4,1054.9,Airports,Latin America,Standard Chartered,316,14,False
+IJG_00882,Infrastructure Deal 882,Project Finance,2011,38.2,24.5,Roads,Middle East,Societe Generale,370,11,False
+IJG_00883,Infrastructure Deal 883,Acquisition,2021,412.9,340.1,Water,North America,Deutsche Bank,414,15,False
+IJG_00884,Infrastructure Deal 884,Refinancing,2010,1254.5,989.9,Ports,Asia Pacific,JP Morgan,246,24,False
+IJG_00885,Infrastructure Deal 885,Bond Issuance,2015,733.0,545.8,Airports,North America,BNP Paribas,339,14,False
+IJG_00886,Infrastructure Deal 886,Project Finance,2015,341.5,271.1,Ports,Asia Pacific,BNP Paribas,354,16,False
+IJG_00887,Infrastructure Deal 887,Bond Issuance,2012,650.8,405.6,Ports,Latin America,Deutsche Bank,261,16,False
+IJG_00888,Infrastructure Deal 888,Project Finance,2017,1276.7,838.5,Water,Middle East,Deutsche Bank,166,18,False
+IJG_00889,Infrastructure Deal 889,Bond Issuance,2017,844.3,641.5,Telecom,Middle East,Societe Generale,443,23,False
+IJG_00890,Infrastructure Deal 890,Acquisition,2020,28.0,18.4,Ports,North America,Societe Generale,248,18,False
+IJG_00891,Infrastructure Deal 891,Project Finance,2021,218.9,143.1,Water,Africa,Deutsche Bank,430,10,False
+IJG_00892,Infrastructure Deal 892,Refinancing,2011,203.8,151.8,Water,Latin America,BNP Paribas,203,23,False
+IJG_00893,Infrastructure Deal 893,Project Finance,2019,1830.8,1231.7,Airports,Asia Pacific,Societe Generale,343,13,False
+IJG_00894,Infrastructure Deal 894,Acquisition,2019,559.0,378.1,Airports,Latin America,Citibank,375,18,False
+IJG_00895,Infrastructure Deal 895,Project Finance,2014,731.6,555.7,Ports,Asia Pacific,Deutsche Bank,443,13,False
+IJG_00896,Infrastructure Deal 896,Acquisition,2021,861.3,691.9,Ports,North America,Citibank,246,24,False
+IJG_00897,Infrastructure Deal 897,Acquisition,2019,579.1,412.8,Telecom,Asia Pacific,JP Morgan,326,23,False
+IJG_00898,Infrastructure Deal 898,Refinancing,2023,373.2,249.7,Ports,Middle East,HSBC,398,24,False
+IJG_00899,Infrastructure Deal 899,Project Finance,2015,96.4,76.4,Roads,Middle East,Societe Generale,315,23,False
+IJG_00900,Infrastructure Deal 900,Project Finance,2022,681.8,422.9,Power,Asia Pacific,Goldman Sachs,239,19,False
+IJG_00901,Infrastructure Deal 901,Project Finance,2012,14.2,11.2,Ports,North America,HSBC,320,19,False
+IJG_00902,Infrastructure Deal 902,Project Finance,2018,627.3,448.7,Power,Africa,JP Morgan,295,20,False
+IJG_00903,Infrastructure Deal 903,Bond Issuance,2015,1275.5,992.7,Ports,North America,BNP Paribas,164,23,False
+IJG_00904,Infrastructure Deal 904,Refinancing,2017,113.8,79.5,Ports,Africa,Deutsche Bank,287,18,False
+IJG_00905,Infrastructure Deal 905,Project Finance,2015,276.4,212.6,Ports,Africa,Societe Generale,192,10,False
+IJG_00906,Infrastructure Deal 906,Bond Issuance,2011,1867.1,1493.7,Ports,Middle East,Goldman Sachs,353,10,False
+IJG_00907,Infrastructure Deal 907,Bond Issuance,2019,34.4,29.1,Ports,Europe,Standard Chartered,315,19,False
+IJG_00908,Infrastructure Deal 908,Acquisition,2013,457.7,310.8,Power,North America,Deutsche Bank,351,20,False
+IJG_00909,Infrastructure Deal 909,Bond Issuance,2017,100.4,70.7,Ports,Middle East,Goldman Sachs,372,19,False
+IJG_00910,Infrastructure Deal 910,Bond Issuance,2013,1380.8,891.3,Power,Africa,BNP Paribas,446,12,False
+IJG_00911,Infrastructure Deal 911,Project Finance,2020,147.1,99.0,Telecom,Latin America,Standard Chartered,365,18,False
+IJG_00912,Infrastructure Deal 912,Bond Issuance,2016,2409.6,1818.7,Water,Europe,HSBC,211,23,False
+IJG_00913,Infrastructure Deal 913,Bond Issuance,2019,725.2,494.3,Water,Asia Pacific,BNP Paribas,351,21,False
+IJG_00914,Infrastructure Deal 914,Project Finance,2013,123.0,93.7,Telecom,Latin America,JP Morgan,358,23,False
+IJG_00915,Infrastructure Deal 915,Project Finance,2016,200.9,143.4,Roads,Africa,Goldman Sachs,271,21,False
+IJG_00916,Infrastructure Deal 916,Project Finance,2013,622.9,437.1,Ports,North America,HSBC,409,15,False
+IJG_00917,Infrastructure Deal 917,Acquisition,2012,38.5,30.1,Ports,North America,Standard Chartered,356,10,False
+IJG_00918,Infrastructure Deal 918,Refinancing,2010,599.5,470.6,Water,Latin America,Societe Generale,203,17,False
+IJG_00919,Infrastructure Deal 919,Refinancing,2017,257.5,205.2,Ports,Africa,HSBC,304,18,False
+IJG_00920,Infrastructure Deal 920,Bond Issuance,2017,1005.9,851.7,Power,Europe,Deutsche Bank,415,20,False
+IJG_00921,Infrastructure Deal 921,Refinancing,2011,118.3,96.7,Roads,Europe,Citibank,318,24,False
+IJG_00922,Infrastructure Deal 922,Bond Issuance,2021,384.8,237.5,Power,Africa,BNP Paribas,395,13,False
+IJG_00923,Infrastructure Deal 923,Refinancing,2013,317.6,239.6,Airports,North America,Societe Generale,229,19,True
+IJG_00924,Infrastructure Deal 924,Refinancing,2015,328.3,260.6,Roads,Europe,Goldman Sachs,323,17,False
+IJG_00925,Infrastructure Deal 925,Acquisition,2020,434.4,360.1,Power,North America,JP Morgan,404,21,False
+IJG_00926,Infrastructure Deal 926,Project Finance,2023,126.7,94.7,Ports,North America,JP Morgan,391,10,False
+IJG_00927,Infrastructure Deal 927,Bond Issuance,2020,940.3,751.0,Ports,Latin America,HSBC,391,16,False
+IJG_00928,Infrastructure Deal 928,Acquisition,2014,1780.7,1150.4,Ports,North America,Goldman Sachs,255,23,False
+IJG_00929,Infrastructure Deal 929,Project Finance,2017,234.3,192.6,Roads,Middle East,Societe Generale,341,17,False
+IJG_00930,Infrastructure Deal 930,Project Finance,2020,148.2,106.3,Roads,Asia Pacific,JP Morgan,241,22,False
+IJG_00931,Infrastructure Deal 931,Bond Issuance,2023,214.7,153.7,Water,Latin America,Societe Generale,381,23,True
+IJG_00932,Infrastructure Deal 932,Refinancing,2014,214.4,163.7,Power,Africa,Societe Generale,210,22,False
+IJG_00933,Infrastructure Deal 933,Project Finance,2023,420.6,265.1,Airports,Asia Pacific,Goldman Sachs,272,21,False
+IJG_00934,Infrastructure Deal 934,Acquisition,2011,622.8,453.1,Ports,Europe,HSBC,274,10,False
+IJG_00935,Infrastructure Deal 935,Project Finance,2020,697.9,457.8,Water,Latin America,Societe Generale,339,16,False
+IJG_00936,Infrastructure Deal 936,Refinancing,2010,72.3,47.7,Power,Europe,JP Morgan,312,15,False
+IJG_00937,Infrastructure Deal 937,Bond Issuance,2018,902.1,641.9,Ports,Latin America,Standard Chartered,367,10,False
+IJG_00938,Infrastructure Deal 938,Bond Issuance,2010,203.7,144.4,Power,Middle East,Deutsche Bank,287,22,False
+IJG_00939,Infrastructure Deal 939,Bond Issuance,2018,1586.7,985.9,Airports,Europe,JP Morgan,331,20,True
+IJG_00940,Infrastructure Deal 940,Acquisition,2021,68.6,46.1,Roads,Asia Pacific,BNP Paribas,203,22,False
+IJG_00941,Infrastructure Deal 941,Refinancing,2019,548.9,453.0,Airports,Middle East,JP Morgan,241,10,False
+IJG_00942,Infrastructure Deal 942,Acquisition,2020,482.6,339.1,Ports,Latin America,Deutsche Bank,299,23,True
+IJG_00943,Infrastructure Deal 943,Acquisition,2020,314.5,203.3,Telecom,Europe,Standard Chartered,259,10,False
+IJG_00944,Infrastructure Deal 944,Project Finance,2013,213.0,172.3,Roads,Latin America,BNP Paribas,207,19,False
+IJG_00945,Infrastructure Deal 945,Bond Issuance,2015,706.4,512.2,Power,Europe,BNP Paribas,333,12,False
+IJG_00946,Infrastructure Deal 946,Refinancing,2019,446.6,354.7,Water,Asia Pacific,Citibank,433,20,False
+IJG_00947,Infrastructure Deal 947,Refinancing,2020,657.7,556.3,Roads,Middle East,Societe Generale,409,10,False
+IJG_00948,Infrastructure Deal 948,Project Finance,2022,3330.3,2729.7,Roads,Africa,Goldman Sachs,242,14,False
+IJG_00949,Infrastructure Deal 949,Refinancing,2023,177.7,109.3,Power,North America,Societe Generale,335,16,False
+IJG_00950,Infrastructure Deal 950,Refinancing,2017,630.8,427.6,Water,Latin America,Citibank,387,18,True
+IJG_00951,Infrastructure Deal 951,Project Finance,2023,453.0,307.0,Water,Africa,HSBC,398,13,False
+IJG_00952,Infrastructure Deal 952,Bond Issuance,2023,1606.0,1301.7,Ports,North America,JP Morgan,314,15,False
+IJG_00953,Infrastructure Deal 953,Bond Issuance,2020,357.1,219.2,Ports,Asia Pacific,JP Morgan,367,19,False
+IJG_00954,Infrastructure Deal 954,Project Finance,2011,160.4,96.4,Ports,North America,BNP Paribas,354,16,False
+IJG_00955,Infrastructure Deal 955,Refinancing,2016,525.1,344.1,Telecom,Asia Pacific,BNP Paribas,341,14,False
+IJG_00956,Infrastructure Deal 956,Refinancing,2018,127.3,105.0,Water,Asia Pacific,HSBC,177,18,False
+IJG_00957,Infrastructure Deal 957,Bond Issuance,2023,205.8,125.2,Power,Asia Pacific,HSBC,224,23,False
+IJG_00958,Infrastructure Deal 958,Bond Issuance,2022,507.9,381.7,Telecom,North America,Societe Generale,270,13,False
+IJG_00959,Infrastructure Deal 959,Project Finance,2010,306.3,191.0,Airports,Asia Pacific,Standard Chartered,190,20,False
+IJG_00960,Infrastructure Deal 960,Bond Issuance,2023,264.9,174.4,Roads,Europe,JP Morgan,431,16,False
+IJG_00961,Infrastructure Deal 961,Acquisition,2015,53.5,35.9,Airports,Latin America,Deutsche Bank,214,10,False
+IJG_00962,Infrastructure Deal 962,Acquisition,2023,160.1,127.5,Ports,Latin America,Standard Chartered,245,18,False
+IJG_00963,Infrastructure Deal 963,Refinancing,2013,393.9,330.4,Roads,Middle East,Standard Chartered,444,20,False
+IJG_00964,Infrastructure Deal 964,Acquisition,2016,327.9,263.6,Water,Europe,Deutsche Bank,258,14,False
+IJG_00965,Infrastructure Deal 965,Refinancing,2016,1745.5,1318.4,Ports,Africa,Societe Generale,334,17,False
+IJG_00966,Infrastructure Deal 966,Project Finance,2023,447.0,324.9,Airports,Europe,BNP Paribas,275,12,True
+IJG_00967,Infrastructure Deal 967,Refinancing,2012,320.9,229.4,Roads,North America,Citibank,254,22,False
+IJG_00968,Infrastructure Deal 968,Acquisition,2013,73.2,57.5,Roads,Africa,BNP Paribas,195,21,False
+IJG_00969,Infrastructure Deal 969,Bond Issuance,2022,915.2,756.7,Water,Asia Pacific,Deutsche Bank,377,17,False
+IJG_00970,Infrastructure Deal 970,Acquisition,2017,740.6,501.7,Telecom,Europe,BNP Paribas,433,20,False
+IJG_00971,Infrastructure Deal 971,Bond Issuance,2016,686.6,472.1,Water,Middle East,BNP Paribas,371,20,False
+IJG_00972,Infrastructure Deal 972,Acquisition,2022,84.6,56.6,Water,Middle East,BNP Paribas,324,14,False
+IJG_00973,Infrastructure Deal 973,Refinancing,2012,98.6,81.9,Telecom,Europe,Standard Chartered,280,12,False
+IJG_00974,Infrastructure Deal 974,Acquisition,2016,2240.3,1565.6,Ports,North America,JP Morgan,418,14,False
+IJG_00975,Infrastructure Deal 975,Acquisition,2022,234.9,176.9,Airports,Latin America,Goldman Sachs,170,19,False
+IJG_00976,Infrastructure Deal 976,Acquisition,2010,538.6,352.7,Telecom,Europe,JP Morgan,294,21,False
+IJG_00977,Infrastructure Deal 977,Bond Issuance,2019,357.8,230.8,Ports,Middle East,Standard Chartered,439,16,False
+IJG_00978,Infrastructure Deal 978,Bond Issuance,2016,935.6,566.4,Telecom,Middle East,Standard Chartered,277,24,False
+IJG_00979,Infrastructure Deal 979,Acquisition,2021,359.5,221.8,Ports,Latin America,Deutsche Bank,331,10,False
+IJG_00980,Infrastructure Deal 980,Acquisition,2013,14.7,10.0,Telecom,Middle East,Goldman Sachs,177,16,False
+IJG_00981,Infrastructure Deal 981,Bond Issuance,2016,76.2,56.1,Ports,Africa,Standard Chartered,315,17,False
+IJG_00982,Infrastructure Deal 982,Acquisition,2015,88.2,74.7,Power,Asia Pacific,Citibank,252,20,False
+IJG_00983,Infrastructure Deal 983,Bond Issuance,2022,2504.1,1858.6,Ports,North America,JP Morgan,216,12,False
+IJG_00984,Infrastructure Deal 984,Refinancing,2013,401.9,323.5,Telecom,Latin America,Deutsche Bank,253,17,False
+IJG_00985,Infrastructure Deal 985,Acquisition,2019,682.5,536.7,Roads,Europe,Societe Generale,317,17,False
+IJG_00986,Infrastructure Deal 986,Refinancing,2014,226.9,150.7,Airports,Middle East,BNP Paribas,361,20,False
+IJG_00987,Infrastructure Deal 987,Project Finance,2022,522.4,376.7,Water,Europe,HSBC,431,20,False
+IJG_00988,Infrastructure Deal 988,Acquisition,2023,92.9,62.1,Power,North America,HSBC,244,21,False
+IJG_00989,Infrastructure Deal 989,Refinancing,2013,242.7,169.0,Ports,Latin America,Citibank,191,15,False
+IJG_00990,Infrastructure Deal 990,Refinancing,2014,315.1,266.2,Water,Africa,HSBC,344,17,False
+IJG_00991,Infrastructure Deal 991,Bond Issuance,2020,41.8,31.4,Ports,Middle East,Standard Chartered,181,20,False
+IJG_00992,Infrastructure Deal 992,Acquisition,2020,989.5,620.6,Roads,Europe,Standard Chartered,381,10,False
+IJG_00993,Infrastructure Deal 993,Refinancing,2015,101.5,85.5,Power,Asia Pacific,JP Morgan,289,18,False
+IJG_00994,Infrastructure Deal 994,Refinancing,2014,68.9,55.7,Telecom,Europe,Standard Chartered,340,18,False
+IJG_00995,Infrastructure Deal 995,Bond Issuance,2013,218.5,151.3,Airports,Europe,BNP Paribas,258,24,False
+IJG_00996,Infrastructure Deal 996,Project Finance,2012,581.4,445.5,Airports,Middle East,JP Morgan,334,24,False
+IJG_00997,Infrastructure Deal 997,Project Finance,2012,227.3,183.7,Ports,Europe,Citibank,268,15,False
+IJG_00998,Infrastructure Deal 998,Acquisition,2016,362.2,221.5,Telecom,Middle East,JP Morgan,193,19,False
+IJG_00999,Infrastructure Deal 999,Bond Issuance,2020,87.7,53.8,Water,Middle East,Goldman Sachs,433,13,False
+IJG_01000,Infrastructure Deal 1000,Acquisition,2017,62.9,51.5,Water,Europe,Deutsche Bank,242,24,True

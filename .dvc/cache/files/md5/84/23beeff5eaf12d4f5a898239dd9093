@@ -1,0 +1,8 @@
+Database,Entries,Key Properties,Access Method
+World Bank PPI Database,"10,000+ projects","Sector, country, investment, debt, sponsors, status",Public download + API
+IJGlobal,"40,000+ transactions","Financial close data, debt terms, advisors, counterparties",Subscription API
+Global Infrastructure Hub,"2,500+ pipeline projects","Cost, timeline, sector, procurement status",API + bulk download
+National Bridge Inventory (US),"620,000+ bridges","Material type, condition ratings, traffic, inspection dates",Public CSV download
+Sentinel-2 Satellite Imagery,Global coverage,"Multi-spectral (13 bands), 10m resolution, 5-day revisit",Copernicus Open Access Hub
+OpenStreetMap,Global road/infrastructure network,"Road classification, geometry, connectivity",Overpass API
+ASCE Infrastructure Report Card,US infrastructure ratings,"Sector grades, investment needs, condition assessments",Published reports

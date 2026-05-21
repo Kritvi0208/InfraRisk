@@ -1,0 +1,163 @@
+{
+  "extracted_from": "483555C_Data_Scientist_InfraRisk_AI.docx.pdf, Appendix A.4 source tables visible in screenshot",
+  "policy": "Use real downloaded, API, licensed, or user-supplied source files only. Do not generate synthetic fallback data in this registry.",
+  "sources": [
+    {
+      "id": "world_bank_ppi",
+      "name": "World Bank PPI Database",
+      "category": "infrastructure_engineering",
+      "coverage": "10000+ projects",
+      "key_fields": ["sector", "country", "investment", "debt", "sponsors", "status"],
+      "access": "Public download + API",
+      "official_url": "https://ppi.worldbank.org/",
+      "local_target": "data/raw/ppi/ppi_projects.csv",
+      "status": "public_real_source"
+    },
+    {
+      "id": "ijglobal",
+      "name": "IJGlobal",
+      "category": "infrastructure_engineering",
+      "coverage": "40000+ transactions",
+      "key_fields": ["financial_close_data", "debt_terms", "advisors", "counterparties"],
+      "access": "Subscription API",
+      "official_url": "https://www.ijglobal.com/",
+      "local_target": "data/raw/ppi/ijglobal_transactions.csv",
+      "env_vars": ["IJGLOBAL_API_KEY"],
+      "status": "licensed_source_requires_credentials"
+    },
+    {
+      "id": "global_infrastructure_hub",
+      "name": "Global Infrastructure Hub",
+      "category": "infrastructure_engineering",
+      "coverage": "2500+ pipeline projects",
+      "key_fields": ["cost", "timeline", "sector", "procurement_status"],
+      "access": "API + bulk download",
+      "official_url": "https://www.gihub.org/",
+      "local_target": "data/raw/gihub/gihub_pipeline.csv",
+      "status": "public_or_bulk_source"
+    },
+    {
+      "id": "national_bridge_inventory",
+      "name": "National Bridge Inventory (US)",
+      "category": "infrastructure_engineering",
+      "coverage": "620000+ bridges",
+      "key_fields": ["material_type", "condition_ratings", "traffic", "inspection_dates"],
+      "access": "Public CSV download",
+      "official_url": "https://www.fhwa.dot.gov/bridge/nbi.cfm",
+      "local_target": "data/raw/nbi/nbi_bridges.csv",
+      "status": "public_real_source"
+    },
+    {
+      "id": "sentinel_2",
+      "name": "Sentinel-2 Satellite Imagery",
+      "category": "infrastructure_engineering",
+      "coverage": "Global coverage",
+      "key_fields": ["13_spectral_bands", "10m_resolution", "5_day_revisit"],
+      "access": "Copernicus Open Access Hub",
+      "official_url": "https://dataspace.copernicus.eu/",
+      "local_target": "data/raw/sentinel2/",
+      "env_vars": ["COPERNICUS_USERNAME", "COPERNICUS_PASSWORD"],
+      "status": "public_source_requires_query_credentials_for_bulk"
+    },
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "category": "infrastructure_engineering",
+      "coverage": "Global road/infrastructure network",
+      "key_fields": ["road_classification", "geometry", "connectivity"],
+      "access": "Overpass API",
+      "official_url": "https://overpass-api.de/",
+      "local_target": "data/raw/osm/osm_roads.geojson",
+      "status": "public_real_source"
+    },
+    {
+      "id": "asce_report_card",
+      "name": "ASCE Infrastructure Report Card",
+      "category": "infrastructure_engineering",
+      "coverage": "US infrastructure ratings",
+      "key_fields": ["sector_grades", "investment_needs", "condition_assessments"],
+      "access": "Published reports",
+      "official_url": "https://infrastructurereportcard.org/",
+      "local_target": "data/raw/asce/asce_report_card.csv",
+      "status": "published_report_source"
+    },
+    {
+      "id": "world_bank_wdi",
+      "name": "World Bank WDI",
+      "category": "macro_financial",
+      "coverage": "220+ countries",
+      "key_fields": ["gdp", "inflation", "population", "trade", "governance"],
+      "access": "API + bulk download",
+      "official_url": "https://api.worldbank.org/v2/",
+      "local_target": "data/raw/worldbank/wdi_macro.csv",
+      "status": "public_real_source"
+    },
+    {
+      "id": "imf_weo_ifs",
+      "name": "IMF WEO & IFS",
+      "category": "macro_financial",
+      "coverage": "190+ countries",
+      "key_fields": ["gdp_forecasts", "fiscal_balances", "debt_ratios", "reserves"],
+      "access": "API + published data",
+      "official_url": "https://www.imf.org/external/datamapper/api",
+      "local_target": "data/raw/imf/imf_macro.csv",
+      "status": "public_real_source"
+    },
+    {
+      "id": "bloomberg_refinitiv",
+      "name": "Bloomberg / Refinitiv",
+      "category": "macro_financial",
+      "coverage": "Global",
+      "key_fields": ["bond_spreads", "cds", "interest_rates", "fx", "commodity_prices"],
+      "access": "Terminal / API",
+      "official_url": "https://www.bloomberg.com/professional/",
+      "local_target": "data/raw/market/bloomberg_refinitiv_market.csv",
+      "env_vars": ["BLOOMBERG_API_KEY", "REFINITIV_API_KEY"],
+      "status": "licensed_source_requires_credentials"
+    },
+    {
+      "id": "sp_infrastructure_ratings",
+      "name": "S&P Infrastructure Ratings",
+      "category": "macro_financial",
+      "coverage": "1000+ rated projects",
+      "key_fields": ["credit_ratings", "default_studies", "recovery_analysis"],
+      "access": "Published reports",
+      "official_url": "https://www.spglobal.com/ratings/",
+      "local_target": "data/raw/ratings/sp_infrastructure_ratings.csv",
+      "status": "published_or_licensed_source"
+    },
+    {
+      "id": "moodys_project_finance_default_study",
+      "name": "Moody's Project Finance Default Study",
+      "category": "macro_financial",
+      "coverage": "8000+ projects (1983-present)",
+      "key_fields": ["default_rates_by_sector", "default_rates_by_region", "default_rates_by_phase"],
+      "access": "Published annually",
+      "official_url": "https://www.moodys.com/",
+      "local_target": "data/raw/ratings/moodys_project_finance_defaults.csv",
+      "status": "published_or_licensed_source"
+    },
+    {
+      "id": "oecd_infrastructure_data",
+      "name": "OECD Infrastructure Data",
+      "category": "macro_financial",
+      "coverage": "OECD countries",
+      "key_fields": ["infrastructure_investment", "ppp_pipelines", "governance_scores"],
+      "access": "OECD.Stat API",
+      "official_url": "https://stats.oecd.org/",
+      "local_target": "data/raw/oecd/oecd_infrastructure.csv",
+      "status": "public_real_source"
+    },
+    {
+      "id": "yahoo_finance",
+      "name": "Yahoo Finance / yfinance",
+      "category": "macro_financial",
+      "coverage": "Global",
+      "key_fields": ["equity", "commodity", "fx", "bond_yield"],
+      "access": "Free API",
+      "official_url": "https://finance.yahoo.com/",
+      "local_target": "data/raw/market/yahoo_finance_prices.csv",
+      "status": "public_real_source"
+    }
+  ]
+}
