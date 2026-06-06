@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -19,16 +21,27 @@ jobs:
           pip install black isort flake8 mkdocs
       - name: Check formatting
         run: |
+          ZERO_SHA="0000000000000000000000000000000000000000"
+
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            git fetch --no-tags --depth=1 origin "${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}"
-            DIFF_RANGE="origin/${{ github.event.pull_request.base.ref }}...HEAD"
-          elif git rev-parse HEAD^ >/dev/null 2>&1; then
-            DIFF_RANGE="HEAD^...HEAD"
+            if git fetch --no-tags origin "${{ github.event.pull_request.base.sha }}"; then
+              PR_BASE="${{ github.event.pull_request.base.sha }}"
+            else
+              git fetch --no-tags origin "+${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}"
+              PR_BASE="origin/${{ github.event.pull_request.base.ref }}"
+            fi
+            DIFF_RANGE="${PR_BASE}...HEAD"
+          elif [[ "${{ github.event.before }}" != "${ZERO_SHA}" ]]; then
+            DIFF_RANGE="${{ github.event.before }}...${{ github.event.after }}"
           else
-            DIFF_RANGE="HEAD"
+            INITIAL_COMMIT=1
           fi
 
-          mapfile -t PY_FILES < <(git diff --name-only --diff-filter=ACMR "${DIFF_RANGE}" -- '*.py')
+          if [ "${INITIAL_COMMIT:-0}" -eq 1 ]; then
+            mapfile -t PY_FILES < <(git diff-tree --no-commit-id --name-only --diff-filter=ACMR -r HEAD -- '*.py')
+          else
+            mapfile -t PY_FILES < <(git diff --name-only --diff-filter=ACMR "${DIFF_RANGE}" -- '*.py')
+          fi
 
           if [ "${#PY_FILES[@]}" -eq 0 ]; then
             echo "No changed Python files to lint."
