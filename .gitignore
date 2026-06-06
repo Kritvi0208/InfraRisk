@@ -52,10 +52,11 @@ htmlcov/
 logs/
 
 # Data
-data/
-*.csv
+# data/
+# *.csv
 *.db
 *.sqlite
+data/files/
 
 # Node/Frontend
 node_modules/
@@ -69,7 +70,7 @@ out/
 *.tmp
 mlruns/
 *.ipynb_checkpoints
-/data
+# /data
 .dvc/tmp/
 
 # DVC

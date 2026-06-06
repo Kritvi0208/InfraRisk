@@ -1,0 +1,8 @@
+Source,Coverage,Key Fields,Access
+World Bank WDI,220+ countries,"GDP, inflation, population, trade, governance",API + bulk download
+IMF WEO & IFS,190+ countries,"GDP forecasts, fiscal balances, debt ratios, reserves",API + published data
+Bloomberg / Refinitiv,Global,"Bond spreads, CDS, interest rates, FX, commodity prices",Terminal / API
+S&P Infrastructure Ratings,"1,000+ rated projects","Credit ratings, default studies, recovery analysis",Published reports
+Moody's Project Finance Default Study,"8,000+ projects (1983-present)","Default rates by sector, region, phase",Published annually
+OECD Infrastructure Data,OECD countries,"Infrastructure investment, PPP pipelines, governance scores",OECD.Stat API
+Yahoo Finance / yfinance,Global,"Equity, commodity, FX, bond yield data",Free API

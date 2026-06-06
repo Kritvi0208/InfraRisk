@@ -1,0 +1,14 @@
+[
+  {
+    "source_id": "yahoo_finance",
+    "status": "downloaded_public_market_proxy",
+    "records": 6270,
+    "csv_file": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\market\\yahoo_finance_prices.csv"
+  },
+  {
+    "source_id": "openstreetmap",
+    "status": "downloaded_real_small_bbox",
+    "records": 47601,
+    "json_file": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\osm\\osm_roads.geojson"
+  }
+]

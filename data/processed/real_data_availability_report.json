@@ -1,0 +1,118 @@
+{
+  "generated_from": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\source_registry\\real_data_sources.json",
+  "synthetic_fallback_policy": "disabled",
+  "sources": [
+    {
+      "source_id": "world_bank_ppi",
+      "name": "World Bank PPI Database",
+      "status": "available_real_file",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\ppi\\ppi_projects.csv",
+      "records": 11640,
+      "message": "Local real data file is present."
+    },
+    {
+      "source_id": "ijglobal",
+      "name": "IJGlobal",
+      "status": "requires_credentials_or_user_file",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\ppi\\ijglobal_transactions.csv",
+      "records": 0,
+      "message": "Set one of: IJGLOBAL_API_KEY, or register a licensed export file."
+    },
+    {
+      "source_id": "global_infrastructure_hub",
+      "name": "Global Infrastructure Hub",
+      "status": "not_downloaded",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\gihub\\gihub_pipeline.csv",
+      "records": 0,
+      "message": "Run the matching public-source downloader or register a source file."
+    },
+    {
+      "source_id": "national_bridge_inventory",
+      "name": "National Bridge Inventory (US)",
+      "status": "available_real_file",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\nbi\\nbi_bridges.csv",
+      "records": 16205,
+      "message": "Local real data file is present."
+    },
+    {
+      "source_id": "sentinel_2",
+      "name": "Sentinel-2 Satellite Imagery",
+      "status": "requires_credentials_or_user_file",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\sentinel2",
+      "records": 0,
+      "message": "Set one of: COPERNICUS_USERNAME, COPERNICUS_PASSWORD, or register a licensed export file."
+    },
+    {
+      "source_id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "status": "not_downloaded",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\osm\\osm_roads.geojson",
+      "records": 0,
+      "message": "Run the matching public-source downloader or register a source file."
+    },
+    {
+      "source_id": "asce_report_card",
+      "name": "ASCE Infrastructure Report Card",
+      "status": "not_downloaded",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\asce\\asce_report_card.csv",
+      "records": 0,
+      "message": "Run the matching public-source downloader or register a source file."
+    },
+    {
+      "source_id": "world_bank_wdi",
+      "name": "World Bank WDI",
+      "status": "available_real_file",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\worldbank\\wdi_macro.csv",
+      "records": 465,
+      "message": "Local real data file is present."
+    },
+    {
+      "source_id": "imf_weo_ifs",
+      "name": "IMF WEO & IFS",
+      "status": "not_downloaded",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\imf\\imf_macro.csv",
+      "records": 0,
+      "message": "Run the matching public-source downloader or register a source file."
+    },
+    {
+      "source_id": "bloomberg_refinitiv",
+      "name": "Bloomberg / Refinitiv",
+      "status": "requires_credentials_or_user_file",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\market\\bloomberg_refinitiv_market.csv",
+      "records": 0,
+      "message": "Set one of: BLOOMBERG_API_KEY, REFINITIV_API_KEY, or register a licensed export file."
+    },
+    {
+      "source_id": "sp_infrastructure_ratings",
+      "name": "S&P Infrastructure Ratings",
+      "status": "not_downloaded",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\ratings\\sp_infrastructure_ratings.csv",
+      "records": 0,
+      "message": "Run the matching public-source downloader or register a source file."
+    },
+    {
+      "source_id": "moodys_project_finance_default_study",
+      "name": "Moody's Project Finance Default Study",
+      "status": "not_downloaded",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\ratings\\moodys_project_finance_defaults.csv",
+      "records": 0,
+      "message": "Run the matching public-source downloader or register a source file."
+    },
+    {
+      "source_id": "oecd_infrastructure_data",
+      "name": "OECD Infrastructure Data",
+      "status": "not_downloaded",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\oecd\\oecd_infrastructure.csv",
+      "records": 0,
+      "message": "Run the matching public-source downloader or register a source file."
+    },
+    {
+      "source_id": "yahoo_finance",
+      "name": "Yahoo Finance / yfinance",
+      "status": "available_real_file",
+      "local_target": "C:\\Users\\kayri\\OneDrive - IIT BHU\\Desktop\\InfraRiskAI\\data\\raw\\market\\yahoo_finance_prices.csv",
+      "records": 6270,
+      "message": "Local real data file is present."
+    }
+  ]
+}
