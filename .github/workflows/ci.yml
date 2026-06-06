@@ -19,9 +19,25 @@ jobs:
           pip install black isort flake8 mkdocs
       - name: Check formatting
         run: |
-          black --check .
-          isort --check-only .
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            git fetch --no-tags --depth=1 origin "${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}"
+            DIFF_RANGE="origin/${{ github.event.pull_request.base.ref }}...HEAD"
+          elif git rev-parse HEAD^ >/dev/null 2>&1; then
+            DIFF_RANGE="HEAD^...HEAD"
+          else
+            DIFF_RANGE="HEAD"
+          fi
+
+          mapfile -t PY_FILES < <(git diff --name-only --diff-filter=ACMR "${DIFF_RANGE}" -- '*.py')
+
+          if [ "${#PY_FILES[@]}" -eq 0 ]; then
+            echo "No changed Python files to lint."
+            exit 0
+          fi
+
+          black --check "${PY_FILES[@]}"
+          isort --check-only "${PY_FILES[@]}"
+          flake8 "${PY_FILES[@]}" --count --select=E9,F63,F7,F82 --show-source --statistics
       - name: Build docs
         run: |
           mkdocs build --strict
