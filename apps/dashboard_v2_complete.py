@@ -25,7 +25,8 @@ import networkx as nx
 import os, subprocess, streamlit as st
 
 # Pull real data from Google Drive via DVC
-if not os.path.exists("data/raw/ppi/ppi_projects.csv"):
+data_path = os.path.join(os.path.dirname(__file__), "..", "data", "raw", "ppi", "ppi_projects.csv")
+if not os.path.exists(data_path):
     client_id = st.secrets["GDRIVE_CLIENT_ID"]
     client_secret = st.secrets["GDRIVE_CLIENT_SECRET"]
     subprocess.run(["dvc", "remote", "modify", "gdrive", "gdrive_client_id", client_id], check=False)
