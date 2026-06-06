@@ -1,266 +1,582 @@
-# InfraRisk AI - Infrastructure Risk Management Platform
+<h1 align="center">
+  InfraRisk AI
+</h1>
 
-A comprehensive platform for infrastructure risk assessment, combining geospatial analytics, macroeconomic modeling, engineering risk quantification, and credit risk assessment for Development Finance Institutions (DFIs) and commercial banks.
+<h3 align="center">
+  Intelligent Infrastructure Finance Risk Intelligence Platform
+</h3>
 
-## Submission Snapshot
+> AI-driven infrastructure finance analytics platform integrating portfolio stress testing, geospatial intelligence, simulation-based forecasting, contract NLP, and quantitative risk modelling.
 
-- Run dashboard: `C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py`
-- Run API: `C:\Users\kayri\anaconda3\python.exe -m uvicorn src.core.api_server:app --reload`
-- Docker: `docker compose up --build`
-- Docs: `mkdocs build`
-- Notebooks: open the three files in `notebooks/`
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Deployment](https://img.shields.io/badge/Deployment-Streamlit-red)
+![Streamlit](https://img.shields.io/badge/Streamlit-Live-red)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Monte Carlo](https://img.shields.io/badge/Monte%20Carlo-Simulation-orange)
+![MLflow](https://img.shields.io/badge/MLflow-Tracking-blue)
+![DVC](https://img.shields.io/badge/DVC-Data%20Versioning-orange)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)
+---
 
-## Project Overview
+# Overview
 
-InfraRisk AI integrates multiple risk dimensions:
-- **Geospatial Intelligence**: Location-based risk, terrain analysis, climate/natural disaster risk
-- **Construction Risk**: Cost overrun modeling, schedule delay analysis, technical risk assessment
-- **Macroeconomic Scenarios**: Interest rates, inflation, FX volatility, sovereign risk
-- **Debt Structuring**: Optimal financing mix, DSCR analysis, tenor optimization
-- **Portfolio Stress Testing**: Multi-scenario impact analysis across transportation, energy, and social infrastructure
-- **InfraRisk Lab**: Gamified simulation of construction delays and refinancing crises
-- **Credit Risk Assessment**: Bankable risk ratings for infrastructure projects
+InfraRisk AI is a multi-modal infrastructure finance intelligence platform designed for:
 
-## System Architecture
+- Infrastructure project finance analytics
+- Portfolio stress testing
+- Credit risk assessment
+- Infrastructure monitoring
+- Monte Carlo simulation
+- Contract intelligence
+- Sovereign infrastructure analytics
 
-```
-┌─────────────────────────────────────────────────────────┐
-│           InfraRisk AI Frontend (React)                  │
-│  Dashboard | Scenario Builder | Lab Simulation | Reports │
-└─────────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────────┐
-│         FastAPI Backend (Core Analytics Engine)         │
-├─────────────────────────────────────────────────────────┤
-│ • Geospatial Analytics Module                            │
-│ • Construction Risk Model                               │
-│ • Macroeconomic Scenario Engine                         │
-│ • Debt Structuring Optimizer                            │
-│ • Portfolio Stress Testing Engine                       │
-│ • Credit Risk Assessment Module                         │
-└─────────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────────┐
-│           Data Layer & External APIs                     │
-├─────────────────────────────────────────────────────────┤
-│ • PostgreSQL/SQLite (Project, Scenario, Risk Data)      │
-│ • World Bank API (Economic indicators)                  │
-│ • IMF API (Sovereign risk, macroeconomic data)          │
-│ • Open Street Map (Geospatial data)                     │
-└─────────────────────────────────────────────────────────┘
-```
-
-## Technology Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Backend | Python 3.10+, FastAPI |
-| Frontend | React.js, Recharts, Leaflet |
-| Data Processing | Pandas, NumPy, GeoPandas |
-| ML/Analytics | Scikit-learn, XGBoost |
-| Database | SQLite (Dev), PostgreSQL (Prod) |
-| Deployment | Docker, GitHub |
-
-## Project Structure
-
-```
-infrariskai/
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── main.py
-│   │   ├── config.py
-│   │   ├── models/
-│   │   │   ├── database.py
-│   │   │   ├── schemas.py
-│   │   │   └── entities.py
-│   │   ├── api/
-│   │   │   ├── __init__.py
-│   │   │   ├── routes.py
-│   │   │   ├── geospatial.py
-│   │   │   ├── construction_risk.py
-│   │   │   ├── macroeconomic.py
-│   │   │   ├── debt_structuring.py
-│   │   │   ├── stress_testing.py
-│   │   │   └── credit_risk.py
-│   │   ├── services/
-│   │   │   ├── __init__.py
-│   │   │   ├── geospatial_service.py
-│   │   │   ├── construction_service.py
-│   │   │   ├── macro_service.py
-│   │   │   ├── debt_service.py
-│   │   │   └── risk_service.py
-│   │   └── utils/
-│   │       ├── __init__.py
-│   │       └── calculations.py
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── .env.example
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   └── App.jsx
-│   ├── package.json
-│   └── Dockerfile
-├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── API.md
-│   ├── SCENARIO_DEFINITIONS.md
-│   └── ASSUMPTIONS.md
-└── docker-compose.yml
-```
-
-## Quick Start
-
-### Backend Setup
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-C:\Users\kayri\anaconda3\python.exe -m uvicorn src.core.api_server:app --reload
-```
-
-### API Documentation
-Visit `http://localhost:8000/docs` for interactive Swagger documentation.
-
-## Features
-
-### Part 1: System Architecture ✅
-- Modular analytics engine
-- Integrated data layer
-- Scalable microservices design
-
-### Part 2: Geospatial Intelligence 🔄
-- Location risk scoring
-- Terrain analysis
-- Climate/natural disaster risk
-- Environmental impact assessment
-
-### Part 3: Macroeconomic Scenarios 🔄
-- Interest rate modeling
-- Inflation impact analysis
-- FX volatility assessment
-- Sovereign risk indicators
-
-### Part 4: Debt Structuring 🔄
-- Optimal debt mix calculation
-- DSCR analysis
-- LC/ED ratio optimization
-- Tenor structuring
-
-### Part 5: Portfolio Stress Testing 🔄
-- Multi-scenario analysis
-- Portfolio-level impact modeling
-- Sensitivity analysis
-- Risk aggregation
-
-### Part 6: InfraRisk Lab 🔄
-- Gamified simulation
-- Construction delay scenarios
-- Refinancing crisis modeling
-- Interactive learning
-
-### Part 7: Credit Risk Assessment 🔄
-- Bankable risk ratings
-- 12-scenario validation
-- Real project finance modeling
-- Basel III alignment
-
-### Part 8: Documentation & Submission ⏳
-- API documentation
-- User guides
-- Architecture diagrams
-- GitHub submission
-
-## Development Timeline
-
-| Day | Deliverable | Status |
-|-----|-------------|--------|
-| 1 | Architecture + Backend Setup | 🔄 In Progress |
-| 2 | Geospatial & Construction Risk | ⏳ Pending |
-| 3 | Macroeconomic & Validation | ⏳ Pending |
-| 4 | Debt Structuring & Stress Testing | ⏳ Pending |
-| 5 | Lab, Validation & Documentation | ⏳ Pending |
-
-## Database Schema
-
-### Projects
-```sql
-CREATE TABLE projects (
-    id INTEGER PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    location GEOGRAPHY,
-    sector VARCHAR(100),
-    project_value DECIMAL,
-    currency VARCHAR(3),
-    created_at TIMESTAMP
-);
-```
-
-### Risk Assessments
-```sql
-CREATE TABLE risk_assessments (
-    id INTEGER PRIMARY KEY,
-    project_id INTEGER,
-    geospatial_score FLOAT,
-    construction_risk FLOAT,
-    macro_risk FLOAT,
-    overall_rating VARCHAR(10),
-    created_at TIMESTAMP
-);
-```
-
-## API Endpoints (Planned)
-
-### Geospatial
-- `POST /api/geospatial/analyze` - Analyze location risk
-- `GET /api/geospatial/climate` - Climate risk data
-
-### Construction Risk
-- `POST /api/construction/estimate` - Estimate cost/schedule variance
-- `GET /api/construction/benchmarks` - Industry benchmarks
-
-### Macroeconomic
-- `POST /api/macro/scenarios` - Create scenarios
-- `GET /api/macro/forecasts` - Economic forecasts
-
-### Debt Structuring
-- `POST /api/debt/optimize` - Optimize financing structure
-- `GET /api/debt/metrics` - Financial metrics
-
-### Stress Testing
-- `POST /api/stress/run` - Run stress test
-- `GET /api/stress/results` - Test results
-
-### Credit Risk
-- `POST /api/credit/assess` - Assess credit risk
-- `GET /api/credit/ratings` - Risk ratings
-
-## Compliance & Standards
-
-- **Credit Risk Framework**: Basel III aligned
-- **Project Finance Standards**: IFC Performance Standards
-- **Data Privacy**: GDPR compliant
-- **Infrastructure Classification**: UNEP green infrastructure taxonomy
-
-## Team & Support
-
-**Project Owner**: Zetheta Algorithms Private Limited  
-**Submission Deadline**: 30 days from enrollment  
-**Certificate**: Certificate of Project Work Experience (15 days)
-
-## Confidentiality Notice
-
-⚠️ **PRIVATE & CONFIDENTIAL**
-- This project and all work are strictly confidential
-- GitHub repository is PRIVATE
-- No public sharing of code, concepts, or implementations
-- All work remains property of Zetheta Algorithms Private Limited
-- Transfer ownership to @ZethetaIntern on Day 15-30 for final submission
+The platform combines AI/ML, financial engineering, geospatial analytics, simulation systems, and NLP-based contract intelligence into a unified infrastructure decision-support ecosystem.
 
 ---
 
-**Status**: Day 1 - Architecture & Backend Setup 🚀
+<p align="center">
+  <img src="assets/architecture.png.png" width="100%">
+</p>
+
+<p align="center">
+  <b>AI-Driven Risk Intelligence for Smarter Infrastructure Investment Decisions</b>
+</p>
+
+---
+
+
+# Core Features
+
+| Feature | Description |
+|---|---|
+|  DSCR Forecasting | AI-powered debt service coverage forecasting |
+|  Portfolio Stress Testing | Monte Carlo simulation-based infrastructure stress testing |
+|  Contract Intelligence | Legal-BERT powered contract analytics |
+|  Satellite Monitoring | Construction monitoring using CNN architectures |
+|  GNN Contagion Analysis | Infrastructure portfolio dependency modelling |
+|  Risk Aggregation | Integrated infrastructure risk scoring |
+|  Covenant Breach Detection | Automated covenant risk identification |
+|  FastAPI APIs | Backend analytics and export endpoints |
+|  Interactive Dashboard | Streamlit-based infrastructure intelligence dashboard |
+|  MLflow Tracking | Experiment and model monitoring |
+|  Docker Deployment | Containerized infrastructure deployment |
+|  MkDocs Documentation | Technical documentation and reports |
+
+---
+
+# System Architecture
+
+```text
+                        ┌─────────────────────────┐
+                        │   User / Risk Analyst   │
+                        └────────────┬────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │      Streamlit Dashboard       │
+                    │ Portfolio + Simulation UI      │
+                    └────────────────┬───────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │        FastAPI Backend         │
+                    │   API + Risk Engine Layer      │
+                    └────────────────┬───────────────┘
+                                     │
+          ┌──────────────────────────┼──────────────────────────┐
+          ▼                          ▼                          ▼
+
+ ┌────────────────┐      ┌────────────────────┐      ┌─────────────────┐
+ │ AI/ML Models   │      │ Monte Carlo Engine │      │ NLP Intelligence│
+ │ TFT / CNN /    │      │ Stress Simulation  │      │ Legal-BERT      │
+ │ GNN / PINN     │      │ Portfolio Risk     │      │ Clause Analysis │
+ └────────────────┘      └────────────────────┘      └─────────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │ SQLite / PostgreSQL Storage    │
+                    └────────────────────────────────┘
+```
+---
+
+# Dashboard Overview
+
+<p align="center">
+  <img src="assets/dashboard_overview.png.png" width="100%">
+</p>
+
+The dashboard provides:
+- Portfolio-wide monitoring
+- Infrastructure exposure tracking
+- Financial health analytics
+- AI-generated forecasts
+- Sector concentration analysis
+- Debt waterfall visualization
+
+---
+
+# Satellite & CNN Construction Monitoring
+
+<p align="center">
+  <img src="assets/satellite_cnn.png.png" width="100%">
+</p>
+
+The platform simulates:
+- Satellite-based construction tracking
+- CNN heatmap generation
+- Infrastructure anomaly detection
+- Construction progress intelligence
+- Funding gap monitoring
+
+---
+
+# Contract Intelligence & NLP Analysis
+
+<p align="center">
+  <img src="assets/contract_nlp.png.png" width="100%">
+</p>
+
+The NLP engine supports:
+- Contract PDF parsing
+- Clause extraction
+- Legal risk scoring
+- Covenant analysis
+- Recommendation workflows
+
+---
+
+# Event Simulation & Stress Testing
+
+<p align="center">
+  <img src="assets/simulation.png.png" width="100%">
+</p>
+
+Simulation capabilities include:
+- Sovereign downgrade events
+- Inflation shocks
+- Revenue collapse scenarios
+- Construction delays
+- Climate risk events
+- Refinancing crises
+
+---
+
+# Forecasting Engine
+
+<p align="center">
+  <img src="assets/forecasting.png.png" width="100%">
+</p>
+
+Forecasting modules provide:
+- DSCR prediction
+- PD forecasting
+- Infrastructure degradation analysis
+- Scenario-adjusted forecasting
+- Financial trajectory simulation
+
+---
+
+# Portfolio Contagion Analysis
+
+<p align="center">
+  <img src="assets/contagion.png.png" width="100%">
+</p>
+
+The contagion engine models:
+- Cross-project systemic exposure
+- Infrastructure network propagation
+- Concentration risk
+- Sector interdependencies
+- Portfolio contagion scoring
+
+---
+
+# Portfolio Persistence & State Management
+
+<p align="center">
+  <img src="assets/state_management.png.png" width="100%">
+</p>
+
+The platform supports:
+- Portfolio persistence
+- Scenario versioning
+- State restoration
+- Simulation history management
+- Session tracking
+
+---
+
+# MkDocs Documentation Portal
+
+<p align="center">
+  <img src="assets/mkdocs.png.png" width="100%">
+</p>
+
+Documentation includes:
+- Architecture overview
+- API reference
+- Credit memos
+- Deployment notes
+- Workflow explanations
+
+---
+
+# Docker Deployment
+
+<p align="center">
+  <img src="assets/docker.png.png" width="100%">
+</p>
+
+InfraRisk AI supports reproducible deployment using:
+- Docker
+- Docker Compose
+- Containerized infrastructure workflows
+
+---
+
+# MLflow Integration
+
+<p align="center">
+  <img src="assets/mlflow.png.png" width="100%">
+</p>
+
+MLflow integration enables:
+- Experiment tracking
+- Metric visualization
+- Model workflow logging
+- Reproducible AI experimentation
+
+---
+
+#  AI/ML Modules
+
+| Module | Purpose |
+|---|---|
+| TFT Forecasting | Revenue & DSCR prediction |
+| Graph Neural Networks | Portfolio contagion modelling |
+| Siamese CNN | Satellite construction monitoring |
+| PINNs | Infrastructure degradation forecasting |
+| Legal-BERT NLP | Contract clause intelligence |
+| XGBoost Ensemble | Infrastructure credit risk scoring |
+
+---
+
+#  Dashboard Modules
+
+- Portfolio Analytics
+- Monte Carlo Stress Testing
+- GNN Contagion Visualization
+- Contract Intelligence
+- Infrastructure Monitoring
+- Export & Reporting
+- Scenario Simulation
+- Portfolio Benchmarking
+
+---
+
+#  Technology Stack
+
+| Layer | Technologies |
+|---|---|
+| Frontend | Streamlit, Plotly |
+| Backend | FastAPI, Uvicorn |
+| ML/DL | PyTorch, Transformers, XGBoost, LightGBM |
+| NLP | spaCy, Legal-BERT, LayoutLM |
+| Geospatial | rasterio, geopandas |
+| Database | SQLite, PostgreSQL |
+| MLOps | MLflow, DVC |
+| DevOps | Docker, GitHub Actions |
+| Documentation | MkDocs Material |
+| Testing | pytest, pytest-cov |
+
+---
+
+#  Repository Structure
+
+```bash
+InfraRiskAI
+├── apps/
+│   └── dashboard_v2_complete.py
+│
+├── assets/
+│   ├── architecture.png
+│   ├── dashboard_overview.png
+│   ├── contagion.png
+│   ├── contract_nlp.png
+│   ├── forecasting.png
+│   ├── satellite_cnn.png
+│   ├── simulation.png
+│   ├── state_management.png
+│   ├── docker.png
+│   └── mlflow.png
+│
+├── configs/
+│   ├── .coveragerc
+│   ├── .dockerignore
+│   ├── .env.example
+│   └── pytest.ini
+│
+├── data/                  # DVC tracked datasets
+├── docs/                  # MkDocs documentation
+├── deliverables/          # Requirements & project deliverables
+├── notebooks/             # Research and experimentation
+├── scripts/               # Utility and validation scripts
+│
+├── src/
+│   ├── core/
+│   ├── models/
+│   ├── nlp/
+│   ├── p3/
+│   ├── p5/
+│   └── setup/
+│
+├── tests/
+│   ├── test_final_engine.py
+│   ├── test_models.py
+│   ├── test_nlp.py
+│   ├── test_phase2_features.py
+│   ├── test_phase3_models.py
+│   └── test_phase4_integration.py
+│
+├── tools/
+│
+├── .dvc/
+├── .github/
+│   └── workflows/
+│
+├── backend.Dockerfile
+├── docker-compose.yml
+├── mkdocs.yml
+├── data.dvc
+├── requirements.txt
+├── README.md
+└── QUICKSTART.md
+```
+
+---
+
+#  API Endpoints
+
+## Health
+- `GET /health`
+
+---
+
+## Portfolio
+- `GET /portfolio/demo`
+- `POST /portfolio/recalculate`
+- `GET /portfolio/runs`
+
+---
+
+## Contracts
+- `POST /contract/benchmark`
+- `POST /contract/resolve-clauses`
+
+---
+
+## Export
+- `POST /export/csv`
+- `POST /export/pdf`
+
+---
+
+#  Getting Started
+
+## Clone Repository
+
+```bash
+git clone https://github.com/Kritvi0208/InfraRisk.git
+cd InfraRisk
+```
+
+---
+
+#  Install Dependencies
+
+```bash
+pip install -r requirements-app.txt
+pip install -r requirements_ml.txt
+pip install -r requirements_nlp.txt
+```
+
+---
+
+#  Run Dashboard
+
+```bash
+streamlit run dashboard_v2_complete.py
+```
+
+Dashboard:
+
+```text
+http://localhost:8501
+```
+
+---
+
+#  Run FastAPI Backend
+
+```bash
+uvicorn src.core.api_server:app --reload
+```
+
+Backend:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+#  Run Documentation
+
+```bash
+mkdocs serve
+```
+---
+
+#  MLflow Tracking
+
+Launch MLflow:
+
+```bash
+mlflow ui
+```
+
+MLflow:
+
+```text
+http://127.0.0.1:5000
+```
+
+Features:
+- Experiment tracking
+- Metrics logging
+- Artifact storage
+- Model monitoring
+
+---
+
+#  Docker Deployment
+
+Run complete infrastructure stack:
+
+```bash
+docker-compose up --build
+```
+
+Docker services:
+- Streamlit Dashboard
+- FastAPI Backend
+- PostgreSQL
+- Redis
+- MLflow Tracking
+
+---
+
+#  DVC Data Versioning
+
+Pull tracked datasets:
+
+```bash
+dvc pull
+```
+
+---
+
+#  Testing
+
+Run tests:
+
+```bash
+pytest
+```
+
+Coverage:
+
+```bash
+pytest --cov
+```
+
+---
+
+#  Infrastructure Risk Workflow
+
+```text
+Financial Data + Contracts + Satellite Data
+                    │
+                    ▼
+          AI Risk Intelligence Pipeline
+                    │
+                    ▼
+      Forecasting + Stress Simulation
+                    │
+                    ▼
+        Portfolio Risk Aggregation
+                    │
+                    ▼
+       Dashboard + Export Reports
+```
+
+---
+
+#  Real-World Use Cases
+
+- Infrastructure project finance
+- PPP concession analytics
+- Sovereign infrastructure monitoring
+- Construction delay forecasting
+- Climate stress testing
+- Infrastructure refinancing risk
+- Contract intelligence automation
+
+---
+
+#  Documentation
+
+MkDocs documentation includes:
+
+- Architecture Overview
+- API Reference
+- Technical Stack
+- Credit Memo 1
+- Credit Memo 2
+- Deployment Workflow
+- Infrastructure Analytics
+
+---
+
+#  References
+
+- World Bank Infrastructure Data
+- IMF Macroeconomic Indicators
+- Sentinel-2 Satellite Imagery
+- Moody’s Infrastructure Finance Studies
+- OECD Infrastructure Reports
+
+---
+
+#  Project Information
+
+| Field | Details |
+|---|---|
+| Project | InfraRisk AI |
+| Organization | Zetheta Algorithms Pvt. Ltd. |
+| Domain | Infrastructure Finance + AI/ML |
+| Category | Data Science / Deep Learning |
+| Duration | 15-Day AI Engineering Sprint |
+
+---
+
+# Author
+
+## Ritvika
+
+Data Science & Machine Learning Enthuaist
+
+GitHub:
+https://github.com/Kritvi0208
+
+---
