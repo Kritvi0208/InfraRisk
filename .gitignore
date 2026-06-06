@@ -70,3 +70,20 @@ out/
 mlruns/
 *.ipynb_checkpoints
 /data
+.dvc/tmp/
+
+# DVC
+.dvc/tmp/
+
+# Generated docs
+site/
+
+# Local files
+project_structure.txt
+
+# MLflow
+db/mlruns/
+mlflow.db
+
+# OS
+Thumbs.db

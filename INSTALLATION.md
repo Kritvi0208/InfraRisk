@@ -506,7 +506,7 @@ python scripts/benchmark_models.py
 
 **Start Dashboard:**
 ```bash
-streamlit run p5_streamlit_app.py
+C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py
 ```
 
 **Access Dashboard:**
@@ -592,7 +592,7 @@ watch -n 1 free -m
 ```bash
 # Restart Streamlit
 pkill -f streamlit
-streamlit run p5_streamlit_app.py --logger.level=debug
+C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py --logger.level=debug
 
 # Clear cache
 rm -rf ~/.streamlit/cache/

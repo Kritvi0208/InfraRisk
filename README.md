@@ -4,8 +4,8 @@ A comprehensive platform for infrastructure risk assessment, combining geospatia
 
 ## Submission Snapshot
 
-- Run locally: `C:\Users\kayri\anaconda3\python.exe -m streamlit run p5_streamlit_app.py`
-- Run API: `C:\Users\kayri\anaconda3\python.exe -m uvicorn api_server:app --reload`
+- Run dashboard: `C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py`
+- Run API: `C:\Users\kayri\anaconda3\python.exe -m uvicorn src.core.api_server:app --reload`
 - Docker: `docker compose up --build`
 - Docs: `mkdocs build`
 - Notebooks: open the three files in `notebooks/`
@@ -120,7 +120,7 @@ cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+C:\Users\kayri\anaconda3\python.exe -m uvicorn src.core.api_server:app --reload
 ```
 
 ### API Documentation

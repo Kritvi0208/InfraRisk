@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 
 services:
   # PostgreSQL database for analytical data storage
@@ -18,7 +18,8 @@ services:
     networks:
       - infrarisk_net
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U infrarisk_admin"]
+      # test: ["CMD-SHELL", "pg_isready -U infrarisk_admin"]
+      test: ["CMD-SHELL", "pg_isready -U infrarisk_admin -d infrarisk_db"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -53,32 +54,38 @@ services:
       - POSTGRES_PASSWORD=infrarisk_prod_2024
       - POSTGRES_DB=infrarisk_db
       - POSTGRES_HOST=postgres
-      version: '3.8'
+    # command: uvicorn api_server:app --host 0.0.0.0 --port 8000
+    command: uvicorn src.core.api_server:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    networks:
+      - infrarisk_net
+    restart: unless-stopped
 
-      services:
-        api:
-          build:
-            context: .
-            dockerfile: Dockerfile
-          command: uvicorn api_server:app --host 0.0.0.0 --port 8000
-          ports:
-            - "8000:8000"
-          volumes:
-            - ./data:/app/data
-            - ./models:/app/models
-          restart: unless-stopped
-
-        streamlit:
-          build:
-            context: .
-            dockerfile: Dockerfile
-          command: streamlit run p5_streamlit_app.py --server.address=0.0.0.0 --server.port=8501
-          ports:
-            - "8501:8501"
-          volumes:
-            - ./data:/app/data
-            - ./models:/app/models
-          depends_on:
-            - api
-          restart: unless-stopped
   streamlit:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    container_name: infrarisk_streamlit
+    command: streamlit run dashboard_v2_complete.py --server.address=0.0.0.0 --server.port=8501
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    depends_on:
+      - backend
+    networks:
+      - infrarisk_net
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  infrarisk_net:
+    driver: bridge

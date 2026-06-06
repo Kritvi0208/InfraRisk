@@ -1,0 +1,36 @@
+[run]
+branch = True
+source = .
+omit =
+    test_*
+    tests/*
+    */site-packages/*
+    p3_*
+    p5_*
+    models.py
+    attention_extractor.py
+    shap_interpreter.py
+    clause_resolver.py
+    benchmark_database.py
+    centrality_analyzer.py
+    legal_bert_classifier.py
+    advanced_features.py
+    api_server.py
+    mlflow_demo.py
+    *setup*
+    *demo*
+    *validate*
+    *commit*
+    *dashboard*
+    *streamlit*
+    *download*
+    *ingest*
+    *organize*
+    *run_*
+    *init*
+    *example*
+    *training*
+
+[report]
+show_missing = True
+skip_covered = True

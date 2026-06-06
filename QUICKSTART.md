@@ -40,7 +40,7 @@ COMPONENTS_ADDRESSED.md  (8 KB)
 ### Step 1: Run the Dashboard (< 2 minutes)
 ```bash
 cd "C:\Users\kayri\OneDrive - IIT BHU\Desktop\InfraRiskAI"
-streamlit run dashboard_v2_complete.py
+C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py
 ```
 
 ### Step 2: Access in Browser
@@ -193,14 +193,14 @@ Advanced Features (Contract, Satellite, Contagion engines)
 
 ### Test 1: Run Dashboard
 ```bash
-streamlit run dashboard_v2_complete.py
+C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py
 # Should load without errors
 # All 7 tabs should be accessible
 ```
 
 ### Test 2: Check Syntax
 ```bash
-python -c "import dashboard_v2_complete; print('✅ Syntax OK')"
+C:\Users\kayri\anaconda3\python.exe -c "import apps.dashboard_v2_complete; print('Syntax OK')"
 ```
 
 ### Test 3: Load Advanced Features
@@ -250,7 +250,7 @@ Base score: 7,000 pts (starting)
 ### For GitHub Push
 ```bash
 # Copy dashboard to src/
-cp dashboard_v2_complete.py src/simulation/dashboard_v2.py
+Dashboard v2 now lives at apps/dashboard_v2_complete.py
 
 # Copy features to src/
 cp advanced_features.py src/features/
@@ -278,7 +278,7 @@ Just need:
 ### Dashboard won't load?
 ```bash
 pip install --upgrade streamlit plotly pandas numpy
-streamlit run dashboard_v2_complete.py
+C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py
 ```
 
 ### Charts not showing?
@@ -316,7 +316,7 @@ When you're ready to push to GitHub:
 cd C:\Users\kayri\OneDrive\ -\ IIT\ BHU\Desktop\InfraRiskAI
 
 # Add all files
-git add dashboard_v2_complete.py
+git add apps/dashboard_v2_complete.py
 git add advanced_features.py
 git add COMPONENTS_ADDRESSED.md
 
@@ -347,7 +347,7 @@ git push origin main
 **Lines of Code**: 1,100+  
 **Time to Integration**: < 5 min  
 
-**Next Step**: Run `streamlit run dashboard_v2_complete.py`
+**Next Step**: Run `C:\Users\kayri\anaconda3\python.exe -m streamlit run apps\dashboard_v2_complete.py`
 
 ---
 
