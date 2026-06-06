@@ -22,6 +22,15 @@ from sklearn.preprocessing import StandardScaler
 from scipy.integrate import odeint
 import networkx as nx
 
+import os, subprocess, streamlit as st
+
+# Inject DVC Google Drive credentials from Streamlit secrets
+os.environ["GDRIVE_CLIENT_ID"] = st.secrets["GDRIVE_CLIENT_ID"]
+os.environ["GDRIVE_CLIENT_SECRET"] = st.secrets["GDRIVE_CLIENT_SECRET"]
+
+# Pull data if not already present
+if not os.path.exists("data/raw/ppi/ppi_projects.csv"):
+    subprocess.run(["dvc", "pull", "--force"], check=False)
 # Ensure repo root is on sys.path so `src` package can be imported when running from `apps/`
 import sys
 repo_root = Path(__file__).resolve().parents[1]
