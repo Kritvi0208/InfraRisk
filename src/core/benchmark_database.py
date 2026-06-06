@@ -44,15 +44,15 @@ class BenchmarkDatabase:
         try:
             import pandas as pd
         except ImportError:
-            return []
+            return self._load_synthetic_transactions()
 
         path = _project_root() / "data" / "raw" / "ppi" / "ppi_projects.csv"
         if not path.exists():
-            return []
+            return self._load_synthetic_transactions()
 
         df = pd.read_csv(path, low_memory=False)
         if df.empty:
-            return []
+            return self._load_synthetic_transactions()
 
         def number(value, default: float = 0.0) -> float:
             parsed = pd.to_numeric(value, errors="coerce")
@@ -112,7 +112,69 @@ class BenchmarkDatabase:
                 }
             ))
         
-        return transactions
+        return transactions or self._load_synthetic_transactions()
+
+    def _load_synthetic_transactions(self) -> List[BenchmarkTransaction]:
+        """Fallback synthetic benchmark dataset used when PPI data is unavailable."""
+        return [
+            BenchmarkTransaction(
+                transaction_id="SYN-RE-IND-001",
+                sector="renewable_energy",
+                country="india",
+                project_value=450_000_000,
+                tenor_years=18,
+                equity_percentage=32.0,
+                debt_percentage=68.0,
+                key_milestones=4,
+                financial_covenants={
+                    "dscr_minimum": 1.20,
+                    "leverage_maximum": 0.68,
+                    "min_liquidity_usd": 8_500_000,
+                    "interest_coverage_min": 2.0,
+                },
+                risk_score=2.7,
+                completion_status="Operational",
+                metadata={"source": "Synthetic"},
+            ),
+            BenchmarkTransaction(
+                transaction_id="SYN-RE-IND-002",
+                sector="renewable_energy",
+                country="india",
+                project_value=520_000_000,
+                tenor_years=20,
+                equity_percentage=30.0,
+                debt_percentage=70.0,
+                key_milestones=5,
+                financial_covenants={
+                    "dscr_minimum": 1.25,
+                    "leverage_maximum": 0.70,
+                    "min_liquidity_usd": 10_000_000,
+                    "interest_coverage_min": 2.1,
+                },
+                risk_score=2.9,
+                completion_status="Under Construction",
+                metadata={"source": "Synthetic"},
+            ),
+            BenchmarkTransaction(
+                transaction_id="SYN-RE-IND-003",
+                sector="renewable_energy",
+                country="india",
+                project_value=610_000_000,
+                tenor_years=22,
+                equity_percentage=28.0,
+                debt_percentage=72.0,
+                key_milestones=5,
+                financial_covenants={
+                    "dscr_minimum": 1.30,
+                    "leverage_maximum": 0.72,
+                    "min_liquidity_usd": 12_000_000,
+                    "interest_coverage_min": 2.2,
+                },
+                risk_score=3.1,
+                completion_status="Operational",
+                metadata={"source": "Synthetic"},
+            ),
+        ]
     
     def _build_indexes(self) -> Dict[str, Dict]:
         """Build indexes for fast lookup."""
