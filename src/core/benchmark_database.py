@@ -57,9 +57,12 @@ def _decode_code(value, mapping: Dict[int, str], prefix: str) -> str:
 class BenchmarkDatabase:
     """Real benchmark database of comparable infrastructure transactions."""
 
+    _SECTOR_ALIASES = {"renewable_energy": "energy"}
+
     def __init__(self):
         """Initialize benchmark database."""
         self.transactions = self._load_ppi_transactions()
+        self._available_sectors = {txn.sector for txn in self.transactions}
         self.indexes = self._build_indexes()
 
     def _load_ppi_transactions(self) -> List[BenchmarkTransaction]:
@@ -246,18 +249,17 @@ class BenchmarkDatabase:
     def _resolve_sector(self, sector: str) -> str:
         """Resolve sector aliases against available transaction data."""
         normalized = str(sector or "").strip().lower().replace(" ", "_")
-        available = {txn.sector for txn in self.transactions}
-        if normalized in available:
+        if normalized in self._available_sectors:
             return normalized
 
-        aliases = {
-            "renewable_energy": "energy",
-            "energy": "renewable_energy",
-        }
-        mapped = aliases.get(normalized)
-        if mapped and mapped in available:
+        mapped = self._SECTOR_ALIASES.get(normalized)
+        if mapped and mapped in self._available_sectors:
             return mapped
         return normalized
+
+    def _normalize_country(self, country: str) -> str:
+        """Normalize country keys for comparisons."""
+        return str(country or "").strip().lower()
 
     def find_similar_deals(
         self,
@@ -271,7 +273,7 @@ class BenchmarkDatabase:
         """Find similar deals from benchmark database."""
         candidates = []
         sector_key = self._resolve_sector(sector)
-        country_key = str(country or "").strip().lower()
+        country_key = self._normalize_country(country)
 
         for txn in self.transactions:
             # Filter by sector
@@ -420,7 +422,7 @@ class BenchmarkDatabase:
         sector_key = self._resolve_sector(sector)
         txns = [t for t in self.transactions if t.sector == sector_key]
         if country:
-            country_key = str(country).strip().lower()
+            country_key = self._normalize_country(country)
             txns = [t for t in txns if t.country == country_key]
 
         if len(txns) < 3:
