@@ -57,9 +57,12 @@ def _decode_code(value, mapping: Dict[int, str], prefix: str) -> str:
 class BenchmarkDatabase:
     """Real benchmark database of comparable infrastructure transactions."""
 
+    _SECTOR_ALIASES = {"renewable_energy": "energy"}
+
     def __init__(self):
         """Initialize benchmark database."""
         self.transactions = self._load_ppi_transactions()
+        self._available_sectors = {txn.sector for txn in self.transactions}
         self.indexes = self._build_indexes()
 
     def _load_ppi_transactions(self) -> List[BenchmarkTransaction]:
@@ -243,6 +246,21 @@ class BenchmarkDatabase:
 
         return indexes
 
+    def _resolve_sector(self, sector: str) -> str:
+        """Resolve sector aliases against available transaction data."""
+        normalized = str(sector or "").strip().lower().replace(" ", "_")
+        if normalized in self._available_sectors:
+            return normalized
+
+        mapped = self._SECTOR_ALIASES.get(normalized)
+        if mapped and mapped in self._available_sectors:
+            return mapped
+        return normalized
+
+    def _normalize_country(self, country: str) -> str:
+        """Normalize country keys for comparisons."""
+        return str(country or "").strip().lower()
+
     def find_similar_deals(
         self,
         sector: str,
@@ -254,14 +272,16 @@ class BenchmarkDatabase:
     ) -> List[BenchmarkTransaction]:
         """Find similar deals from benchmark database."""
         candidates = []
+        sector_key = self._resolve_sector(sector)
+        country_key = self._normalize_country(country)
 
         for txn in self.transactions:
             # Filter by sector
-            if txn.sector != sector:
+            if txn.sector != sector_key:
                 continue
 
             # Filter by country
-            if txn.country != country:
+            if txn.country != country_key:
                 continue
 
             # Check value tolerance (within 25% by default)
@@ -283,7 +303,8 @@ class BenchmarkDatabase:
 
     def get_sector_statistics(self, sector: str) -> Dict:
         """Get statistics for a sector."""
-        sector_txns = [t for t in self.transactions if t.sector == sector]
+        sector_key = self._resolve_sector(sector)
+        sector_txns = [t for t in self.transactions if t.sector == sector_key]
 
         if not sector_txns:
             return {}
@@ -398,9 +419,11 @@ class BenchmarkDatabase:
         """Detect outlier transactions."""
 
         # Filter transactions
-        txns = [t for t in self.transactions if t.sector == sector]
+        sector_key = self._resolve_sector(sector)
+        txns = [t for t in self.transactions if t.sector == sector_key]
         if country:
-            txns = [t for t in txns if t.country == country]
+            country_key = self._normalize_country(country)
+            txns = [t for t in txns if t.country == country_key]
 
         if len(txns) < 3:
             return []
