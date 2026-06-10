@@ -243,6 +243,22 @@ class BenchmarkDatabase:
 
         return indexes
 
+    def _resolve_sector(self, sector: str) -> str:
+        """Resolve sector aliases against available transaction data."""
+        normalized = str(sector or "").strip().lower().replace(" ", "_")
+        available = {txn.sector for txn in self.transactions}
+        if normalized in available:
+            return normalized
+
+        aliases = {
+            "renewable_energy": "energy",
+            "energy": "renewable_energy",
+        }
+        mapped = aliases.get(normalized)
+        if mapped and mapped in available:
+            return mapped
+        return normalized
+
     def find_similar_deals(
         self,
         sector: str,
@@ -254,14 +270,16 @@ class BenchmarkDatabase:
     ) -> List[BenchmarkTransaction]:
         """Find similar deals from benchmark database."""
         candidates = []
+        sector_key = self._resolve_sector(sector)
+        country_key = str(country or "").strip().lower()
 
         for txn in self.transactions:
             # Filter by sector
-            if txn.sector != sector:
+            if txn.sector != sector_key:
                 continue
 
             # Filter by country
-            if txn.country != country:
+            if txn.country != country_key:
                 continue
 
             # Check value tolerance (within 25% by default)
@@ -283,7 +301,8 @@ class BenchmarkDatabase:
 
     def get_sector_statistics(self, sector: str) -> Dict:
         """Get statistics for a sector."""
-        sector_txns = [t for t in self.transactions if t.sector == sector]
+        sector_key = self._resolve_sector(sector)
+        sector_txns = [t for t in self.transactions if t.sector == sector_key]
 
         if not sector_txns:
             return {}
@@ -398,9 +417,11 @@ class BenchmarkDatabase:
         """Detect outlier transactions."""
 
         # Filter transactions
-        txns = [t for t in self.transactions if t.sector == sector]
+        sector_key = self._resolve_sector(sector)
+        txns = [t for t in self.transactions if t.sector == sector_key]
         if country:
-            txns = [t for t in txns if t.country == country]
+            country_key = str(country).strip().lower()
+            txns = [t for t in txns if t.country == country_key]
 
         if len(txns) < 3:
             return []
